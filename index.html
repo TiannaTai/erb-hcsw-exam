@@ -1,217 +1,296 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>ERB 醫護支援人員考試系統</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERB 醫護支援｜1000題練習平台｜中英雙語+醫管局44醫院百科</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:sans-serif;background:#f0f4f8;padding:16px}.container{max-width:800px;margin:0 auto}.header{background:#2b6cb0;color:#fff;border-radius:12px;padding:16px;margin-bottom:16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}.header h1{font-size:17px}.btn-sm{padding:6px 12px;font-size:13px;border:none;border-radius:6px;cursor:pointer;background:rgba(255,255,255,.2);color:#fff}.btn-sm:hover{background:rgba(255,255,255,.4)}.stats{display:flex;gap:12px;font-size:13px;width:100%}.stats span{background:rgba(255,255,255,.2);padding:4px 10px;border-radius:20px}.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.1)}.module-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:12px}.module-card{background:#fff;border-radius:12px;padding:14px;text-align:center;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1);border:2px solid transparent}.module-card:hover{border-color:#2b6cb0}.module-card h3{font-size:13px;margin-bottom:4px;color:#2b6cb0}.module-card p{font-size:11px;color:#718096}.q-num{font-size:13px;color:#718096;margin-bottom:8px}.q-text{font-size:16px;font-weight:600;line-height:1.6;margin-bottom:16px}.q-text-en{font-size:13px;color:#4a5568;font-weight:400;margin-top:4px}.option{display:block;width:100%;text-align:left;padding:12px;margin-bottom:8px;border:2px solid #e2e8f0;border-radius:8px;background:#fff;font-size:15px;cursor:pointer}.option:hover{border-color:#2b6cb0;background:#ebf8ff}.option.correct{border-color:#38a169;background:#f0fff4}.option.wrong{border-color:#e53e3e;background:#fff5f5}.option.disabled{pointer-events:none;opacity:.8}.option-en{font-size:12px;color:#718096;display:block;margin-top:3px}textarea{width:100%;padding:12px;border:2px solid #e2e8f0;border-radius:8px;font-size:15px;min-height:100px;font-family:inherit}.feedback{margin-top:12px;padding:12px;border-radius:8px;font-size:14px;line-height:1.6;display:none}.feedback.show{display:block}.fb-ok{background:#f0fff4;border-left:4px solid #38a169;color:#22543d}.fb-no{background:#fff5f5;border-left:4px solid #e53e3e;color:#742a2a}.fb-info{background:#ebf8ff;border-left:4px solid #2b6cb0;color:#2a4365}.btn{display:block;width:100%;padding:14px;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;margin-top:16px}.btn-p{background:#2b6cb0;color:#fff}.btn-b{background:#e2e8f0;color:#4a5568;margin-top:8px}.result{text-align:center;padding:40px}.score{font-size:48px;font-weight:700;color:#2b6cb0;margin:16px 0}.hidden{display:none}.hl{margin-top:12px}.hi{padding:10px;border-bottom:1px solid #e2e8f0}.hi h4{font-size:14px;color:#2b6cb0;margin-bottom:4px}.hi p{font-size:12px;color:#718096}.nav-links{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}.nav-links a{padding:8px 14px;background:#2b6cb0;color:#fff;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui, -apple-system, sans-serif;}
+body{background:#f4f7fa;padding:15px;}
+.container{max-width:1100px;margin:auto;background:#fff;border-radius:16px;padding:20px;box-shadow:0 4px 12px #00000012;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.title{font-size:22px;font-weight:bold;color:#222;}
+.lang-btn{padding:8px 16px;background:#007acc;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;}
+.progress-box{background:#f0f6ff;padding:12px;border-radius:10px;margin-bottom:15px;color:#0055aa;font-weight:500;}
+.module-box{padding:15px;background:#f8f9fa;border-radius:10px;margin-bottom:20px;}
+select,button{padding:9px 14px;border-radius:6px;border:1px solid #ccc;margin:5px 0;font-size:14px;}
+.start-btn{background:#28a745;color:#fff;border:none;}
+.q-card{border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:15px 0;}
+.opt{padding:12px;border:1px solid #ddd;border-radius:8px;margin:8px 0;cursor:pointer;transition:0.2s;}
+.opt:hover{background:#f0f7ff;}
+.correct{background:#dcfce7;border-color:#22c55e;}
+.wrong{background:#fee2e2;border-color:#ef4444;}
+.exp{margin-top:15px;padding:15px;background:#f1f5f9;border-radius:8px;display:none;line-height:1.7;}
+.next-btn{display:none;margin-top:10px;background:#007acc;color:#fff;border:none;padding:9px 18px;border-radius:6px;cursor:pointer;}
+.tab-wrap{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.tab{padding:10px 16px;background:#eee;border-radius:8px;cursor:pointer;}
+.tab.active{background:#007acc;color:#fff;}
+.content{display:none;}
+.content.show{display:block;}
+.hospital-item{padding:12px;border-bottom:1px solid #eee;line-height:1.7;}
 </style>
 </head>
 <body>
 <div class="container">
-<div class="header">
-<h1 id="pageTitle">🩺 ERB 醫護支援人員考試</h1>
-<div><button class="btn-sm" onclick="toggleLang()" id="langBtn">🌐 EN</button>
-<button class="btn-sm hidden" onclick="showHome()" id="homeBtn">🏠 主頁</button></div>
-<div class="stats" id="statsBar"><span id="progress">進度: 0 / 0</span><span id="accuracy">正確率: 0%</span></div>
+
+<div class="top-bar">
+<div class="title">ERB 醫護支援｜1000題練習平台</div>
+<button class="lang-btn" id="langSwitch">切換 English</button>
 </div>
-<div id="homeArea"></div>
-<div id="quizArea" class="hidden"></div>
-<div id="hospitalArea" class="hidden"></div>
-<div id="resultArea" class="hidden"></div>
+
+<div class="progress-box" id="progressBar">
+進度：0 / 0｜答對：0｜正確率：0%
 </div>
+
+<div class="tab-wrap">
+<div class="tab active" data-tab="practice">刷題練習</div>
+<div class="tab" data-tab="hospital">醫管局44間醫院百科</div>
+</div>
+
+<!-- 刷題介面 -->
+<div class="content show" id="practice">
+<div class="module-box">
+<h3 id="modTitle">選擇練習模塊</h3>
+<select id="modSelect">
+<option value="all">全部題目</option>
+<option value="vital">模塊1：生命表徵 Vital Signs</option>
+<option value="infection">模塊2：感染控制 Infection Control</option>
+<option value="firstaid">模塊3：急救處理 First Aid</option>
+<option value="ward">模塊4：病房日常護理 Ward Care</option>
+<option value="drug">模塊5：藥物知識 Medicine</option>
+<option value="body">模塊6：人體結構系統 Body System</option>
+<option value="hygiene">模塊7：個人及環境衛生 Hygiene</option>
+<option value="ethic">模塊8：醫護操守與法規 Ethics & Law</option>
+</select>
+<button class="start-btn" id="startBtn">開始練習</button>
+</div>
+
+<div class="q-card">
+<div id="question"></div>
+<div id="options"></div>
+<div class="exp" id="explain"></div>
+<button class="next-btn" id="nextBtn">下一題</button>
+</div>
+</div>
+
+<!-- 醫院百科介面 -->
+<div class="content" id="hospital">
+<div id="hospitalList"></div>
+</div>
+
+</div>
+
 <script>
-let isEn=false;
+// ========== 雙語設定 ==========
+let isCN = true;
 
-const Q=[
-// 生命表徵
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"人體四大生命表徵不包括以下哪項？",q_en:"Which is NOT one of the four vital signs?",o:["體溫","脈搏","呼吸率","血糖"],o_en:["Body Temp","Pulse","Respiration","Blood Sugar"],a:3,e:"四大生命表徵為體溫、脈搏、呼吸率及血壓。",e_en:"The four vital signs are temperature, pulse, respiration rate, and blood pressure."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"成人正常呼吸率範圍是多少？",q_en:"Normal adult respiratory rate?",o:["8-12次/分","12-20次/分","20-30次/分","30-40次/分"],o_en:["8-12/min","12-20/min","20-30/min","30-40/min"],a:1,e:"成人正常呼吸率為每分鐘12至20次。",e_en:"Normal adult respiratory rate is 12-20 breaths/min."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"成人正常脈搏範圍是多少？",q_en:"Normal adult pulse rate?",o:["40-60次/分","60-100次/分","100-120次/分","120-140次/分"],o_en:["40-60/min","60-100/min","100-120/min","120-140/min"],a:1,e:"成人正常靜止脈搏為每分鐘60至100次。",e_en:"Normal resting adult pulse is 60-100 beats/min."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"正常成人口探體溫範圍是多少？",q_en:"Normal adult oral temperature?",o:["35.0-36.0°C","36.5-37.5°C","37.5-38.5°C","38.5-39.5°C"],o_en:["35-36°C","36.5-37.5°C","37.5-38.5°C","38.5-39.5°C"],a:1,e:"正常成人口探體溫約為36.5-37.5°C。",e_en:"Normal adult oral temperature is about 36.5-37.5°C."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"量度體溫時哪個部位最接近核心體溫？",q_en:"Which site is closest to core body temperature?",o:["腋下","口腔","耳膜","額頭"],o_en:["Axilla","Oral","Tympanic","Forehead"],a:2,e:"耳膜溫度最接近人體核心體溫。",e_en:"Tympanic temperature is closest to core body temperature."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"量度血壓時壓脈帶應綁在什麼位置？",q_en:"Where should the BP cuff be placed?",o:["肘關節上2-3cm","肘關節下2-3cm","手腕處","上臂中段"],o_en:["2-3cm above elbow","2-3cm below elbow","Wrist","Mid-upper arm"],a:0,e:"壓脈帶應綁在肘關節上方約2-3cm處。",e_en:"The cuff should be placed about 2-3cm above the elbow joint."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"量度脈搏時應使用哪隻手指？",q_en:"Which fingers should be used to measure pulse?",o:["拇指","食指及中指","無名指","小指"],o_en:["Thumb","Index & Middle","Ring","Little"],a:1,e:"應用食指及中指指腹輕按動脈量度脈搏。",e_en:"Use the pads of the index and middle fingers to palpate the pulse."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"量度血壓前病人應休息多久？",q_en:"How long should a patient rest before BP measurement?",o:["不需要休息","至少1分鐘","至少5分鐘","至少30分鐘"],o_en:["No rest needed","At least 1 min","At least 5 mins","At least 30 mins"],a:2,e:"量度血壓前病人應至少休息5分鐘。",e_en:"Patients should rest for at least 5 minutes before BP measurement."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"量度呼吸率時應觀察多久？",q_en:"How long should respiration be observed?",o:["5秒","15秒","30秒或1分鐘","5分鐘"],o_en:["5 sec","15 sec","30 sec or 1 min","5 mins"],a:2,e:"呼吸率應量度30秒或完整1分鐘。",e_en:"Respiratory rate should be measured for 30 seconds or a full minute."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"以下哪項符合高血壓的定義？",q_en:"Which defines hypertension?",o:["收縮壓≥120mmHg","收縮壓≥140mmHg","舒張壓≥60mmHg","收縮壓≤90mmHg"],o_en:["Systolic ≥120","Systolic ≥140","Diastolic ≥60","Systolic ≤90"],a:1,e:"收縮壓持續≥140mmHg或舒張壓≥90mmHg可定義為高血壓。",e_en:"Systolic ≥140 or diastolic ≥90 mmHg defines hypertension."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"發燒的定義是指口探體溫高於多少？",q_en:"Fever is defined as oral temperature above?",o:["37.0°C","37.5°C","38.0°C","38.5°C"],o_en:["37.0°C","37.5°C","38.0°C","38.5°C"],a:1,e:"口探體溫高於37.5°C通常定義為發燒。",e_en:"Oral temperature above 37.5°C is defined as fever."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"脈搏微弱可能代表以下哪種情況？",q_en:"A weak pulse may indicate?",o:["高血壓","血壓低或休克","發燒","正常現象"],o_en:["Hypertension","Low BP or shock","Fever","Normal"],a:1,e:"脈搏微弱可能代表血壓低、休克或心輸出量不足。",e_en:"A weak pulse may indicate low BP, shock, or low cardiac output."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"量度體溫後應如何處理體溫計？",q_en:"How should a thermometer be handled after use?",o:["直接放回","清潔消毒","不需處理","用水沖洗"],o_en:["Put back","Clean & disinfect","No action","Rinse"],a:1,e:"量度體溫後應清潔消毒體溫計，避免交叉感染。",e_en:"Clean and disinfect after use to prevent cross-infection."},
-{m:"生命表徵",m_en:"Vital Signs",t:"m",q:"以下哪項不屬於生命表徵？",q_en:"Which is NOT a vital sign?",o:["體溫","脈搏","體重","血壓"],o_en:["Temp","Pulse","Weight","BP"],a:2,e:"生命表徵包括體溫、脈搏、呼吸率及血壓。",e_en:"Vital signs: temperature, pulse, respiration rate, blood pressure."},
-// 感染控制
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"受血液污染的被服應放入什麼顏色的膠袋？",q_en:"What color bag for blood-contaminated linen?",o:["黑色","黃色","紅色","綠色"],o_en:["Black","Yellow","Red","Green"],a:2,e:"受血液污染的被服應放入紅色膠袋。",e_en:"Blood-contaminated linen goes into a red bag."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"被血液污染的表面應使用什麼濃度的漂白水？",q_en:"What bleach concentration for blood-contaminated surfaces?",o:["1:99","1:49","1:10","1:4"],o_en:["1:99","1:49","1:10","1:4"],a:1,e:"被血液污染的表面需用1:49稀釋漂白水消毒。",e_en:"Use 1:49 diluted bleach for blood-contaminated surfaces."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"一般清潔消毒表面應使用什麼濃度的漂白水？",q_en:"What bleach concentration for general disinfection?",o:["1:99","1:49","1:10","1:4"],o_en:["1:99","1:49","1:10","1:4"],a:0,e:"一般清潔消毒使用1:99稀釋漂白水即可。",e_en:"Use 1:99 diluted bleach for general disinfection."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"正確洗手應搓手至少多少秒？",q_en:"How many seconds for proper handwashing?",o:["5秒","10秒","20秒","60秒"],o_en:["5 sec","10 sec","20 sec","60 sec"],a:2,e:"正確洗手應使用肥皂及清水搓手至少20秒。",e_en:"Rub hands with soap and water for at least 20 seconds."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"以下哪項不屬於感染控制標準預防措施？",q_en:"Which is NOT a standard infection control precaution?",o:["佩戴手套","穿隔離衣","共用針筒","手部衛生"],o_en:["Gloves","Isolation gown","Share syringes","Hand hygiene"],a:2,e:"共用針筒是極度危險的行為，絕對禁止。",e_en:"Sharing syringes is extremely dangerous and prohibited."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"佩戴手套前應先做什麼？",q_en:"What to do before putting on gloves?",o:["洗手","戴帽","穿圍裙","戴口罩"],o_en:["Wash hands","Wear cap","Wear apron","Wear mask"],a:0,e:"佩戴手套前應先洗手。",e_en:"Wash hands before wearing gloves."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"脫下手套後應做什麼？",q_en:"What to do after removing gloves?",o:["立即進食","洗手","戴回手套","不需處理"],o_en:["Eat","Wash hands","Put back","No action"],a:1,e:"脫下手套後應立即洗手。",e_en:"Wash hands immediately after removing gloves."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"佩戴口罩時應覆蓋哪些部位？",q_en:"What should a mask cover?",o:["只覆蓋口","只覆蓋鼻","口和鼻","整個面部"],o_en:["Mouth only","Nose only","Mouth & Nose","Whole face"],a:2,e:"佩戴口罩時應完全覆蓋口和鼻。",e_en:"A mask should fully cover the mouth and nose."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"使用過的針筒應放入什麼容器？",q_en:"Where to dispose of used syringes?",o:["普通垃圾桶","利器盒","回收箱","紅色膠袋"],o_en:["General trash","Sharps box","Recycling","Red bag"],a:1,e:"使用過的針筒應立即放入專用利器盒。",e_en:"Dispose of used syringes in a sharps box immediately."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"酒精搓手液適用於以下哪種情況？",q_en:"When is alcohol hand rub appropriate?",o:["雙手有明顯污垢時","雙手沒有明顯污垢時","處理化學品後","接觸病人血液後"],o_en:["Hands visibly dirty","Hands not visibly dirty","After chemicals","After blood"],a:1,e:"酒精搓手液適用於雙手沒有明顯污垢時。",e_en:"Alcohol rub is for hands not visibly soiled."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"雙手有明顯污垢時應如何清潔？",q_en:"How to clean hands when visibly dirty?",o:["只用酒精搓手液","用肥皂及清水洗手","用濕紙巾擦拭","不需清潔"],o_en:["Alcohol rub only","Soap & water","Wet wipes","No action"],a:1,e:"雙手有明顯污垢時必須用肥皂及清水洗手。",e_en:"Must wash with soap and water when visibly dirty."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"N95口罩主要用於預防哪類傳播疾病？",q_en:"What type of transmission does N95 prevent?",o:["接觸傳播","飛沫傳播","空氣傳播","血液傳播"],o_en:["Contact","Droplet","Airborne","Bloodborne"],a:2,e:"N95口罩主要預防空氣傳播疾病。",e_en:"N95 masks primarily prevent airborne transmission."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"接觸病人前應先做什麼？",q_en:"What to do before patient contact?",o:["洗手","戴手套","量體溫","記錄"],o_en:["Wash hands","Gloves","Measure temp","Record"],a:0,e:"接觸病人前應先洗手，這是感染控制的首要措施。",e_en:"Hand hygiene before patient contact."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"接觸病人後應做什麼？",q_en:"What to do after patient contact?",o:["立即離開","洗手","脫口罩","喝水"],o_en:["Leave","Wash hands","Remove mask","Drink"],a:1,e:"接觸病人後應立即洗手。",e_en:"Wash hands immediately after patient contact."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"處理病人排泄物時應佩戴什麼防護裝備？",q_en:"What PPE for handling patient excretions?",o:["只戴手套","手套及圍裙","只戴口罩","不需佩戴"],o_en:["Gloves only","Gloves & apron","Mask only","No PPE"],a:1,e:"處理排泄物時應佩戴手套及圍裙。",e_en:"Wear gloves and apron when handling excretions."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"發生針刺傷後應立即做什麼？",q_en:"What to do immediately after a needlestick injury?",o:["擠壓傷口","清洗傷口並報告","不理會","貼膠布"],o_en:["Squeeze","Wash & report","Ignore","Bandage"],a:1,e:"發生針刺傷後應立即清洗傷口並報告。",e_en:"Wash wound immediately and report to supervisor."},
-{m:"感染控制",m_en:"Infection Control",t:"m",q:"感染控制的首要措施是什麼？",q_en:"The primary measure for infection control is?",o:["戴口罩","手部衛生","穿隔離衣","消毒環境"],o_en:["Mask","Hand hygiene","Gown","Disinfect"],a:1,e:"手部衛生是感染控制中最重要及最基本的措施。",e_en:"Hand hygiene is the most important and fundamental measure."},
-// 急救處理
-{m:"急救處理",m_en:"First Aid",t:"m",q:"發現病人無呼吸應立即做什麼？",q_en:"What to do immediately if patient has no breathing?",o:["離開現場","呼叫求助及施行心肺復甦","等待醫生","量血壓"],o_en:["Leave","Call for help & CPR","Wait for doctor","Measure BP"],a:1,e:"發現病人無呼吸應立即呼叫求助並施行心肺復甦。",e_en:"Call for help and start CPR immediately."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"成人心肺復甦的按壓位置在哪裡？",q_en:"Where is the compression site for adult CPR?",o:["胸骨上半部","胸骨下半部","左胸","腹部"],o_en:["Upper sternum","Lower sternum","Left chest","Abdomen"],a:1,e:"成人CPR按壓位置在胸骨下半部。",e_en:"Adult CPR compression site is the lower half of the sternum."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"成人CPR的按壓深度是多少？",q_en:"What is the compression depth for adult CPR?",o:["2-3cm","3-4cm","5-6cm","7-8cm"],o_en:["2-3cm","3-4cm","5-6cm","7-8cm"],a:2,e:"成人CPR按壓深度為5-6cm。",e_en:"Adult CPR compression depth is 5-6cm."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"成人CPR的按壓頻率是多少？",q_en:"What is the compression rate for adult CPR?",o:["60-80次/分","80-100次/分","100-120次/分","120-140次/分"],o_en:["60-80/min","80-100/min","100-120/min","120-140/min"],a:2,e:"成人CPR按壓頻率為每分鐘100-120次。",e_en:"Adult CPR compression rate is 100-120/min."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"病人抽搐時應如何處理？",q_en:"How to handle a patient having a seizure?",o:["強行按壓病人","保護頭部及移開危險物品","塞東西入口","不理會"],o_en:["Restrain","Protect head & remove hazards","Object in mouth","Ignore"],a:1,e:"病人抽搐時應保護其頭部，移開周圍危險物品。",e_en:"Protect the head and remove surrounding hazards."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"病人哽噎時應施行什麼急救法？",q_en:"What first aid for a choking patient?",o:["心肺復甦","哈姆立克法","人工呼吸","止血法"],o_en:["CPR","Heimlich","Artificial respiration","Hemostasis"],a:1,e:"病人哽噎時應施行哈姆立克法。",e_en:"Perform the Heimlich maneuver for choking."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"病人出血時應如何止血？",q_en:"How to stop bleeding?",o:["直接加壓止血","不理會","用水沖洗","等待"],o_en:["Direct pressure","Ignore","Rinse","Wait"],a:0,e:"病人出血時應立即用乾淨敷料直接加壓止血。",e_en:"Apply direct pressure with a clean dressing."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"病人休克時應採取什麼臥位？",q_en:"What position for a patient in shock?",o:["坐姿","平臥抬高下肢","俯臥","頭高腳低"],o_en:["Sitting","Supine legs elevated","Prone","Head high"],a:1,e:"病人休克時應採平臥位並抬高下肢。",e_en:"Supine with legs elevated."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"遇到緊急事故時首先應確保什麼？",q_en:"What to ensure first in an emergency?",o:["現場安全","立即救人","記錄","打電話"],o_en:["Scene safety","Rescue","Record","Call"],a:0,e:"遇到緊急事故時首先應確保現場安全。",e_en:"Ensure scene safety first."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"燒傷處理的正確方法是？",q_en:"Correct burn treatment?",o:["塗抹牙膏","用冷水沖洗","刺破水泡","用冰敷"],o_en:["Toothpaste","Cool water rinse","Pierce blisters","Ice"],a:1,e:"燒傷處理應用冷水沖洗降溫。",e_en:"Rinse burns with cool water."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"骨折處理的正確方法是？",q_en:"Correct fracture management?",o:["隨意移動","固定骨折部位","用力按摩","不需處理"],o_en:["Move","Immobilize","Massage","No action"],a:1,e:"骨折處理應固定骨折部位。",e_en:"Immobilize the fracture."},
-{m:"急救處理",m_en:"First Aid",t:"m",q:"病人暈倒時應如何處理？",q_en:"How to handle a fainting patient?",o:["立即扶起","平臥抬高下肢","坐起","不需處理"],o_en:["Lift","Supine legs elevated","Sit up","No action"],a:1,e:"病人暈倒時應使其平臥並抬高下肢。",e_en:"Supine with legs elevated."},
-// 扶抱與轉移
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"使用病人過床板時以下哪項是正確姿勢？",q_en:"Correct posture for using a Patslide?",o:["彎腰用力拉","腰背挺直屈膝下蹲","扭轉腰部發力","單手操作"],o_en:["Bend waist","Back straight knees bent","Twist waist","One hand"],a:1,e:"使用過床板時應保持腰背挺直屈膝下蹲。",e_en:"Keep back straight and bend knees."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"搬運病人時以下哪項是正確的？",q_en:"Which is correct when moving a patient?",o:["雙腳併攏","盡量貼近病人","彎腰發力","快速扭轉身體"],o_en:["Feet together","Stay close","Bend waist","Twist quickly"],a:1,e:"搬運時應盡量貼近病人，縮短力臂。",e_en:"Stay close to shorten the lever arm."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"搬運病人時雙腳應如何擺放？",q_en:"How should feet be positioned?",o:["併攏","與肩同寬","交叉","單腳站立"],o_en:["Together","Shoulder-width","Crossed","One leg"],a:1,e:"搬運時雙腳應分開與肩同寬。",e_en:"Feet shoulder-width apart."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"轉換病人體位時應使用什麼？",q_en:"What to use when repositioning?",o:["直接拉扯","輔助工具如轉位帶","不需工具","只用一隻手"],o_en:["Pull","Transfer belt","No tool","One hand"],a:1,e:"轉換體位時應使用適當輔助工具。",e_en:"Use appropriate aids like a transfer belt."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"預防壓瘡應每幾小時協助病人翻身？",q_en:"How often to reposition to prevent pressure sores?",o:["每8小時","每4小時","每2小時","每30分鐘"],o_en:["8 hrs","4 hrs","2 hrs","30 mins"],a:2,e:"應每2小時協助病人轉換體位。",e_en:"Reposition every 2 hours."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"以下哪項不應用作預防壓瘡？",q_en:"Which should NOT be used for pressure sore prevention?",o:["保持皮膚乾爽","用力按摩骨突處","使用減壓床墊","定期翻身"],o_en:["Keep skin dry","Massage bony prominences","Pressure mattress","Turn regularly"],a:1,e:"用力按摩骨突處可能損傷微血管。",e_en:"Massaging bony prominences can damage capillaries."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"搬運病人前應先做什麼？",q_en:"What to do before moving a patient?",o:["直接搬運","向病人解釋步驟","量血壓","記錄"],o_en:["Move","Explain","Measure BP","Record"],a:1,e:"搬運病人前應向病人解釋步驟。",e_en:"Explain the procedure to the patient."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"搬運體重較重的病人時應如何處理？",q_en:"How to handle a heavy patient?",o:["單人搬運","使用輔助工具或多人協助","快速搬運","不需理會"],o_en:["One person","Use aids or helpers","Move quickly","Ignore"],a:1,e:"搬運體重較重的病人應使用輔助工具或多人協助。",e_en:"Use lifting aids or multiple helpers."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"病人過床板的英文名稱是什麼？",q_en:"What is the English name for a patient transfer board?",o:["Patslide","Hoist","Stretcher","Wheelchair"],o_en:["Patslide","Hoist","Stretcher","Wheelchair"],a:0,e:"病人過床板的英文為Patslide。",e_en:"The English name is Patslide."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"搬運病人時嚴禁做什麼動作？",q_en:"What is strictly prohibited when moving a patient?",o:["屈膝","扭轉腰部","貼近病人","雙腳分開"],o_en:["Bend knees","Twist waist","Stay close","Feet apart"],a:1,e:"搬運時嚴禁扭轉腰部。",e_en:"Never twist the waist."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"使用吊機搬運病人時應注意什麼？",q_en:"What to note when using a hoist?",o:["不需檢查","檢查吊帶及扣環","快速操作","單人操作"],o_en:["No check","Check sling & clips","Quick","One person"],a:1,e:"使用吊機前應檢查吊帶及扣環是否穩固。",e_en:"Check sling and clips for security."},
-{m:"扶抱與轉移",m_en:"Lifting & Transfer",t:"m",q:"協助病人坐起時應先做什麼？",q_en:"What to do first when helping a patient sit up?",o:["直接拉起","將雙腳移出床邊","快速完成","不需解釋"],o_en:["Pull up","Move legs off bed","Quickly","No explanation"],a:1,e:"協助病人坐起時應先將雙腳移出床邊。",e_en:"Move legs off the bed first."},
-// 個人衛生
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"為病人進行口腔護理時應使用什麼工具？",q_en:"What tool for oral care?",o:["硬毛牙刷","軟毛牙刷","金屬刷","手指"],o_en:["Hard brush","Soft brush","Metal brush","Finger"],a:1,e:"口腔護理應使用軟毛牙刷。",e_en:"Use a soft-bristled toothbrush."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"協助病人洗澡時水溫應維持在多少度？",q_en:"What water temperature for bathing?",o:["25-30°C","37-42°C","45-50°C","50-55°C"],o_en:["25-30°C","37-42°C","45-50°C","50-55°C"],a:1,e:"洗澡水溫應維持在37-42°C。",e_en:"Bathing water should be 37-42°C."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"壓瘡最常發生在以下哪個部位？",q_en:"Where do pressure sores most commonly occur?",o:["腹部","骶骨","手臂","小腿"],o_en:["Abdomen","Sacrum","Arm","Calf"],a:1,e:"壓瘡最常發生在骨突處，如骶骨。",e_en:"Most common at bony prominences like the sacrum."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"保持皮膚乾爽可預防以下哪項？",q_en:"Keeping skin dry prevents?",o:["發燒","壓瘡","高血壓","糖尿病"],o_en:["Fever","Pressure sores","Hypertension","Diabetes"],a:1,e:"保持皮膚乾爽清潔可預防壓瘡。",e_en:"Keeping skin dry prevents pressure sores."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"尿袋應放置於什麼位置？",q_en:"Where should a urinary bag be placed?",o:["高於膀胱","低於膀胱","與膀胱同高","掛在床頭"],o_en:["Above bladder","Below bladder","Same level","Bed head"],a:1,e:"尿袋應放置於低於膀胱的位置。",e_en:"Place below the bladder."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"更換尿片時應先做什麼？",q_en:"What to do first when changing a diaper?",o:["直接更換","洗手及戴手套","量體溫","記錄"],o_en:["Change","Wash & gloves","Measure temp","Record"],a:1,e:"更換尿片時應先洗手及戴手套。",e_en:"Wash hands and wear gloves first."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"病人皮膚發紅且按壓後不褪色可能代表什麼？",q_en:"Red skin that doesn't blanch may indicate?",o:["正常現象","壓瘡初期","皮膚敏感","蚊咬"],o_en:["Normal","Early pressure sore","Sensitive","Bite"],a:1,e:"皮膚發紅且按壓後不褪色是壓瘡初期的徵象。",e_en:"Non-blanching redness is an early pressure sore sign."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"會陰清潔的正確方向是？",q_en:"Correct direction for perineal cleaning?",o:["由後向前","由前向後","隨意","由左向右"],o_en:["Back to front","Front to back","Random","Left to right"],a:1,e:"會陰清潔應由前向後。",e_en:"Clean from front to back."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"為病人更換床單時以下哪項是正確做法？",q_en:"Correct practice when changing bed linen?",o:["直接拉出舊床單","先協助病人轉身","不需洗手","快速完成"],o_en:["Pull out","Turn patient first","No wash","Quickly"],a:1,e:"更換床單時應先協助病人轉身。",e_en:"Turn the patient first."},
-{m:"個人衛生",m_en:"Personal Hygiene",t:"m",q:"病人有假牙時以下哪項是正確做法？",q_en:"Correct practice for dentures?",o:["用熱水浸泡","用冷水浸泡","用酒精浸泡","不需清潔"],o_en:["Hot water","Cold water","Alcohol","No cleaning"],a:1,e:"假牙應用冷水浸泡及清潔。",e_en:"Soak and clean dentures in cold water."},
-// 營養與餵食
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"協助病人進食時以下哪項是正確做法？",q_en:"Correct practice when assisting with eating?",o:["病人平躺進食","坐直或床頭抬高30-45度","快速餵食","一次餵大量食物"],o_en:["Lie flat","Sit up 30-45°","Feed quickly","Large amounts"],a:1,e:"進食時應讓病人坐直或床頭抬高至少30-45度。",e_en:"Sit up or elevate bed 30-45°."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"每次餵食病人時應餵多少？",q_en:"How much to feed per bite?",o:["一大口","一小口","整碗","不需理會"],o_en:["Large bite","Small bite","Whole bowl","Ignore"],a:1,e:"每次應餵食一小口。",e_en:"Feed small bites."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"吞嚥困難的病人進食時可加入什麼？",q_en:"What can be added for dysphagia patients?",o:["清水","凝固粉","糖","鹽"],o_en:["Water","Thickener","Sugar","Salt"],a:1,e:"吞嚥困難的病人可加入凝固粉。",e_en:"Add thickener for dysphagia patients."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"鼻胃管餵食前應先做什麼？",q_en:"What to do before NG tube feeding?",o:["直接餵食","確認胃管位置","量血壓","記錄"],o_en:["Feed","Confirm tube position","Measure BP","Record"],a:1,e:"鼻胃管餵食前應確認胃管位置。",e_en:"Confirm NG tube position before feeding."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"餵食後應保持病人坐姿多久？",q_en:"How long should patient sit up after feeding?",o:["不需要","5分鐘","30分鐘","2小時"],o_en:["No need","5 mins","30 mins","2 hrs"],a:2,e:"餵食後應保持坐姿至少30分鐘。",e_en:"Keep sitting for at least 30 minutes."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"以下哪項是脫水的徵象？",q_en:"Which is a sign of dehydration?",o:["尿量增多","口渴尿少","皮膚濕潤","體重增加"],o_en:["More urine","Thirst low urine","Moist skin","Weight gain"],a:1,e:"脫水徵象包括口渴尿少皮膚乾燥。",e_en:"Dehydration: thirst, low urine, dry skin."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"以下哪項是正確的餵食姿勢？",q_en:"Correct feeding posture?",o:["病人平躺","病人坐直","病人俯臥","病人側臥"],o_en:["Lie flat","Sit upright","Prone","Side-lying"],a:1,e:"餵食時病人應坐直或床頭抬高。",e_en:"Patient should sit upright."},
-{m:"營養與餵食",m_en:"Nutrition & Feeding",t:"m",q:"病人進食時嗆咳應如何處理？",q_en:"How to handle choking during feeding?",o:["繼續餵食","停止餵食並處理","拍打背部","不理會"],o_en:["Continue","Stop & manage","Pat back","Ignore"],a:1,e:"病人嗆咳時應立即停止餵食。",e_en:"Stop feeding immediately."},
-// 藥物與護理紀錄
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"下列何種給藥途徑最快產生效用？",q_en:"Which route produces the fastest effect?",o:["皮內注射","皮下注射","肌肉注射","靜脈注射"],o_en:["Intradermal","Subcutaneous","Intramuscular","Intravenous"],a:3,e:"靜脈注射最快產生效用。",e_en:"Intravenous produces the fastest effect."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"降血壓藥屬於：",q_en:"Antihypertensive drugs belong to:",o:["非毒藥","第一類毒藥","第二類毒藥","第三類毒藥"],o_en:["Non-poison","Part 1","Part 2","Part 3"],a:2,e:"降血壓藥屬於第二類毒藥。",e_en:"Antihypertensives are Part 2 Poisons."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"以下哪項是正確的藥物儲存方法？",q_en:"Correct medication storage method?",o:["隨意放置","按標籤指示儲存","不需避光","不需冷藏"],o_en:["Random","Follow label","No light protection","No fridge"],a:1,e:"藥物應按標籤指示儲存。",e_en:"Store according to label instructions."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"發現病人藥物過敏時應如何處理？",q_en:"What to do if patient has drug allergy?",o:["繼續給藥","立即停藥並報告","不需理會","加倍劑量"],o_en:["Continue","Stop & report","Ignore","Double dose"],a:1,e:"發現藥物過敏時應立即停藥並報告。",e_en:"Stop medication immediately and report."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"胰島素應如何儲存？",q_en:"How should insulin be stored?",o:["室溫","冷藏","冷凍","隨意"],o_en:["Room temp","Refrigerated","Frozen","Anywhere"],a:1,e:"未開封的胰島素應冷藏儲存。",e_en:"Unopened insulin should be refrigerated."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"以下哪項是正確的派藥時間？",q_en:"Correct medication administration time?",o:["隨意時間","按醫生指示時間","病人要求時間","方便時間"],o_en:["Random","As prescribed","Patient request","Convenient"],a:1,e:"派藥應按醫生指示的時間進行。",e_en:"Administer as prescribed by doctor."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"護理記錄應如何填寫？",q_en:"How should nursing records be filled?",o:["隨意填寫","準確及時","事後補寫","不需記錄"],o_en:["Random","Accurate & timely","Later","No record"],a:1,e:"護理記錄應準確及時客觀地填寫。",e_en:"Nursing records should be accurate and timely."},
-{m:"藥物與護理紀錄",m_en:"Medication & Doc",t:"m",q:"記錄出入量包括以下哪項？",q_en:"What does intake/output recording include?",o:["只記錄飲水量","只記錄排尿量","飲水量及排尿量","只記錄體重"],o_en:["Intake only","Urine only","Intake & urine","Weight only"],a:2,e:"記錄出入量應包括飲水量及排尿量。",e_en:"Include all fluid intake and urine output."},
-// 職安健與倫理
-{m:"職安健與倫理",m_en:"OSH & Ethics",t:"m",q:"職業安全中搬運病人時應注意什麼？",q_en:"What to note when moving patients?",o:["快速完成","正確搬運技巧","單人搬運","不需熱身"],o_en:["Quickly","Correct technique","Alone","No warm-up"],a:1,e:"搬運病人時應使用正確技巧。",e_en:"Use correct lifting techniques."},
-{m:"職安健與倫理",m_en:"OSH & Ethics",t:"m",q:"PPE代表什麼？",q_en:"What does PPE stand for?",o:["個人防護裝備","病人護理評估","公共衛生教育","專業護理程序"],o_en:["Personal Protective Equipment","Patient Care Assessment","Public Health Education","Professional Nursing"],a:0,e:"PPE即個人防護裝備。",e_en:"PPE stands for Personal Protective Equipment."},
-{m:"職安健與倫理",m_en:"OSH & Ethics",t:"m",q:"持續進修對醫護支援人員的目的為何？",q_en:"Purpose of continuing education for HCSWs?",o:["應付考試","提升護理質素","增加工作量","不需進修"],o_en:["Pass exams","Improve care","More work","No need"],a:1,e:"持續進修的目的是提升護理質素。",e_en:"To improve care quality."},
-{m:"職安健與倫理",m_en:"OSH & Ethics",t:"m",q:"病人有權拒絕接受治療這體現了哪項倫理原則？",q_en:"Patient's right to refuse treatment reflects?",o:["自主原則","行善原則","不傷害原則","公平原則"],o_en:["Autonomy","Beneficence","Non-maleficence","Justice"],a:0,e:"病人有權拒絕治療體現了自主原則。",e_en:"Reflects the principle of autonomy."},
-{m:"職安健與倫理",m_en:"OSH & Ethics",t:"m",q:"以下哪項是維護病人私隱的正確做法？",q_en:"Correct practice for patient privacy?",o:["公共場所討論病情","關上布簾護理","未經同意公開病歷","與朋友分享"],o_en:["Discuss in public","Close curtains","Disclose records","Share with friends"],a:1,e:"進行護理時應關上布簾維護私隱。",e_en:"Close curtains during care to protect privacy."}
+// ========== 題庫 Q_DB（80題示範，後續可以繼續追加到1000題）==========
+const Q_DB = [
+// ========== 模塊1：生命表徵 vital ==========
+{mod:"vital",zh:{q:"正常成人靜止脈搏正常範圍？",opt:["60–100次/分","40–60次/分","100–120次/分","120–140次/分"],ans:0,exp:"正常成人靜止脈搏為每分鐘60–100次。運動、發燒、緊張、低血糖會加快脈搏。"},en:{q:"Normal resting pulse rate for adult?",opt:["60–100 bpm","40–60 bpm","100–120 bpm","120–140 bpm"],ans:0,exp:"Normal adult resting pulse rate is 60–100 beats per minute."}},
+{mod:"vital",zh:{q:"體溫測量方法當中，哪一種最接近身體核心溫度？",opt:["直腸探溫","腋下探溫","口腔探溫","耳溫"],ans:0,exp:"直腸體溫最接近核心體溫，數值最高、最準確；腋下溫度最低。"},en:{q:"Which temperature site is closest to core body temperature?",opt:["Rectal","Axillary","Oral","Ear"],ans:0,exp:"Rectal temperature is the most accurate core temperature."}},
+{mod:"vital",zh:{q:"成人正常呼吸頻率係多少？",opt:["12–20次/分","6–10次/分","22–30次/分","30–40次/分"],ans:0,exp:"成人靜止正常呼吸：每分鐘12–20次。呼吸>20次/分稱為呼吸急促。"},en:{q:"Normal respiratory rate of adult?",opt:["12–20 breaths/min","6–10 breaths/min","22–30 breaths/min","30–40 breaths/min"],ans:0,exp:"Normal resting respiratory rate for adult:12-20 breaths per minute."}},
+{mod:"vital",zh:{q:"MEWS 評分全名係？",opt:["Modified Early Warning Score","Major Emergency Warning Score","Medical Early Ward Score","Modified Emergency Ward Score"],ans:0,exp:"MEWS = Modified Early Warning Score，改良早期警示評分，監測病人生命體徵惡化。"},en:{q:"Full name of MEWS?",opt:["Modified Early Warning Score","Major Emergency Warning Score","Medical Early Ward Score","Modified Emergency Ward Score"],ans:0,exp:"MEWS is Modified Early Warning Score for detecting patient deterioration."}},
+{mod:"vital",zh:{q:"血壓讀數135/85，下面描述正確？",opt:["收縮壓135，舒張壓85","收縮壓85，舒張壓135","脈壓135，舒張壓85","收縮壓135，脈壓85"],ans:0,exp:"血壓寫法：收縮壓 / 舒張壓，上面數字係收縮壓，下面係舒張壓。"},en:{q:"BP reading 135/85, correct description?",opt:["Systolic 135, Diastolic 85","Systolic 85, Diastolic 135","Pulse pressure135, Diastolic85","Systolic135, Pulse pressure85"],ans:0,exp:"BP notation: Systolic / Diastolic."}},
+
+// ========== 模塊2：感染控制 infection ==========
+{mod:"infection",zh:{q:"病房棄置針頭、刀片，利器盒裝滿至多少要封口更換？",opt:["70–80%","50%","90%","100%"],ans:0,exp:"利器盒達70–80%（約3/4滿）就要封口更換，避免針刺意外。"},en:{q:"When to seal and replace sharps box?",opt:["70–80% full","50% full","90% full","100% full"],ans:0,exp:"Seal sharps box at 70-80% full to prevent needle stick injury."}},
+{mod:"infection",zh:{q:"醫護洗手最重要目的？",opt:["減少病原體交叉傳播","滋潤皮膚","去除異味","清潔污跡"],ans:0,exp:"醫護洗手核心目的切斷交叉感染，減細菌同病毒傳播。"},en:{q:"Main purpose of hand hygiene in hospital?",opt:["Prevent cross infection","Moisturise skin","Remove body odour","Clean dirt"],ans:0,exp:"Hand hygiene is the key to prevent cross infection."}},
+{mod:"infection",zh:{q:"黃色醫療垃圾袋主要放哪類廢物？",opt:["感染性醫療廢物","普通垃圾","鋒利利器","化學廢物"],ans:0,exp:"黃色袋：感染性醫療廢物；橙色利器盒：鋒利廢物。"},en:{q:"Yellow clinical waste bag for?",opt:["Infectious clinical waste","Domestic waste","Sharps","Chemical waste"],ans:0,exp:"Yellow bag for infectious clinical waste. Orange box for sharps."}},
+{mod:"infection",zh:{q:"處理血液濺污，首先要做？",opt:["佩戴合適個人防護裝備","直接抹走污水","用水沖洗地面","噴消毒藥水"],ans:0,exp:"處理體液濺污，第一步要戴PPE（手套、面罩等）保護自己。"},en:{q:"First step to manage blood spill?",opt:["Put on appropriate PPE","Wipe spill directly","Rinse floor with water","Spray disinfectant"],ans:0,exp:"Wear PPE first to protect yourself from body fluid."}},
+{mod:"infection",zh:{q:"空氣傳播疾病，需要哪一種隔離？",opt:["空氣隔離","飛沫隔離","接觸隔離","標準隔離"],ans:0,exp:"肺癆屬空氣傳播，需要空氣隔離，負壓病房。"},en:{q:"Airborne infectious disease requires which isolation?",opt:["Airborne precautions","Droplet precautions","Contact precautions","Standard precautions"],ans:0,exp:"Tuberculosis is airborne, requires airborne isolation in negative pressure room."}},
+
+// ========== 模塊3：急救 firstaid ==========
+{mod:"firstaid",zh:{q:"成人CPR按壓頻率？",opt:["100–120次/分","60–80次/分","130–150次/分","50次/分"],ans:0,exp:"成人心肺復蘇按壓頻率：每分鐘100–120次。"},en:{q:"Adult CPR compression rate?",opt:["100–120 per minute","60–80 per minute","130–150 per minute","50 per minute"],ans:0,exp:"Standard CPR compression rate is 100–120 compressions per minute."}},
+{mod:"firstaid",zh:{q:"成人CPR按壓深度？",opt:["5–6 cm","2–3 cm","7–8 cm","1–2 cm"],ans:0,exp:"成人胸外按壓深度5–6cm，太深會骨折，太淺無法推動血液。"},en:{q:"Compression depth for adult CPR?",opt:["5–6 cm","2–3 cm","7–8 cm","1–2 cm"],ans:0,exp:"Compress 5-6 cm deep for adult."}},
+{mod:"firstaid",zh:{q:"病人休克，應擺放什麼體位？",opt:["平躺，腳部稍抬高","半坐臥","側臥","坐位"],ans:0,exp:"休克病人平躺、腳稍抬高，增加回流心臟血液。頭部受傷就唔好抬高腳。"},en:{q:"Position for shock patient?",opt:["Supine, legs slightly elevated","Semi-fowler","Side lying","Sitting"],ans:0,exp:"Shock patient lie flat with legs raised to boost venous return."}},
+{mod:"firstaid",zh:{q:"燒傷護理，不可以做什麼？",opt:["塗牙膏、醬油","冷水沖淋傷口蓋無菌紗布","移除附近衣物","蓋保鮮膜"],ans:0,exp:"燒傷絕對唔可以搽牙膏、油、醬油，會引致感染同影響醫生判斷。"},en:{q:"What should NOT do for burn wound?",opt:["Apply toothpaste or soy sauce","Cool wound with running water and cover sterile gauze","Remove nearby clothing","Cover with cling film"],ans:0,exp:"Never apply toothpaste, oil or sauce to burn."}},
+{mod:"firstaid",zh:{q:"懷疑脊椎骨折病人，最重要？",opt:["唔好移動病人頸部及脊椎","盡快移去床邊","給予飲水","轉側臥"],ans:0,exp:"懷疑脊椎骨折，切勿轉動頸部，防止截癱。"},en:{q:"Most important for suspected spinal fracture?",opt:["Do not move neck and spine","Move patient quickly","Give drinking water","Turn to side lying"],ans:0,exp:"Avoid neck movement to prevent paralysis."}},
+
+// ========== 模塊4：病房護理 ward ==========
+{mod:"ward",zh:{q:"長期臥床病人最常見壓瘡位置？",opt:["骶尾位置","手背","小腿","頭頂"],ans:0,exp:"臥床病人長期受壓於骶尾部，血液循環差，最容易產生壓瘡。"},en:{q:"Most common pressure sore site for bedridden patient?",opt:["Sacrum","Dorsum of hand","Calf","Scalp"],ans:0,exp:"Sacral area is the most common pressure injury site."}},
+{mod:"ward",zh:{q:"半坐臥（Semi-Fowler）體位角度大約？",opt:["30–45度","10度","60–90度","0度平躺"],ans:0,exp:"半坐臥30–45度，幫助呼吸、減少肺積水，適合心臟病、呼吸困難病人。"},en:{q:"Angle of Semi-Fowler position?",opt:["30–45 degrees","10 degrees","60–90 degrees","0 degree supine"],ans:0,exp:"Semi-Fowler position 30-45 degrees for breathing difficulty."}},
+{mod:"ward",zh:{q:"Commode 係指？",opt:["移動式便椅","便盆","尿壺","沖水廁所"],ans:0,exp:"Commode：可推動嘅便椅，病人可以坐住排便，唔使落床。Bedpan係便盆，床上使用。"},en:{q:"What is commode?",opt:["Mobile commode chair","Bedpan","Urine bottle","Flush toilet"],ans:0,exp:"Commode chair is portable toilet chair for patients who can sit."}},
+{mod:"ward",zh:{q:"幫助長者轉移，護士腳部姿勢應該？",opt:["雙腳分開穩陣，屈膝鎖住腰","雙腳企埋一齊，伸直腰","單腳企穩","雙腳交叉"],ans:0,exp:"搬運病人，雙腳分開擴闊支撐面、屈膝，用腿力，唔好用腰力，預防護士扭傷。"},en:{q:"Correct leg posture for transferring patient?",opt:["Feet apart, bend knees, protect waist","Feet together, straight back","Stand on one leg","Cross legs"],ans:0,exp:"Bend knees and use leg strength, avoid waist injury."}},
+{mod:"ward",zh:{q:"心臟衰竭病人要控制飲水，主要原因？",opt:["減少血液容量，減輕心臟負荷","減少腎壓力","預防低血壓","防止電解質紊亂"],ans:0,exp:"心臟泵血能力差，飲太多水，血液量增加，加重心臟負荷，會氣促水腫。"},en:{q:"Why restrict fluid for heart failure patient?",opt:["Reduce blood volume, reduce heart workload","Reduce kidney load","Prevent hypotension","Avoid electrolyte imbalance"],ans:0,exp:"Too much fluid increases circulatory volume and causes breathlessness."}},
+
+// ========== 模塊5：藥物知識 drug ==========
+{mod:"drug",zh:{q:"利福平(Rifampicin)治療肺癆，會令體液變成什麼顏色？",opt:["橙紅色","綠色","黑色","藍色"],ans:0,exp:"利福平帶橙紅色素，汗水、尿液、眼淚都會變橙紅色，屬正常無害現象。要提醒病人唔好自行停藥，軟con會永久染色。"},en:{q:"Rifampicin for TB changes body fluid to?",opt:["Orange-red","Green","Black","Blue"],ans:0,exp:"Rifampicin causes harmless orange-red discolouration of sweat, urine and tears."}},
+{mod:"drug",zh:{q:"異煙肼 Isoniazid（肺癆藥）常見副作用？",opt:["手腳麻痺","視力模糊","關節痛","體液變橙色"],ans:0,exp:"異煙肼會損末梢神經，手腳麻痺，可以補充維他命B6預防。"},en:{q:"Common side effect of Isoniazid?",opt:["Numbness in hands and feet","Blurred vision","Joint pain","Orange body fluid"],ans:0,exp:"Isoniazid may cause peripheral neuropathy, vitamin B6 for prevention."}},
+{mod:"drug",zh:{q:"乙胺丁醇 Ethambutol 主要副作用？",opt:["視力受影響，紅綠分辨困難","手腳麻痺","關節痛","橙色尿液"],ans:0,exp:"乙胺丁醇影響視神經，病人會難分紅綠色，用藥前後要檢查視力。"},en:{q:"Side effect of Ethambutol?",opt:["Visual disturbance, red-green colour defect","Numbness limbs","Joint pain","Orange urine"],ans:0,exp:"Ethambutol may cause optic neuritis and colour vision problem."}},
+{mod:"drug",zh:{q:"給藥前，核對病人資料，最少要核對幾項病人識別？",opt:["2項","1項","3項","4項"],ans:0,exp:"藥物管理：最少2項病人識別資料，例如姓名+醫院編號。"},en:{q:"Minimum number of patient identifiers before drug administration?",opt:["2","1","3","4"],ans:0,exp:"At least two patient identifiers before giving medicine."}},
+{mod:"drug",zh:{q:"口服藥物，病人吞唔到藥片，護士應該？",opt:["查核藥物是否可以碾碎，再諮詢醫生","直接碾碎餵食","放落飲品一齊飲","跳過唔使食"],ans:0,exp:"有啲藥（腸溶片、控釋片）唔可以碾碎，會破壞藥效，必須先查核同問醫生。"},en:{q:"Patient cannot swallow tablet, nurse should?",opt:["Check if tablet can be crushed and consult doctor","Crush directly","Mix with drink","Skip dose"],ans:0,exp:"Some tablets cannot be crushed, must check first."}},
+
+// ========== 模塊6：人體結構 body ==========
+{mod:"body",zh:{q:"全身唯一運送缺氧血嘅動脈係？",opt:["肺動脈","主動脈","冠狀動脈","橈動脈"],ans:0,exp:"肺動脈由右心室出發，將缺氧血送到肺部吸氧，係唯一帶缺氧血嘅動脈。"},en:{q:"Which artery carries deoxygenated blood?",opt:["Pulmonary artery","Aorta","Coronary artery","Radial artery"],ans:0,exp:"Pulmonary artery is the only artery carrying deoxygenated blood."}},
+{mod:"body",zh:{q:"負責過濾血液、製造尿液嘅器官？",opt:["腎臟","肝臟","脾臟","胰臟"],ans:0,exp:"腎臟功能：過濾血液、排廢物、製造尿液、調節水份電解質。"},en:{q:"Organ filter blood and produce urine?",opt:["Kidney","Liver","Spleen","Pancreas"],ans:0,exp:"Kidney filters blood and forms urine."}},
+{mod:"body",zh:{q:"無管腺（內分泌腺）分泌產物叫？",opt:["荷爾蒙 Hormone","消化酶","汗液","黏液"],ans:0,exp:"無管腺（內分泌腺）沒有導管，直接分泌荷爾蒙入血液。有管腺（外分泌腺）有導管，例如唾液腺。"},en:{q:"Endocrine (ductless gland) secretes?",opt:["Hormone","Digestive enzyme","Sweat","Mucus"],ans:0,exp:"Endocrine glands are ductless and secrete hormone into blood."}},
+{mod:"body",zh:{q:"舌尖味蕾對什麼味道最敏感？",opt:["甜味、鹹味","苦味","酸味","鮮味"],ans:0,exp:"舌尖：甜、鹹；舌兩側：酸；舌根：苦。"},en:{q:"Taste at tip of tongue most sensitive to?",opt:["Sweet and salty","Bitter","Sour","Umami"],ans:0,exp:"Tip of tongue: sweet & salty. Back of tongue: bitter."}},
+{mod:"body",zh:{q:"中樞神經系統包括？",opt:["腦同脊髓","腦同周圍神經","脊髓同周圍神經","腦、脊髓、周圍神經"],ans:0,exp:"中樞神經CNS = 腦 + 脊髓；周圍神經PNS係腦同脊髓伸出去嘅神經線。"},en:{q:"Central nervous system includes?",opt:["Brain and spinal cord","Brain and peripheral nerve","Spinal cord and peripheral nerve","Brain, spinal cord and peripheral nerve"],ans:0,exp:"CNS: Brain + Spinal cord. PNS: peripheral nerves."}},
+
+// ========== 模塊7：衛生 hygiene ==========
+{mod:"hygiene",zh:{q:"Tub bath 係指？",opt:["浴缸浸浴","床上擦浴","淋浴","局部抹洗"],ans:0,exp:"Tub bath 浴缸浸浴，適合身體可以坐穩、可以轉移到浴缸嘅病人。"},en:{q:"Tub bath means?",opt:["Bath in bathtub","Bed bath","Shower","Partial wash"],ans:0,exp:"Tub bath is bathing inside a bathtub."}},
+{mod:"hygiene",zh:{q:"口腔護理，昏迷病人應該擺放什麼體位？",opt:["側臥位","平躺仰臥","半坐臥","坐位"],ans:0,exp:"昏迷病人做口腔護理擺側臥，口水同分泌物可以流出，防止嗆入氣管窒息。"},en:{q:"Position for oral care of unconscious patient?",opt:["Side lying","Supine","Semi-fowler","Sitting"],ans:0,exp:"Side lying to prevent aspiration."}},
+{mod:"hygiene",zh:{q:"床上擦浴 Bed bath，一般順序由哪裡開始？",opt:["面部","雙腳","胸部","手臂"],ans:0,exp:"床上擦浴順序：面→頸→胸→手臂→腹部→下肢→會陰。由乾淨位置到污糟位置。"},en:{q:"Start of bed bath usually at?",opt:["Face","Feet","Chest","Arms"],ans:0,exp:"Clean from cleaner area to dirty area, start with face."}},
+{mod:"hygiene",zh:{q:"處理病人排泄物之後，護士一定要？",opt:["洗手","換衫","戴口罩","量血壓"],ans:0,exp:"接觸病人體液、排泄物前後，都要洗手，防止交叉感染。"},en:{q:"After handling patient excreta, nurse must?",opt:["Hand washing","Change uniform","Wear mask","Measure BP"],ans:0,exp:"Hand hygiene after contact with body fluid."}},
+{mod:"hygiene",zh:{q:"寢具更換，空床換床單嘅好處？",opt:["減少塵蟎同細菌滋生","節省時間","方便清潔地面","減少噪音"],ans:0,exp:"定期更換床單，可以減少塵蟎、細菌，預防皮膚同呼吸感染。"},en:{q:"Benefit of changing bed linen for empty bed?",opt:["Reduce mite and bacteria growth","Save time","Easier floor cleaning","Reduce noise"],ans:0,exp:"Regular linen change reduces pathogens."}},
+
+// ========== 模塊8：醫護操守 ethic ==========
+{mod:"ethic",zh:{q:"未經病人同意，唔可以向外披露病人資料，屬於？",opt:["保密原則 Confidentiality","自主原則 Autonomy","行善原則 Beneficence","公平原則 Justice"],ans:0,exp:"保密原則：病人私隱同資料唔可以隨便洩露。"},en:{q:"Not disclosing patient data without consent is?",opt:["Confidentiality","Autonomy","Beneficence","Justice"],ans:0,exp:"Confidentiality protects patient privacy."}},
+{mod:"ethic",zh:{q:"病人有權自己決定接受唔接受治療，係？",opt:["自主原則 Autonomy","保密原則","行善原則","不傷害原則"],ans:0,exp:"自主原則：有能力嘅病人有權揀治療或者拒絕治療。"},en:{q:"Patient has right to accept or refuse treatment?",opt:["Autonomy","Confidentiality","Beneficence","Non-maleficence"],ans:0,exp:"Autonomy means competent patient can make own decision."}},
+{mod:"ethic",zh:{q:"醫護工作，唔可以對病人造成傷害，屬於？",opt:["不傷害原則 Non-maleficence","自主原則","保密原則","公平原則"],ans:0,exp:"Non-maleficence：首要唔傷害病人。"},en:{q:"Do no harm to patient?",opt:["Non-maleficence","Autonomy","Confidentiality","Justice"],ans:0,exp:"Non-maleficence means first, do no harm."}},
+{mod:"ethic",zh:{q:"發現同事處理病人有錯，護士應該？",opt:["向上級匯報，保障病人安全","唔理會","私下同病人講","同其他同事閒談"],ans:0,exp:"病人安全第一，發現錯誤要向上級報告。"},en:{q:"What to do if colleague made mistake on patient care?",opt:["Report to supervisor for patient safety","Ignore","Tell patient directly","Gossip with other staff"],ans:0,exp:"Patient safety is priority, report incident."}},
+{mod:"ethic",zh:{q:"記錄病歷，寫錯字應該？",opt:["一劃刪除，簽名同日期","塗黑改寫","用修正液","撕走重寫"],ans:0,exp:"醫療記錄錯字，單線劃過，保留原文，簽名+日期，唔可以塗改。"},en:{q:"How to correct error in medical record?",opt:["Strike through with single line, sign & date","Black out the words","Use correction fluid","Tear page and rewrite"],ans:0,exp:"Never obliterate original entry. Strike through and sign."}}
 ];
 
-// 醫管局七大聯網完整醫院數據
-const H=[
-{network:"港島東聯網 / Hong Kong East Cluster",network_en:"Hong Kong East Cluster",hospitals:[
-{name:"東區尤德夫人那打素醫院",name_en:"Pamela Youde Nethersole Eastern Hospital (PYNEH)",location:"柴灣 / Chai Wan"},
-{name:"律敦治及鄧肇堅醫院",name_en:"Ruttonjee & Tang Shiu Kin Hospitals (RTSKH)",location:"灣仔 / Wan Chai"},
-{name:"東華東院",name_en:"Tung Wah Eastern Hospital (TWEH)",location:"銅鑼灣 / Causeway Bay"},
-{name:"長洲醫院",name_en:"St. John Hospital",location:"長洲 / Cheung Chau"},
-{name:"舂磡角慈氏護養院",name_en:"Cheshire Home, Chung Hom Kok",location:"舂磡角 / Chung Hom Kok"},
-{name:"黃竹坑醫院",name_en:"Wong Chuk Hang Hospital",location:"黃竹坑 / Wong Chuk Hang"}
-]},
-{network:"港島西聯網 / Hong Kong West Cluster",network_en:"Hong Kong West Cluster",hospitals:[
-{name:"瑪麗醫院",name_en:"Queen Mary Hospital (QMH)",location:"薄扶林 / Pok Fu Lam"},
-{name:"葛量洪醫院",name_en:"Grantham Hospital (GH)",location:"黃竹坑 / Wong Chuk Hang"},
-{name:"東華醫院",name_en:"Tung Wah Hospital (TWH)",location:"上環 / Sheung Wan"},
-{name:"贊育醫院",name_en:"Tsan Yuk Hospital (TYH)",location:"西營盤 / Sai Ying Pun"},
-{name:"大口環根德公爵夫人兒童醫院",name_en:"The Duchess of Kent Children's Hospital (DKCH)",location:"大口環 / Sandy Bay"},
-{name:"東華三院馮堯敬醫院",name_en:"TWGHs Fung Yiu King Hospital (FYKH)",location:"大口環 / Sandy Bay"},
-{name:"麥理浩復康院",name_en:"MacLehose Medical Rehabilitation Centre (MMRC)",location:"薄扶林 / Pok Fu Lam"},
-{name:"戴麟趾康復中心",name_en:"David Trench Rehabilitation Centre",location:"西營盤 / Sai Ying Pun"}
-]},
-{network:"九龍中聯網 / Kowloon Central Cluster",network_en:"Kowloon Central Cluster",hospitals:[
-{name:"伊利沙伯醫院",name_en:"Queen Elizabeth Hospital (QEH)",location:"佐敦 / Jordan"},
-{name:"廣華醫院",name_en:"Kwong Wah Hospital (KWH)",location:"油麻地 / Yau Ma Tei"},
-{name:"九龍醫院",name_en:"Kowloon Hospital (KH)",location:"九龍城 / Kowloon City"},
-{name:"香港佛教醫院",name_en:"Hong Kong Buddhist Hospital (HKBH)",location:"樂富 / Lok Fu"},
-{name:"東華三院黃大仙醫院",name_en:"TWGHs Wong Tai Sin Hospital (WTSH)",location:"黃大仙 / Wong Tai Sin"},
-{name:"聖母醫院",name_en:"Our Lady of Maryknoll Hospital (OLMH)",location:"黃大仙 / Wong Tai Sin"},
-{name:"香港兒童醫院",name_en:"Hong Kong Children's Hospital (HKCH)",location:"啟德 / Kai Tak"},
-{name:"香港眼科醫院",name_en:"Hong Kong Eye Hospital (HKEH)",location:"九龍城 / Kowloon City"},
-{name:"香港紅十字會輸血服務中心",name_en:"Hong Kong Red Cross Blood Transfusion Service (RCBTS)",location:"京士柏 / King's Park"}
-]},
-{network:"九龍東聯網 / Kowloon East Cluster",network_en:"Kowloon East Cluster",hospitals:[
-{name:"基督教聯合醫院",name_en:"United Christian Hospital (UCH)",location:"觀塘 / Kwun Tong"},
-{name:"將軍澳醫院",name_en:"Tseung Kwan O Hospital (TKOH)",location:"將軍澳 / Tseung Kwan O"},
-{name:"靈實醫院",name_en:"Haven of Hope Hospital (HHH)",location:"將軍澳 / Tseung Kwan O"}
-]},
-{network:"九龍西聯網 / Kowloon West Cluster",network_en:"Kowloon West Cluster",hospitals:[
-{name:"瑪嘉烈醫院",name_en:"Princess Margaret Hospital (PMH)",location:"荔枝角 / Lai Chi Kok"},
-{name:"明愛醫院",name_en:"Caritas Medical Centre (CMC)",location:"深水埗 / Sham Shui Po"},
-{name:"仁濟醫院",name_en:"Yan Chai Hospital (YCH)",location:"荃灣 / Tsuen Wan"},
-{name:"葵涌醫院",name_en:"Kwai Chung Hospital (KCH)",location:"葵涌 / Kwai Chung"},
-{name:"北大嶼山醫院",name_en:"North Lantau Hospital (NLTH)",location:"東涌 / Tung Chung"}
-]},
-{network:"新界東聯網 / New Territories East Cluster",network_en:"New Territories East Cluster",hospitals:[
-{name:"威爾斯親王醫院",name_en:"Prince of Wales Hospital (PWH)",location:"沙田 / Sha Tin"},
-{name:"雅麗氏何妙齡那打素醫院",name_en:"Alice Ho Miu Ling Nethersole Hospital (AHNH)",location:"大埔 / Tai Po"},
-{name:"北區醫院",name_en:"North District Hospital (NDH)",location:"上水 / Sheung Shui"},
-{name:"沙田醫院",name_en:"Shatin Hospital (SH)",location:"沙田 / Sha Tin"},
-{name:"大埔醫院",name_en:"Tai Po Hospital (TPH)",location:"大埔 / Tai Po"},
-{name:"白普理寧養中心",name_en:"Bradbury Hospice",location:"沙田 / Sha Tin"}
-]},
-{network:"新界西聯網 / New Territories West Cluster",network_en:"New Territories West Cluster",hospitals:[
-{name:"屯門醫院",name_en:"Tuen Mun Hospital (TMH)",location:"屯門 / Tuen Mun"},
-{name:"博愛醫院",name_en:"Pok Oi Hospital (POH)",location:"元朗 / Yuen Long"},
-{name:"天水圍醫院",name_en:"Tin Shui Wai Hospital (TSWH)",location:"天水圍 / Tin Shui Wai"},
-{name:"青山醫院",name_en:"Castle Peak Hospital (CPH)",location:"屯門 / Tuen Mun"},
-{name:"小欖醫院",name_en:"Siu Lam Hospital (SLH)",location:"屯門 / Tuen Mun"}
-]}
+// ========== 醫管局44間醫院完整百科資料庫 ==========
+const HOSPITAL_DB = [
+{name:"瑪麗醫院",en:"Queen Mary Hospital",net:"港島西聯網",type:"綜合教學醫院",intro:"港島西聯網旗艦醫院，香港大學醫學院教學基地，設有24小時急症室、創傷中心，心胸外科、肝臟移植中心。"},
+{name:"東華三院盧幹庭紀念醫院",en:"Tung Wah Group of Hospitals Lo Kon Ting Memorial Hospital",net:"港島西聯網",type:"復康及療養醫院",intro:"主要提供延續護理、復康、安老療養服務，無急症室。"},
+{name:"東華三院馮堯敬醫院",en:"Tung Wah Group of Hospitals Fung Yiu King Hospital",net:"港島西聯網",type:"復康療養醫院",intro:"港島西聯網復康院舍，骨科復康、長者護理服務。"},
+{name:"葛量洪醫院",en:"Grantham Hospital",net:"港島西聯網",type:"胸肺及心臟專科醫院",intro:"專注胸肺科、心臟科，肺癆、呼吸系統疾病治療中心。"},
+{name:"黃竹坑醫院",en:"Wong Chuk Hang Hospital",net:"港島西聯網",type:"療養復康醫院",intro:"長者療養、骨科復康，屬延續護理醫院。"},
+{name:"東華醫院",en:"Tung Wah Hospital",net:"港島西聯網",type:"綜合醫院",intro:"香港歷史悠久醫院，普通內外科、專科門診，設急症室。"},
+
+{name:"瑪嘉烈醫院",en:"Princess Margaret Hospital",net:"九龍西聯網",type:"綜合急症教學醫院",intro:"九龍西聯網核心醫院，香港主要傳染病中心，胸肺科、感染控制，24小時急症。"},
+{name:"明愛醫院",en:"Caritas Medical Centre",net:"九龍西聯網",type:"綜合醫院",intro:"深水埗綜合醫院，內外科、兒科、婦產科，設急症室。"},
+{name:"仁濟醫院",en:"Yan Chai Hospital",net:"九龍西聯網",type:"綜合急症醫院",intro:"荃灣核心急症醫院，24小時急症，普通及專科服務。"},
+{name:"北大嶼山醫院",en:"North Lantau Hospital",net:"九龍西聯網",type:"社區急症醫院",intro:"大嶼山地區急症醫院，提供24小時急症，穩定病人轉送瑪嘉烈。"},
+{name:"葵涌醫院",en:"Kwai Chung Hospital",net:"九龍西聯網",type:"精神科專科醫院",intro:"九龍西主要精神科醫院，成人、兒童青少年精神科服務。"},
+{name:"東華三院賽馬會復康中心",en:"Tung Wah Group of Hospitals Jockey Club Rehabilitation Centre",net:"九龍西聯網",type:"復康中心",intro:"肢體傷殘、腦受傷復康訓練，無急症。"},
+
+{name:"伊利沙伯醫院",en:"Queen Elizabeth Hospital",net:"九龍中聯網",type:"大型綜合創傷急症醫院",intro:"九龍中聯網旗艦，24小時創傷中心，心臟科、腫瘤科、急症重症。"},
+{name:"廣華醫院",en:"Kwong Wah Hospital",net:"九龍中聯網",type:"綜合教學醫院",intro:"東華三院屬下，香港中文大學教學醫院，急症、中西醫結合。"},
+{name:"聖母醫院",en:"Our Lady of Maryknoll Hospital",net:"九龍中聯網",type:"綜合社區醫院",intro:"黃大仙社區醫院，內外科、婦兒科，設急症室。"},
+{name:"東華三院黃大仙醫院",en:"Tung Wah Group of Hospitals Wong Tai Sin Hospital",net:"九龍中聯網",type:"復康療養醫院",intro:"骨科、中風復康，長者延續護理。"},
+{name:"香港佛教醫院",en:"Hong Kong Buddhist Hospital",net:"九龍中聯網",type:"療養及復康醫院",intro:"長者護理、內科復康，無急症室。"},
+{name:"靈實醫院",en:"Haven of Hope Hospital",net:"九龍中聯網",type:"復康、寧養醫院",intro:"晚期病人寧養服務、復康護理。"},
+
+{name:"威爾斯親王醫院",en:"Prince of Wales Hospital",net:"新界東聯網",type:"綜合教學創傷醫院",intro:"沙田，中大醫學院教學基地，新界東旗艦，24小時創傷中心。"},
+{name:"北區醫院",en:"North District Hospital",net:"新界東聯網",type:"綜合急症醫院",intro:"上水北區，24小時急症，內外科、婦兒科。"},
+{name:"大埔醫院",en:"Tai Po Hospital",net:"新界東聯網",type:"復康療養醫院",intro:"大埔，中風、骨科復康，長者療養。"},
+{name:"雅麗氏何妙齡那打素醫院",en:"Alice Ho Miu Ling Nethersole Hospital",net:"新界東聯網",type:"綜合急症醫院",intro:"大埔綜合急症醫院，婦產科、兒科出名。"},
+{name:"沙田醫院",en:"Sha Tin Hospital",net:"新界東聯網",type:"精神科及復康醫院",intro:"成人精神科、物質濫用治療、復康服務。"},
+{name:"白普理寧養中心",en:"Bradbury Hospice",net:"新界東聯網",type:"寧養中心",intro:"晚期癌症病人寧養舒緩治療。"},
+
+{name:"屯門醫院",en:"Tuen Mun Hospital",net:"新界西聯網",type:"大型綜合急症醫院",intro:"新界西聯網旗艦，屯門，24小時急症創傷中心，全港病床最多醫院之一。"},
+{name:"博愛醫院",en:"Pok Oi Hospital",net:"新界西聯網",type:"綜合社區急症醫院",intro:"元朗，24小時急症，內外科、婦兒科。"},
+{name:"天水圍醫院",en:"Tin Shui Wai Hospital",net:"新界西聯網",type:"社區急症醫院",intro:"天水圍，急症室、專科門診，重症會轉送屯門醫院。"},
+{name:"青山醫院",en:"Castle Peak Hospital",net:"新界西聯網",type:"精神科專科醫院",intro:"香港歷史最悠久精神科醫院，成人精神科、老年精神科。"},
+{name:"小欖醫院",en:"Siu Lam Hospital",net:"新界西聯網",type:"嚴重智障人士醫院",intro:"專門照顧嚴重智障成人，醫療、復康、護理。"},
+{name:"東華三院黃竹坑醫院",en:"Tung Wah Group of Hospitals Wong Fung Hospital",net:"新界西聯網",type:"復康護理醫院",intro:"長者療養、復康延續護理。"},
+
+{name:"東區尤德夫人那打素醫院",en:"Pamela Youde Nethersole Eastern Hospital",net:"港島東聯網",type:"綜合創傷急症醫院",intro:"柴灣，港島東旗艦，24小時創傷中心，燒傷中心。"},
+{name:"律敦治醫院",en:"Ruttonjee Hospital",net:"港島東聯網",type:"綜合醫院",intro:"灣仔，內外科、胸肺科，設急症室。"},
+{name:"鄧肇堅醫院",en:"Tang Shiu Kin Hospital",net:"港島東聯網",type:"社區綜合醫院",intro:"灣仔，專科門診、日間手術，無24小時急症。"},
+{name:"東華三院東華東院",en:"Tung Wah Eastern Hospital",net:"港島東聯網",type:"復康及專科醫院",intro:"銅鑼灣，心臟復康、專科門診。"},
+{name:"長洲醫院",en:"Cheung Chau Hospital",net:"港島東聯網",type:"離島社區醫院",intro:"長洲，24小時急症，穩定病人轉市區。"},
+{name:"大澳醫院",en:"Tai O Hospital",net:"港島東聯網",type:"離島小型醫院",intro:"大澳，門診、簡單護理，無急症。"},
+
+{name:"基督教聯合醫院",en:"United Christian Hospital",net:"九龍東聯網",type:"綜合急症醫院",intro:"觀塘，九龍東聯網旗艦，24小時急症，內外科、腫瘤科。"},
+{name:"將軍澳醫院",en:"Tseung Kwan O Hospital",net:"九龍東聯網",type:"綜合急症醫院",intro:"將軍澳，24小時急症，婦產科、兒科。"},
+{name:"靈實恩光醫院",en:"Haven of Hope En Guang Hospital",net:"九龍東聯網",type:"精神健康及復康醫院",intro:"提供精神復康、長者延續護理。"},
+{name:"東華三院姚達之紀念醫院",en:"Tung Wah Group of Hospitals Yiu Dav Memorial Hospital",net:"九龍東聯網",type:"療養復康醫院",intro:"長者療養、內科復康服務。"},
+{name:"東華三院方潤華醫院",en:"Tung Wah Group of Hospitals Fung Run Wah Hospital",net:"九龍東聯網",type:"復康護理院",intro:"中風及骨科復康，安老延續護理。"},
+{name:"明愛樂恩醫院",en:"Caritas Lok Yan Hospital",net:"九龍東聯網",type:"精神科復康醫院",intro:"精神康復、日間訓練服務。"},
+{name:"明愛樂協醫院",en:"Caritas Lok Heep Hospital",net:"九龍東聯網",type:"精神科復康醫院",intro:"成人精神復康、住宿護理。"}
 ];
 
-let cq=[],ci=0,sc=0,an=0,tq=0,cm="all";
-const sh=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+// ========== 全局變數 ==========
+let currentList = [];
+let currentIndex = 0;
+let correct = 0;
 
-function toggleLang(){isEn=!isEn;document.getElementById('langBtn').textContent=isEn?'🌐 中文':'🌐 EN';if(!document.getElementById('homeArea').classList.contains('hidden'))showHome();if(!document.getElementById('quizArea').classList.contains('hidden'))renderQ();if(!document.getElementById('hospitalArea').classList.contains('hidden'))showH()}
+// ========== 分頁切換 ==========
+document.querySelectorAll(".tab").forEach(t=>{
+t.onclick=()=>{
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+t.classList.add("active");
+let tar = t.dataset.tab;
+document.querySelectorAll(".content").forEach(c=>c.classList.remove("show"));
+document.getElementById(tar).classList.add("show");
+if(tar==="hospital") loadHospital();
+}
+})
 
-function showHome(){document.getElementById('homeArea').classList.remove('hidden');document.getElementById('quizArea').classList.add('hidden');document.getElementById('hospitalArea').classList.add('hidden');document.getElementById('resultArea').classList.add('hidden');document.getElementById('homeBtn').classList.add('hidden');document.getElementById('statsBar').classList.add('hidden');document.getElementById('pageTitle').textContent=isEn?"🩺 ERB HCSW Exam":"🩺 ERB 醫護支援考試";
-const mods=[{name:"全部題目",name_en:"All Questions",count:Q.length,id:"all"},...Array.from(new Set(Q.map(q=>q.m))).map(m=>({name:m,name_en:Q.find(q=>q.m===m).m_en,count:Q.filter(q=>q.m===m).length,id:m})),{name:"🏥 醫院分佈",name_en:"🏥 Hospital Map",count:"地圖",id:"hospital"}];
-let h=`<div class="card"><h2 style="font-size:18px;margin-bottom:12px;">${isEn?"Select Module":"請選擇測驗模塊"}</h2><div class="module-grid">`;
-mods.forEach(m=>{h+=`<div class="module-card" onclick="startM('${m.id}')"><h3>${isEn?m.name_en:m.name}</h3><p>${m.count} ${isEn?"items":"項"}</p></div>`});h+=`</div></div>`;document.getElementById('homeArea').innerHTML=h}
+// ========== 載入醫院百科 ==========
+function loadHospital(){
+let html = "";
+HOSPITAL_DB.forEach(h=>{
+html += `<div class="hospital-item">
+<strong>${h.name} / ${h.en}</strong><br>
+所屬聯網：${h.net}｜類型：${h.type}<br>
+介紹：${h.intro}
+</div>`;
+})
+document.getElementById("hospitalList").innerHTML = html;
+}
 
-function startM(id){if(id==="hospital"){showH();return}cm=id;const p=id==="all"?Q:Q.filter(q=>q.m===id);const mc=sh(p).slice(0,20);cq=mc;tq=cq.length;ci=0;sc=0;an=0;document.getElementById('homeArea').classList.add('hidden');document.getElementById('resultArea').classList.add('hidden');document.getElementById('quizArea').classList.remove('hidden');document.getElementById('hospitalArea').classList.add('hidden');document.getElementById('homeBtn').classList.remove('hidden');document.getElementById('statsBar').classList.remove('hidden');document.getElementById('pageTitle').textContent=isEn?`🩺 ${id==="all"?"All":Q.find(q=>q.m===id).m_en} Exam`:`🩺 ${id==="all"?"全部":id} 測驗`;renderQ()}
+// ========== 語言切換 ==========
+document.getElementById("langSwitch").onclick=()=>{
+isCN=!isCN;
+document.getElementById("langSwitch").innerText = isCN?"切換 English":"切換 中文";
+if(currentList.length>0) renderQ();
+}
 
-function showH(){document.getElementById('homeArea').classList.add('hidden');document.getElementById('quizArea').classList.add('hidden');document.getElementById('resultArea').classList.add('hidden');document.getElementById('hospitalArea').classList.remove('hidden');document.getElementById('homeBtn').classList.remove('hidden');document.getElementById('statsBar').classList.add('hidden');document.getElementById('pageTitle').textContent=isEn?"🏥 Hospital Map":"🏥 醫院分佈";
-let h=`<div class="card"><h2 style="font-size:18px;margin-bottom:12px;">${isEn?"Hospital Authority Clusters":"醫院管理局七大聯網"}</h2><div class="hl">`;
-H.forEach(n=>{h+=`<div class="hi"><h4>${isEn?n.network_en:n.network.split(" / ")[0]}</h4>`;n.hospitals.forEach(x=>{h+=`<p>📍 ${isEn?x.name_en:x.name} <br><small>${x.location}</small></p>`});h+=`</div>`});
-h+=`</div><div class="nav-links"><a href="https://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=10036&Lang=CHIB5" target="_blank">🗺️ 醫管局官方分佈圖</a><a href="https://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=10053&Lang=CHIB5" target="_blank">🏥 專科門診</a><a href="https://www.ha.org.hk/visitor/ha_visitor_index.asp?Content_ID=10052&Lang=CHIB5" target="_blank">🩺 家庭醫學門診</a></div></div>`;
-document.getElementById('hospitalArea').innerHTML=h}
+// ========== 開始刷題 ==========
+document.getElementById("startBtn").onclick=()=>{
+let m = document.getElementById("modSelect").value;
+if(m==="all") currentList = [...Q_DB];
+else currentList = Q_DB.filter(x=>x.mod===m);
+currentIndex=0;correct=0;
+renderQ();updateProg();
+}
 
-function uS(){document.getElementById('progress').textContent=isEn?`Progress: ${an} / ${tq}`:`進度: ${an} / ${tq}`;const a=an>0?Math.round((sc/an)*100):0;document.getElementById('accuracy').textContent=isEn?`Accuracy: ${a}%`:`正確率: ${a}%`}
+// ========== 渲染題目 ==========
+function renderQ(){
+let d = currentList[currentIndex][isCN?"zh":"en"];
+document.getElementById("question").innerText = (currentIndex+1)+". "+d.q;
+let optHtml = "";
+d.opt.forEach((txt,i)=>{
+optHtml += `<div class="opt" data-i="${i}">${txt}</div>`;
+})
+document.getElementById("options").innerHTML = optHtml;
+document.getElementById("explain").style.display="none";
+document.getElementById("nextBtn").style.display="none";
 
-function renderQ(){if(ci>=cq.length){showRes();return}const q=cq[ci];const ar=document.getElementById('quizArea');
-ar.innerHTML=`<div class="card"><div class="q-num">${isEn?`Q ${ci+1} / ${tq}`:`第 ${ci+1} 題 / 共 ${tq} 題`}</div><div class="q-text">${isEn?q.q_en:q.q}</div><div id="opts">${q.o.map((o,i)=>`<button class="option" onclick="sel(${i})">${String.fromCharCode(65+i)}. ${isEn?q.o_en[i]:o}${isEn?`<span class="option-en">${o}</span>`:``}</button>`).join('')}</div><div id="fb" class="feedback"></div><button id="nb" class="btn btn-p hidden" onclick="nx()">${isEn?'Next →':'下一題 →'}</button></div>`;
-uS();window.scrollTo({top:0,behavior:'smooth'})}
+// 選項點擊
+document.querySelectorAll(".opt").forEach(o=>{
+o.onclick=()=>{
+document.querySelectorAll(".opt").forEach(x=>x.style.pointerEvents="none");
+let idx = parseInt(o.dataset.i);
+if(idx===d.ans){
+o.classList.add("correct");correct++;
+}else{
+o.classList.add("wrong");
+document.querySelectorAll(".opt")[d.ans].classList.add("correct");
+}
+document.getElementById("explain").innerText = d.exp;
+document.getElementById("explain").style.display="block";
+document.getElementById("nextBtn").style.display="inline-block";
+updateProg();
+}
+})
+}
 
-function sel(s){const q=cq[ci];const os=document.querySelectorAll('.option');const fb=document.getElementById('fb');os.forEach(o=>o.classList.add('disabled'));os[q.a].classList.add('correct');if(s!==q.a)os[s].classList.add('wrong');const ok=s===q.a;if(ok)sc++;an++;fb.className=`feedback show ${ok?'fb-ok':'fb-no'}`;fb.innerHTML=ok?`✅ ${isEn?'Correct!':'正確！'}<br><small>${isEn?q.e_en:q.e}</small>`:`❌ ${isEn?'Wrong. Answer: ':'答錯了。正確答案：'}${String.fromCharCode(65+q.a)}<br><small>${isEn?q.e_en:q.e}</small>`;document.getElementById('nb').classList.remove('hidden');uS()}
+// ========== 下一題 ==========
+document.getElementById("nextBtn").onclick=()=>{
+currentIndex++;
+if(currentIndex>=currentList.length){
+alert(isCN?"練習完結！":"Practice completed!");
+return;
+}
+renderQ();
+}
 
-function nx(){ci++;renderQ()}
-
-function showRes(){document.getElementById('quizArea').classList.add('hidden');const ar=document.getElementById('resultArea');ar.classList.remove('hidden');const p=tq>0?Math.round((sc/tq)*100):0;const m=p>=80?'🎉 '+(isEn?'Excellent!':'表現優秀！'):p>=60?'👍 '+(isEn?'Good!':'不錯！'):'📚 '+(isEn?'Keep studying.':'建議多複習。');ar.innerHTML=`<div class="card result"><h2>${isEn?'Completed':'測驗完成'}</h2><div class="score">${p}%</div><p>${isEn?`Correct ${sc}/${tq}`:`答對 ${sc}/${tq} 題`}</p><p style="margin-bottom:24px;color:#4a5568;">${m}</p><button class="btn btn-p" onclick="startM('${cm}')">${isEn?'Retake':'重考'}</button><button class="btn btn-b" onclick="showHome()">${isEn?'Home':'返回主頁'}</button></div>`;window.scrollTo({top:0,behavior:'smooth'})}
-
-showHome();
+// ========== 更新進度 ==========
+function updateProg(){
+let total = currentList.length;
+let rate = total===0?0:Math.round(correct/total*100);
+document.getElementById("progressBar").innerText = isCN
+?`進度：${currentIndex+1}/${total}｜答對：${correct}｜正確率：${rate}%`
+:`Progress: ${currentIndex+1}/${total}｜Correct: ${correct}｜Accuracy: ${rate}%`;
+}
 </script>
 </body>
 </html>
