@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>護理題庫瀏覽器</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>護理題庫總覽</title>
   <style>
-    body { font-family: sans-serif; margin: 2rem; background: #f8fafc; color: #111827; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .controls { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    select, input, button { padding: 0.7rem 0.8rem; border-radius: 8px; border: 1px solid #cbd5e1; }
-    button { background: #2563eb; color: white; border: none; }
-    .summary { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; }
-    .badge { display: inline-block; margin-right: 0.35rem; background: #dbeafe; color: #1d4ed8; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.76rem; }
-    .answer { color: #15803d; font-weight: 600; margin-top: 0.75rem; }
+    body { font-family: system-ui, sans-serif; background: #f5f7fb; color: #1f2937; margin: 0; }
+    .container { max-width: 1200px; margin: auto; padding: 24px; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+    select, input, button { padding: 10px 12px; border-radius: 10px; border: 1px solid #d1d5db; }
+    button { background: #2563eb; color: white; border: none; cursor: pointer; }
+    .summary { background: white; border: 1px solid #e5e7eb; padding: 16px; border-radius: 12px; margin-bottom: 18px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; }
+    .badge { display: inline-block; background: #dbeafe; color: #1d4ed8; padding: 4px 8px; border-radius: 999px; font-size: 12px; margin-right: 6px; }
+    .answer { color: #15803d; font-weight: 700; margin-top: 10px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>護理題庫瀏覽器</h1>
-    <div class="controls">
+    <h1>護理題庫總覽</h1>
+    <div class="toolbar">
       <select id="moduleFilter"><option value="all">全部模組</option></select>
       <select id="difficultyFilter">
         <option value="all">全部難度</option>
@@ -28,31 +28,30 @@
         <option value="medium">medium</option>
         <option value="hard">hard</option>
       </select>
-      <input id="searchBox" type="text" placeholder="搜尋題目 / 模組 / 關鍵字" style="min-width:250px;" />
+      <input id="searchInput" type="text" placeholder="搜尋題目 / 模組 / 關鍵字" style="min-width:260px;" />
       <button id="loadBtn">載入題庫</button>
     </div>
     <div class="summary" id="summaryBox"></div>
-    <div class="card-grid" id="cardBox"></div>
+    <div class="cards" id="cardBox"></div>
   </div>
 
   <script>
-    let fullData = [];
-    let currentData = [];
+    let data = [];
 
-    function renderSummary() {
-      const total = currentData.length;
-      const modules = new Set(currentData.map(x => x.module)).size;
-      document.getElementById('summaryBox').innerHTML = `結果數: ${total} / ${fullData.length} &nbsp; | &nbsp; 模組數: ${modules}`;
+    function renderSummary(filtered) {
+      document.getElementById('summaryBox').innerHTML = `
+        <strong>題目數:</strong> ${filtered.length} / ${data.length}<br>
+        <strong>模組數:</strong> ${new Set(filtered.map(x => x.module)).size}
+      `;
     }
 
-    function renderCards() {
+    function renderCards(filtered) {
       const box = document.getElementById('cardBox');
-      if (!currentData.length) {
+      if (!filtered.length) {
         box.innerHTML = '<div class="card">沒有符合條件的題目。</div>';
         return;
       }
-
-      box.innerHTML = currentData.map(item => {
+      box.innerHTML = filtered.map(item => {
         const answer = item.choices.find(c => c.correct)?.text_cn || 'N/A';
         return `
           <div class="card">
@@ -63,47 +62,42 @@
             </div>
             <h3>${item.question_cn}</h3>
             <p><em>${item.question_en}</em></p>
-            <ul>
-              ${item.choices.map(c => `<li>${c.text_cn}</li>`).join('')}
-            </ul>
+            <ul>${item.choices.map(c => `<li>${c.text_cn}</li>`).join('')}</ul>
             <div class="answer">答案：${answer}</div>
           </div>
         `;
       }).join('');
     }
 
-    function filterData() {
-      const moduleValue = document.getElementById('moduleFilter').value;
-      const difficultyValue = document.getElementById('difficultyFilter').value;
-      const query = document.getElementById('searchBox').value.toLowerCase();
-
-      currentData = fullData.filter(item => {
-        const matchesModule = moduleValue === 'all' || item.module === moduleValue;
-        const matchesDifficulty = difficultyValue === 'all' || item.difficulty === difficultyValue;
-        const haystack = `${item.id} ${item.module} ${item.question_cn} ${item.question_en} ${item.tags.join(' ')}`.toLowerCase();
-        const matchesQuery = !query || haystack.includes(query);
-        return matchesModule && matchesDifficulty && matchesQuery;
+    function applyFilters() {
+      const module = document.getElementById('moduleFilter').value;
+      const difficulty = document.getElementById('difficultyFilter').value;
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = data.filter(item => {
+        const matchModule = module === 'all' || item.module === module;
+        const matchDifficulty = difficulty === 'all' || item.difficulty === difficulty;
+        const hay = `${item.id} ${item.module} ${item.question_cn} ${item.question_en} ${item.tags.join(' ')}`.toLowerCase();
+        const matchQuery = !q || hay.includes(q);
+        return matchModule && matchDifficulty && matchQuery;
       });
-
-      renderSummary();
-      renderCards();
+      renderSummary(filtered);
+      renderCards(filtered);
     }
 
     async function loadData() {
       const response = await fetch('nursing_questions_Q0101-Q1000.jsonl');
       const text = await response.text();
-      const rows = text.trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
-      fullData = rows;
+      data = text.trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
 
-      const modules = [...new Set(rows.map(r => r.module))];
-      const moduleSelect = document.getElementById('moduleFilter');
-      moduleSelect.innerHTML = '<option value="all">全部模組</option>' + modules.map(m => `<option value="${m}">${m}</option>`).join('');
+      const modules = [...new Set(data.map(x => x.module))];
+      const moduleFilter = document.getElementById('moduleFilter');
+      moduleFilter.innerHTML = '<option value="all">全部模組</option>' + modules.map(m => `<option value="${m}">${m}</option>`).join('');
 
-      document.getElementById('moduleFilter').addEventListener('change', filterData);
-      document.getElementById('difficultyFilter').addEventListener('change', filterData);
-      document.getElementById('searchBox').addEventListener('input', filterData);
-      document.getElementById('loadBtn').addEventListener('click', filterData);
-      filterData();
+      document.getElementById('moduleFilter').addEventListener('change', applyFilters);
+      document.getElementById('difficultyFilter').addEventListener('change', applyFilters);
+      document.getElementById('searchInput').addEventListener('input', applyFilters);
+      document.getElementById('loadBtn').addEventListener('click', applyFilters);
+      applyFilters();
     }
 
     loadData();
