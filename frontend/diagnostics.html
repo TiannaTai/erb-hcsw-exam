@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>弱點診斷 - ERB HCSW 題庫</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; max-width: 1000px; margin: 20px auto; padding: 0 12px; }
+    .header-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 16px 0; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 12px; background: #fafafa; }
+    .module-card { border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+    .bar { background: #eaeaea; border-radius: 999px; height: 10px; overflow: hidden; margin-top: 8px; }
+    .bar > span { display: block; height: 100%; background: linear-gradient(90deg,#ffb703,#fb8500); border-radius: 999px; }
+    .button-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    button, a.button { padding: 8px 12px; border: 1px solid #bbb; border-radius: 6px; text-decoration: none; color: #111; background: #f5f5f5; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="header-row">
+    <h1>弱點診斷</h1>
+    <div>
+      <a class="button" href="./quiz.html">回題庫</a>
+    </div>
+  </div>
+
+  <div id="summary" class="summary"></div>
+  <div id="moduleList"></div>
+
+  <script src="./diagnostics.js"></script>
+</body>
+</html>
