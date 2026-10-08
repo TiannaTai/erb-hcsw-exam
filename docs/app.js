@@ -1,6 +1,5 @@
 // app.js - client-side generator and UI
 (() => {
-  // Modules and templates (kept concise for client generation)
   const MODULES = {
     "急救與復甦": ["心肺復甦","氣道管理","CPR","急性呼吸衰竭","除顫","緊急應變"],
     "藥物護理": ["給藥安全","藥效觀察","副作用","劑量","注射","口服藥"],
@@ -20,7 +19,6 @@
   };
 
   function shortHash(s){
-    // simple hash for client side
     let h=0; for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0} return (h>>>0).toString(16).slice(-8)
   }
 
@@ -34,7 +32,6 @@
     const en = stem.replace(/病人/g,'patient').replace(/護理師/g,'nurse');
     const answer = module==='急救與復甦'? '先評估生命徵象並啟動急救流程' : '確認病人身份與醫囑';
     const choices = [answer, '等待家屬決定', '延後至下一班', '忽略評估'];
-    // shuffle
     for(let j=choices.length-1;j>0;j--){const k=Math.floor(Math.random()*(j+1));[choices[j],choices[k]]=[choices[k],choices[j]]}
     const choiceObjs = choices.map(c=>({text_cn:c,text_en:c,correct:c===answer}));
     return {
@@ -50,7 +47,6 @@
     return out;
   }
 
-  // UI
   const datasetSelect=document.getElementById('datasetSelect');
   const moduleFilter=document.getElementById('moduleFilter');
   const difficultyFilter=document.getElementById('difficultyFilter');
@@ -62,6 +58,7 @@
   const summary=document.getElementById('summary');
 
   let currentBank=[];
+  let fallbackNotice = '';
 
   function populateModuleOptions(bank){
     const mods=[...new Set(bank.map(q=>q.module))];
@@ -69,7 +66,8 @@
   }
 
   function render(bank){
-    const qcount=bank.length; summary.innerHTML=`題數: ${qcount} 題`;
+    const qcount=bank.length;
+    summary.innerHTML = `<strong>題數:</strong> ${qcount} 題${fallbackNotice ? ` <span style="color:#b45309;">| ${fallbackNotice}</span>` : ''}`;
     const filtered=bank.filter(q=>{
       const modOk = moduleFilter.value==='all' || q.module===moduleFilter.value;
       const diffOk = difficultyFilter.value==='all' || q.difficulty===difficultyFilter.value;
@@ -95,23 +93,64 @@
   function toJsonl(bank){ return bank.map(r=>JSON.stringify(r, null, 0)).join('\n') + '\n'; }
   function toCsv(bank){
     const rows = [['id','module','difficulty','question_cn','question_en','correct_answer','tags']];
-    for(const r of bank){ const ans = r.choices.find(c=>c.correct).text_cn; rows.push([r.id,r.module,r.difficulty,`"${r.question_cn.replace(/"/g,'""')}` ,`"${r.question_en.replace(/"/g,'""')}`,`"${ans.replace(/"/g,'""')}`,`"${r.tags.join(';')}` ]); }
+    for(const r of bank){
+      const ans = r.choices.find(c=>c.correct).text_cn;
+      rows.push([r.id,r.module,r.difficulty,`"${r.question_cn.replace(/"/g,'""')}` ,`"${r.question_en.replace(/"/g,'""')}`,`"${ans.replace(/"/g,'""')}`,`"${r.tags.join(';')}` ]);
+    }
     return rows.map(r=>r.join(',')).join('\n');
   }
 
-  regenBtn.addEventListener('click', regen);
+  async function loadData(){
+    const fallback = generateBank(60);
+    const candidates = [
+      '../nursing_questions_Q0101-Q1000.jsonl',
+      './nursing_questions_Q0101-Q1000.jsonl',
+      '../questions'
+    ];
+
+    try {
+      const resp = await fetch(candidates[0], { cache: 'no-store' });
+      if (!resp.ok) throw new Error('No JSONL file found');
+      const text = await resp.text();
+      const rows = text.trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+      if (!rows.length) throw new Error('Empty dataset');
+      currentBank = rows;
+      fallbackNotice = '';
+    } catch (err) {
+      currentBank = fallback;
+      fallbackNotice = '未找到 JSONL 檔，已自動生成本地示例題庫';
+      console.warn('Using fallback bank because JSONL file was missing:', err);
+    }
+
+    populateModuleOptions(currentBank);
+    render(currentBank);
+  }
+
+  regenBtn.addEventListener('click', () => {
+    const n = Number(datasetSelect.value);
+    currentBank = generateBank(n);
+    fallbackNotice = '已重新生成示例題庫';
+    populateModuleOptions(currentBank);
+    render(currentBank);
+  });
+
   moduleFilter.addEventListener('change', ()=>render(currentBank));
   difficultyFilter.addEventListener('change', ()=>render(currentBank));
   searchBox.addEventListener('input', ()=>render(currentBank));
-  datasetSelect.addEventListener('change', regen);
+  datasetSelect.addEventListener('change', () => {
+    const n = Number(datasetSelect.value);
+    currentBank = generateBank(n);
+    fallbackNotice = '已切換題量';
+    populateModuleOptions(currentBank);
+    render(currentBank);
+  });
 
   downloadJsonl.addEventListener('click', ()=>{
-    download(`nursing_questions_Q0101-Q${String(currentBank.length+100).padStart(4,'0')}.jsonl`, toJsonl(currentBank));
+    download(`nursing_questions_Q0101-Q${String(currentBank.length + 100).padStart(4,'0')}.jsonl`, toJsonl(currentBank));
   });
   downloadCsv.addEventListener('click', ()=>{
-    download(`nursing_questions_Q0101-Q${String(currentBank.length+100).padStart(4,'0')}.csv`, toCsv(currentBank));
+    download(`nursing_questions_Q0101-Q${String(currentBank.length + 100).padStart(4,'0')}.csv`, toCsv(currentBank));
   });
 
-  // init
-  regen();
+  loadData();
 })();
