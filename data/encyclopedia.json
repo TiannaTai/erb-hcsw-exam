@@ -1,0 +1,56 @@
+[
+  {
+    "id": "E001",
+    "title_cn": "壓瘡（壓力性損傷）",
+    "title_en": "Pressure Injury",
+    "summary_cn": "因局部長期壓力導致皮膚及深層組織受損，常見於長期臥床或活動受限的病人。預防策略包括定期翻身、減少局部壓力與皮膚保護。",
+    "summary_en": "Damage to skin and underlying tissue caused by prolonged local pressure, common in bedridden or immobile patients. Prevention includes regular repositioning, offloading, and skin protection.",
+    "related_tags": ["壓瘡", "體位變換", "皮膚照護"],
+    "linked_questions": ["Q0001", "Q0016"]
+  },
+  {
+    "id": "E002",
+    "title_cn": "低血糖",
+    "title_en": "Hypoglycemia",
+    "summary_cn": "血糖低於正常範圍時會引起頭暈、出汗、心悸、意識改變等症狀。若病人可口服，應補糖並重新評估；若不能口服，需依醫囑處理。",
+    "summary_en": "When blood glucose falls below the normal range, symptoms may include dizziness, sweating, palpitations, and altered consciousness. If oral intake is possible, give glucose and reassess; if not, follow clinical guidance.",
+    "related_tags": ["血糖", "急救", "低血糖"],
+    "linked_questions": ["Q0006", "Q0009"]
+  },
+  {
+    "id": "E003",
+    "title_cn": "感染控制與手部衛生",
+    "title_en": "Infection Control and Hand Hygiene",
+    "summary_cn": "正確的手部衛生是預防院內感染的核心。接觸病人前後、無菌操作前後及污染後應進行洗手或使用酒精消毒。",
+    "summary_en": "Correct hand hygiene is central to preventing healthcare-associated infection. Wash hands or use alcohol-based rub before/after patient contact and after exposure to contamination.",
+    "related_tags": ["感染控制", "手部衛生", "無菌"],
+    "linked_questions": ["Q0002", "Q0007", "Q0012"]
+  },
+  {
+    "id": "E004",
+    "title_cn": "心肺復甦術 (CPR)",
+    "title_en": "Cardiopulmonary Resuscitation (CPR)",
+    "summary_cn": "CPR 的目標是維持血液循環與氧供。按照最新指引，成人胸外按壓速率建議 100-120 次/分鐘，並盡量減少中斷。",
+    "summary_en": "CPR aims to maintain circulation and oxygen delivery. Adult chest compression rate is recommended at 100–120 per minute, with minimal interruptions.",
+    "related_tags": ["CPR", "急救", "呼吸道"],
+    "linked_questions": ["Q0003", "Q0008"]
+  },
+  {
+    "id": "E005",
+    "title_cn": "疼痛評估",
+    "title_en": "Pain Assessment",
+    "summary_cn": "疼痛評估應涵蓋部位、程度、性質與影響。常用量表例如 NRS 0-10 或 VAS，能幫助追蹤治療效果。",
+    "summary_en": "Pain assessment should include location, intensity, characteristics and impact. Common tools such as NRS 0–10 or VAS help monitor treatment response.",
+    "related_tags": ["疼痛", "評估", "舒適照護"],
+    "linked_questions": ["Q0010"]
+  },
+  {
+    "id": "E006",
+    "title_cn": "跌倒預防",
+    "title_en": "Fall Prevention",
+    "summary_cn": "跌倒預防需評估病人的步態、意識狀態、藥物使用及環境因素。護理措施包括協助移動、使用輔具與標示風險。",
+    "summary_en": "Fall prevention requires assessment of gait, consciousness, medications, and environment. Nursing measures include assistance with ambulation, mobility aids, and risk labeling.",
+    "related_tags": ["跌倒", "安全", "護理"],
+    "linked_questions": ["Q0011", "Q0015"]
+  }
+]

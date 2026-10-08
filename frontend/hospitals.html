@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>醫院分佈 - ERB HCSW 題庫</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; max-width: 1100px; margin: 12px auto; padding: 8px; }
+    #map { height: 520px; border: 1px solid #ddd; border-radius: 6px; }
+    .controls { margin-bottom: 10px; }
+    .hospital-item { padding: 10px; border-bottom: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <h1>醫院分佈（Prototype）</h1>
+  <p>地圖顯示主要醫院/機構的分佈，點選可查看相關聯的題目與科別。</p>
+
+  <div class="controls">
+    地區：
+    <select id="regionFilter"><option value="all">全部</option></select>
+    關鍵字：
+    <input id="keyword" placeholder="例如：急診、老年照護" />
+    <button id="searchBtn">搜尋</button>
+    <a href="./quiz.html" style="margin-left: 12px;">回題庫</a>
+    <a href="./encyclopedia.html" style="margin-left: 8px;">醫療百科</a>
+  </div>
+
+  <div id="map"></div>
+  <div id="hospitalList" style="margin-top: 12px;"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="./hospitals.js"></script>
+</body>
+</html>
