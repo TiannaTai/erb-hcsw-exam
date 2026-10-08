@@ -1,4 +1,4 @@
-// quiz.js — prototype logic with study, exam, and weak-point review modes
+// quiz.js — study, exam, and weak-point review modes
 (async function(){
   const primaryUrl = '../questions/question-bank.ndjson';
   const fallbackUrl = '../questions/sample-questions.ndjson';
@@ -31,6 +31,12 @@
     moduleFilter.appendChild(o);
   });
 
+  const params = new URLSearchParams(window.location.search);
+  const urlMode = params.get('mode');
+  const urlModule = params.get('module');
+  if (urlMode) modeFilter.value = urlMode;
+  if (urlModule) moduleFilter.value = urlModule;
+
   const state = {
     currentSet: [],
     index: 0,
@@ -44,11 +50,6 @@
 
   const showEnglish = () => langToggle.checked;
 
-  function getFocusQuestionId(){
-    const params = new URLSearchParams(window.location.search);
-    return params.get('focus') || null;
-  }
-
   function loadWeakIds(){
     return JSON.parse(localStorage.getItem('erbWeakIds') || '[]');
   }
@@ -57,12 +58,14 @@
     localStorage.setItem('erbWeakIds', JSON.stringify(ids));
   }
 
-  function ensureUnique(list){
-    return [...new Set(list)];
+  function setStatus(msg){
+    if (statusSpan) statusSpan.textContent = msg || '';
   }
 
-  function setStatus(msg){
-    statusSpan.textContent = msg || '';
+  function stopTimer(){
+    clearInterval(state.timerId);
+    state.timerId = null;
+    if (timerSpan) timerSpan.textContent = '—';
   }
 
   function startTimer(limitSec){
@@ -71,7 +74,7 @@
     const deadline = state.startedAt + limitSec * 1000;
     const tick = () => {
       const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
-      timerSpan.textContent = `${remaining}s`;
+      if (timerSpan) timerSpan.textContent = `${remaining}s`;
       if (remaining <= 0) {
         clearInterval(state.timerId);
         setStatus('時間到！請查看結果。');
@@ -82,10 +85,8 @@
     state.timerId = setInterval(tick, 1000);
   }
 
-  function stopTimer(){
-    clearInterval(state.timerId);
-    state.timerId = null;
-    timerSpan.textContent = '—';
+  function ensureUnique(list){
+    return [...new Set(list)];
   }
 
   function filteredQuestions(mode){
@@ -194,7 +195,7 @@
         <h3>測驗結束</h3>
         <p>總題數：${state.currentSet.length}</p>
         <p>答對：${state.correctCount}</p>
-        <p>錯題重複練習：${state.currentSet.filter(q => q.id !== '').length}</p>
+        <p><a href="./diagnostics.html">查看弱點診斷</a></p>
       </div>
     `;
     scoreSpan.textContent = '結果已生成';
@@ -212,7 +213,7 @@
     }
     state.index = 0;
     state.correctCount = 0;
-    setStatus(mode === 'exam' ? '考試模式：請在時間內作答' : '學習模式：逐題練習');
+    setStatus(mode === 'exam' ? '考試模式：請在時間內作答' : mode === 'weak-points' ? '弱點重做：優先補強錯題' : '學習模式：逐題練習');
     const limit = mode === 'exam' ? 300 : 0;
     if (limit > 0) startTimer(limit);
     else stopTimer();
@@ -220,7 +221,7 @@
   }
 
   function startFromFocus(){
-    const focusId = getFocusQuestionId();
+    const focusId = params.get('focus');
     if (!focusId) return;
     const match = questions.find(q => q.id === focusId);
     if (!match) return;
@@ -238,9 +239,6 @@
     }
   };
 
-  const focusId = getFocusQuestionId();
-  if (focusId) startFromFocus();
-  else {
-    startQuiz();
-  }
+  if (params.get('focus')) startFromFocus();
+  else startQuiz();
 })();
