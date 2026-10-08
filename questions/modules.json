@@ -1,0 +1,10 @@
+[
+  {"module":"基礎護理","count":150,"description":"生活照護、活動、清潔、體位、壓瘡預防"},
+  {"module":"感染控制","count":120,"description":"手部衛生、隔離、消毒、病原與環境管理"},
+  {"module":"急救","count":140,"description":"CPR、氣道、休克、創傷與應急處置"},
+  {"module":"藥物護理","count":150,"description":"給藥安全、劑量、路徑、過敏與藥物監測"},
+  {"module":"評估與紀錄","count":120,"description":"生命徵象、疼痛、病歷紀錄與文件規範"},
+  {"module":"老年照護","count":110,"description":"認知、跌倒、營養、舒適與活動支持"},
+  {"module":"內科常見","count":100,"description":"高血糖、血壓、喘鳴、常見症狀與風險篩檢"},
+  {"module":"倫理與安全","count":110,"description":"病人權利、隱私、倫理決策、照護安全"}
+]
