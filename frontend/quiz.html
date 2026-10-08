@@ -17,6 +17,10 @@
     .link-btn{padding:6px 10px;border:1px solid #bbb;border-radius:6px;background:#f5f5f5;text-decoration:none;color:#111}
     .topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .chip{padding:4px 8px;border-radius:999px;background:#f0f0f0;font-size:12px}
+    .question-media{margin:12px 0 8px;padding:10px;border:1px solid #e0e0e0;border-radius:8px;background:#f9f9f9}
+    .question-media img, .question-media video, .question-media .lottie-holder{display:block;max-width:100%;margin:0 auto;border-radius:6px}
+    .media-caption{margin-top:8px;font-size:13px;color:#555}
+    .media-action{margin-top:8px}
     footer{margin-top:20px;color:#555}
   </style>
 </head>
@@ -26,7 +30,7 @@
     <div class="topbar">
       <label><input id="langToggle" type="checkbox"> English</label>
       <span class="chip" id="timer">—</span>
-      <span class="chip" id="status">待開始</span>
+      <span class="chip" id="status" data-cn="待開始" data-en="Ready">待開始</span>
     </div>
   </header>
 
@@ -34,26 +38,31 @@
     <a class="link-btn" href="./hospitals.html">醫院分佈</a>
     <a class="link-btn" href="./encyclopedia.html">醫療百科</a>
     <a class="link-btn" href="./diagnostics.html">弱點診斷</a>
+    <a class="link-btn" href="./results.html">測驗結果</a>
   </div>
 
   <div class="controls">
-    模組：<select id="moduleFilter"><option value="all">全部</option></select>
-    題型：<select id="typeFilter"><option value="all">全部</option><option value="mcq">選擇題</option><option value="short">簡答</option></select>
-    模式：<select id="modeFilter">
-      <option value="study">學習模式</option>
-      <option value="exam">考試模式</option>
-      <option value="weak-points">弱點重做</option>
+    <span data-cn="模組：" data-en="Module:">模組：</span>
+    <select id="moduleFilter"><option value="all">全部</option></select>
+    <span data-cn="題型：" data-en="Type:">題型：</span>
+    <select id="typeFilter"><option value="all">全部</option><option value="mcq">選擇題</option><option value="short">簡答</option></select>
+    <span data-cn="模式：" data-en="Mode:">模式：</span>
+    <select id="modeFilter">
+      <option value="study" data-cn="學習模式" data-en="Study mode">學習模式</option>
+      <option value="exam" data-cn="考試模式" data-en="Exam mode">考試模式</option>
+      <option value="weak-points" data-cn="弱點重做" data-en="Weak-point review">弱點重做</option>
     </select>
-    <button id="startBtn">開始測驗</button>
+    <button id="startBtn" data-cn="開始測驗" data-en="Start quiz">開始測驗</button>
     <span id="score" style="margin-left:12px"></span>
   </div>
 
   <div id="quizArea"></div>
 
   <footer>
-    <small>Sample prototype: 20 題 (中英雙語)。支援學習／考試／弱點重做三種模式，錯題會自動加入重做清單。</small>
+    <small data-cn="Sample prototype: 20 題 (中英雙語)。支援學習／考試／弱點重做三種模式，錯題會自動加入重做清單。" data-en="Sample prototype: 20 questions (bilingual). Supports study, exam, and weak-point review modes; mistakes are automatically added to the review list.">Sample prototype: 20 題 (中英雙語)。支援學習／考試／弱點重做三種模式，錯題會自動加入重做清單。</small>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.6/lottie.min.js"></script>
   <script src="./quiz.js"></script>
 </body>
 </html>
