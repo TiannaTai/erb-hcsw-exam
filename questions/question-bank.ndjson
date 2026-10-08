@@ -1,20 +1,531 @@
-{"id":"Q0001","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"在臥床病人的體位變換時，最主要的目的為何？","question_en":"What is the primary purpose of repositioning a bedridden patient?","choices":[{"id":"A","text_cn":"增加病人的活動量","text_en":"Increase the patient's activity level","correct":false},{"id":"B","text_cn":"預防壓瘡與促進呼吸循環","text_en":"Prevent pressure injuries and promote respiratory/circulatory function","correct":true},{"id":"C","text_cn":"為了美觀與整潔","text_en":"For aesthetics and tidiness","correct":false},{"id":"D","text_cn":"減少護理人員的工作量","text_en":"Reduce nursing workload","correct":false}],"answer":"B","explanation_cn":"定期變換體位可減少局部壓力、促進肺部擴張與血液循環，能預防壓瘡與併發症。","explanation_en":"Regular repositioning reduces localized pressure, promotes lung expansion and circulation, and prevents pressure injuries and complications.","hints":["考慮臥床病人最常見的皮膚及呼吸問題","重點在於預防性護理，而不是美觀"],"tags":["壓瘡","體位變換"],"related_terms":["壓瘡預防"],"linked_hospitals":[],"source":"expert_draft","last_reviewed":""}
-{"id":"Q0002","module":"感染控制","type":"mcq","difficulty":"medium","question_cn":"下列哪一項最能降低手術部位感染的風險？","question_en":"Which of the following best reduces the risk of surgical site infections?","choices":[{"id":"A","text_cn":"術後立即給予抗生素即可","text_en":"Administer antibiotics immediately after surgery","correct":false},{"id":"B","text_cn":"手術前適當的皮膚消毒與無菌技術","text_en":"Proper preoperative skin antisepsis and aseptic technique","correct":true},{"id":"C","text_cn":"使用一次性手套即可","text_en":"Use disposable gloves only","correct":false},{"id":"D","text_cn":"延長手術時間以便徹底操作","text_en":"Prolong surgery time for thoroughness","correct":false}],"answer":"B","explanation_cn":"手術前的皮膚清潔消毒、抗菌藥物的適時給予與無菌操作是降低感染風險的關鍵。","explanation_en":"Preoperative skin antisepsis, timely prophylactic antibiotics, and aseptic technique are key to reducing infection risk.","hints":["重點在於預防而非術後補救"],"tags":["手術感染","無菌"],"related_terms":["無菌技術"],"linked_hospitals":[],"source":"guideline_draft","last_reviewed":""}
-{"id":"Q0003","module":"急救","type":"mcq","difficulty":"medium","question_cn":"成人心肺復甦術(CPR)時，胸外按壓的最佳速率為何？","question_en":"During adult CPR, what is the recommended rate for chest compressions?","choices":[{"id":"A","text_cn":"40 次/分鐘","text_en":"40 compressions per minute","correct":false},{"id":"B","text_cn":"60 次/分鐘","text_en":"60 compressions per minute","correct":false},{"id":"C","text_cn":"100-120 次/分鐘","text_en":"100-120 compressions per minute","correct":true},{"id":"D","text_cn":"140 次/分鐘以上","text_en":"Over 140 compressions per minute","correct":false}],"answer":"C","explanation_cn":"目前指南建議胸外按壓速率為每分鐘100至120次，深度約5-6公分，且保持最小的中斷。","explanation_en":"Guidelines recommend 100-120 compressions per minute, depth ~5-6 cm, with minimal interruptions.","hints":["參考最新心臟救命術指南中的按壓速率"],"tags":["CPR","急救"],"related_terms":["心肺復甦"],"linked_hospitals":[],"source":"AHA_draft","last_reviewed":""}
-{"id":"Q0004","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"給藥前三查是哪三查？","question_en":"What are the 'three checks' before medication administration?","choices":[{"id":"A","text_cn":"查病歷、查藥袋、查病人ID標籤","text_en":"Check patient record, medication bag, patient ID bracelet","correct":false},{"id":"B","text_cn":"查藥名、查劑量、查病人與給藥時間","text_en":"Check drug name, dose, patient and administration time","correct":false},{"id":"C","text_cn":"查藥品、查劑量、查病人，即\"三對\"（藥、量、病）","text_en":"Check drug, dose, patient (the 'three rights': right drug, right dose, right patient)","correct":false},{"id":"D","text_cn":"查藥、查劑量、查核對（藥、量、病）並核對時間和途徑","text_en":"Check drug, dose, and verification including time and route","correct":true}],"answer":"D","explanation_cn":"實務上包含核對藥品、劑量、病人，並確認給藥時間與途徑，避免用藥錯誤。","explanation_en":"Practically includes verifying drug, dose, patient, and confirming time and route to avoid medication errors.","hints":["記得用藥安全的標準程序"],"tags":["用藥安全","三查"],"related_terms":["藥物給予"],"linked_hospitals":[],"source":"medsafety_draft","last_reviewed":""}
-{"id":"Q0005","module":"評估與紀錄","type":"mcq","difficulty":"easy","question_cn":"下列何者不是護理紀錄應包含的要素？","question_en":"Which of the following is NOT typically included in nursing records?","choices":[{"id":"A","text_cn":"病人的主訴與客觀資料","text_en":"Patient's complaints and objective data","correct":false},{"id":"B","text_cn":"護理措施與反應","text_en":"Nursing interventions and responses","correct":false},{"id":"C","text_cn":"護理人員的個人主觀臆測且未經證實的信息","text_en":"Personal unverified subjective opinions of the nurse","correct":true},{"id":"D","text_cn":"給藥紀錄與過敏史","text_en":"Medication records and allergy history","correct":false}],"answer":"C","explanation_cn":"護理紀錄應以客觀、事實為主，避免未經證實的主觀臆測。","explanation_en":"Nursing records should be objective and factual, avoiding unverified subjective speculation.","hints":["紀錄原則：客觀、完整、即時"],"tags":["紀錄","專業倫理"],"related_terms":["護理紀錄"],"linked_hospitals":[],"source":"policy_draft","last_reviewed":""}
-{"id":"Q0006","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"若病人血糖低於70 mg/dL，下列首要處置為何？","question_en":"If a patient's blood glucose is below 70 mg/dL, what is the primary immediate action?","choices":[{"id":"A","text_cn":"立即施打胰島素","text_en":"Administer insulin immediately","correct":false},{"id":"B","text_cn":"給予含糖飲料或葡萄糖塊並重新測量血糖","text_en":"Give sugary drink or glucose tablets and recheck blood glucose","correct":true},{"id":"C","text_cn":"等待病人自然恢復","text_en":"Wait for spontaneous recovery","correct":false},{"id":"D","text_cn":"給予高蛋白餐點","text_en":"Provide high-protein meal","correct":false}],"answer":"B","explanation_cn":"低血糖時應立即補糖並再次評估，若無法口服則考慮靜脈葡萄糖或葡萄糖凝膠。","explanation_en":"Treat hypoglycemia immediately with oral glucose if possible and reassess; if oral not possible, consider IV glucose or glucagon.","hints":["想想低血糖的急救原則：補糖而非給胰島素"],"tags":["低血糖","急救"],"related_terms":["葡萄糖給予"],"linked_hospitals":[],"source":"endo_draft","last_reviewed":""}
-{"id":"Q0007","module":"感染控制","type":"mcq","difficulty":"easy","question_cn":"手部衛生最佳做法包含哪一項？","question_en":"Which of the following is a best practice for hand hygiene?","choices":[{"id":"A","text_cn":"只有在肉眼可見污垢時才洗手","text_en":"Only wash hands when visibly soiled","correct":false},{"id":"B","text_cn":"使用酒精性手部消毒劑在無明顯污垢時進行擦拭","text_en":"Use alcohol-based hand rub when hands are not visibly soiled","correct":true},{"id":"C","text_cn":"戴手套即可代替洗手","text_en":"Wearing gloves replaces handwashing","correct":false},{"id":"D","text_cn":"只需在班末洗手一次即可","text_en":"Only wash hands once at end of shift","correct":false}],"answer":"B","explanation_cn":"酒精性手部消毒劑在無明顯污染的情況下為最有效且方便的手部衛生方式。","explanation_en":"Alcohol-based hand rubs are effective and convenient when hands are not visibly soiled.","hints":["想到5瞬間：接觸病人前後、無菌處置前、體液暴露風險後、接觸病人周遭環境後"],"tags":["手部衛生"],"related_terms":["5個時刻"],"linked_hospitals":[],"source":"who_draft","last_reviewed":""}
-{"id":"Q0008","module":"急救","type":"mcq","difficulty":"hard","question_cn":"懷疑氣道阻塞且病人無反應、無正常呼吸時，初步處置為何？","question_en":"If airway obstruction is suspected and the patient is unresponsive and not breathing normally, what is the initial action?","choices":[{"id":"A","text_cn":"施行腹部推壓（海姆立克）直到異物排出","text_en":"Perform abdominal thrusts (Heimlich) until object expelled","correct":false},{"id":"B","text_cn":"立即開始心肺復甦術並每兩分鐘評估氣道","text_en":"Start CPR immediately and assess airway every 2 minutes","correct":true},{"id":"C","text_cn":"等待醫師到場再處置","text_en":"Wait for physician to arrive before intervening","correct":false},{"id":"D","text_cn":"給予氧氣並觀察","text_en":"Give oxygen and observe","correct":false}],"answer":"B","explanation_cn":"若病人無反應且無正常呼吸，應立即開始CPR，評估並在可安全情況下嘗試清除氣道異物。","explanation_en":"If unresponsive and not breathing normally, begin CPR immediately and attempt airway clearance when safe.","hints":["無反應+無呼吸是啟動CPR的指標"],"tags":["氣道阻塞","CPR"],"related_terms":["海姆立克"],"linked_hospitals":[],"source":"resus_draft","last_reviewed":""}
-{"id":"Q0009","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"當病人有青黴素過敏史，給予抗生素前應注意？","question_en":"If a patient has a penicillin allergy history, what should be considered before giving antibiotics?","choices":[{"id":"A","text_cn":"仍可直接給予任何廣效抗生素","text_en":"Proceed with any broad-spectrum antibiotic","correct":false},{"id":"B","text_cn":"確認過敏類型與嚴重程度並選擇替代藥物","text_en":"Confirm allergy type/severity and choose alternative agent","correct":true},{"id":"C","text_cn":"忽略病史，只看當前病情","text_en":"Ignore history and treat current condition only","correct":false},{"id":"D","text_cn":"給藥後再觀察是否出現過敏反應","text_en":"Administer and observe for reactions afterwards","correct":false}],"answer":"B","explanation_cn":"應先核實過敏史細節，若為嚴重過敏則選擇替代藥或諮詢過敏專科。","explanation_en":"Verify allergy details; for severe allergies, select alternatives or consult allergy specialists.","hints":["過敏史影響用藥選擇"],"tags":["過敏","用藥"],"related_terms":["青黴素過敏"],"linked_hospitals":[],"source":"antibiotic_draft","last_reviewed":""}
-{"id":"Q0010","module":"評估與紀錄","type":"short","difficulty":"medium","question_cn":"描述如何評估病人的疼痛強度（請列出一個常用量表）。","question_en":"Describe how to assess a patient's pain intensity (list a commonly used scale).","choices":[],"answer":"常用的有視覺類比量表（VAS, 0-10），可讓病人評分疼痛程度。 / A common tool is the Visual Analog Scale (VAS) 0-10.","explanation_cn":"VAS 或數字評分量表（NRS 0-10）是常用工具，簡單且可重複評估疼痛變化。","explanation_en":"VAS or Numeric Rating Scale (NRS 0-10) are common tools, easy and repeatable for tracking pain changes.","hints":["思考簡單可量化的量表"],"tags":["疼痛評估"],"related_terms":["VAS","NRS"],"linked_hospitals":[],"source":"pain_draft","last_reviewed":""}
-{"id":"Q0011","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"在為病人洗澡時應注意哪項以確保安全？","question_en":"Which precaution ensures safety when bathing a patient?","choices":[{"id":"A","text_cn":"讓病人獨自下床洗澡","text_en":"Let patient get out of bed alone to bathe","correct":false},{"id":"B","text_cn":"固定床邊護欄並注意滑倒風險","text_en":"Secure bed rails and monitor fall risk","correct":true},{"id":"C","text_cn":"使用冷水以���感染","text_en":"Use cold water to prevent infection","correct":false},{"id":"D","text_cn":"延長洗澡時間以確保清潔","text_en":"Prolong bathing time to ensure cleanliness","correct":false}],"answer":"B","explanation_cn":"護理過程應評估病人活動能力並採取防跌措施。","explanation_en":"Assess mobility and implement fall-prevention measures during care.","hints":["考慮環境與病人功能"],"tags":["跌倒預防"],"related_terms":["護理安全"],"linked_hospitals":[],"source":"safety_draft","last_reviewed":""}
-{"id":"Q0012","module":"感染控制","type":"mcq","difficulty":"medium","question_cn":"下列何者屬於接觸傳染預防措施？","question_en":"Which of the following is a contact transmission precaution?","choices":[{"id":"A","text_cn":"使用空氣隔離病房","text_en":"Use airborne isolation room","correct":false},{"id":"B","text_cn":"配戴手套與防護衣並勤洗手","text_en":"Wear gloves and gown and perform hand hygiene","correct":true},{"id":"C","text_cn":"佩戴口罩以阻擋飛沫","text_en":"Wear a mask to block droplets","correct":false},{"id":"D","text_cn":"提供患者自助餐點以減少接觸","text_en":"Provide self-service meals to reduce contact","correct":false}],"answer":"B","explanation_cn":"接觸隔離重點為減少與患者直接或間接接觸，配戴手套、衣物與手部衛生是關鍵。","explanation_en":"Contact precautions focus on reducing direct/indirect contact; gloves, gowns, and hand hygiene are essential.","hints":["依傳播途徑選擇隔離措施"],"tags":["隔離"],"related_terms":["接觸隔離"],"linked_hospitals":[],"source":"infection_draft","last_reviewed":""}
-{"id":"Q0013","module":"急救","type":"short","difficulty":"hard","question_cn":"簡述急性出血性休克的三大臨床徵象。","question_en":"Briefly describe three major clinical signs of hypovolemic (hemorrhagic) shock.","choices":[],"answer":"1. 低血壓或脈壓變窄；2. 心跳加速（心搏過速）；3. 意識改變（昏迷或嗜睡）及皮膚濕冷蒼白。 / 1. Hypotension or narrowed pulse pressure; 2. Tachycardia; 3. Altered mental status and cool, clammy, pale skin.","explanation_cn":"出血導致血容量下降，表現為心率增快、血壓下降及末梢灌流不良。","explanation_en":"Bleeding causes decreased circulating volume leading to tachycardia, hypotension, and poor peripheral perfusion.","hints":["注意循環不穩的常見表徵"],"tags":["休克","出血"],"related_terms":["血容量不足"],"linked_hospitals":[],"source":"trauma_draft","last_reviewed":""}
-{"id":"Q0014","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"藥物給藥路徑中，哪一項吸收最快速？","question_en":"Which route of administration allows the fastest absorption?","choices":[{"id":"A","text_cn":"口服","text_en":"Oral","correct":false},{"id":"B","text_cn":"皮下注射","text_en":"Subcutaneous injection","correct":false},{"id":"C","text_cn":"靜脈注射（IV）","text_en":"Intravenous injection (IV)","correct":true},{"id":"D","text_cn":"經皮貼劑","text_en":"Transdermal patch","correct":false}],"answer":"C","explanation_cn":"靜脈注射直接進入血液循環，吸收時間最短、作用最快。","explanation_en":"IV administration delivers drug directly into circulation for immediate effect.","hints":["思考藥物到達血液的最快方式"],"tags":["給藥路徑"],"related_terms":["IV注射"],"linked_hospitals":[],"source":"pharm_draft","last_reviewed":""}
-{"id":"Q0015","module":"評估與紀錄","type":"mcq","difficulty":"easy","question_cn":"病人身份識別最佳做法是？","question_en":"What is the best practice for patient identification?","choices":[{"id":"A","text_cn":"只靠病人自稱姓名即可","text_en":"Rely solely on patient's self-stated name","correct":false},{"id":"B","text_cn":"使用至少兩項識別資訊（如姓名與生日）核對","text_en":"Use at least two identifiers (e.g., name and date of birth)","correct":true},{"id":"C","text_cn":"用房號代替病人姓名","text_en":"Use room number instead of patient name","correct":false},{"id":"D","text_cn":"只在入院時核對一次即可","text_en":"Verify only once at admission","correct":false}],"answer":"B","explanation_cn":"使用兩項以上的識別資料可降低錯誤發生率。","explanation_en":"Using two identifiers reduces the risk of patient misidentification.","hints":["重點是安全核對多重資訊"],"tags":["識別"],"related_terms":["兩項識別"],"linked_hospitals":[],"source":"id_draft","last_reviewed":""}
-{"id":"Q0016","module":"基礎護理","type":"mcq","difficulty":"medium","question_cn":"褥瘡早期最常見的皮膚變化為何？","question_en":"What is the most common early skin change of a pressure ulcer?","choices":[{"id":"A","text_cn":"皮膚呈現不可回復的缺損","text_en":"An irreversible skin loss","correct":false},{"id":"B","text_cn":"局部持續性紅斑且壓之不褪色","text_en":"Localized persistent erythema that does not blanch with pressure","correct":true},{"id":"C","text_cn":"立即出血與感染跡象","text_en":"Immediate bleeding and signs of infection","correct":false},{"id":"D","text_cn":"皮膚發白且光滑","text_en":"Pale and shiny skin","correct":false}],"answer":"B","explanation_cn":"早期褥瘡常呈現局部紅斑，按壓後不會消退，需立即處理與風險管理。","explanation_en":"Early pressure injuries often present as non-blanching erythema, requiring prompt intervention.","hints":["想想褥瘡分期的早期表現"],"tags":["褥瘡"],"related_terms":["壓力傷口"],"linked_hospitals":[],"source":"wound_draft","last_reviewed":""}
-{"id":"Q0017","module":"感染控制","type":"mcq","difficulty":"hard","question_cn":"對於結核病（TB）疑似患者哪項是合適的隔離措施？","question_en":"For a suspected tuberculosis (TB) patient, which isolation measure is appropriate?","choices":[{"id":"A","text_cn":"標準隔離即可，不需特殊處置","text_en":"Standard precautions are sufficient","correct":false},{"id":"B","text_cn":"空氣傳播隔離（使用負壓隔離室）並佩戴N95口罩","text_en":"Airborne isolation with negative-pressure room and N95 respirator","correct":true},{"id":"C","text_cn":"只要病人戴外科口罩即可","text_en":"Have the patient wear a surgical mask only","correct":false},{"id":"D","text_cn":"使用接觸隔離即可","text_en":"Use contact precautions only","correct":false}],"answer":"B","explanation_cn":"結核病屬空氣傳播，應採用負壓隔離並使用呼吸防護裝備。","explanation_en":"TB is airborne; negative-pressure isolation and respiratory protection are recommended.","hints":["思考病原的傳播途徑"],"tags":["TB","隔離"],"related_terms":["空氣隔離"],"linked_hospitals":[],"source":"tb_draft","last_reviewed":""}
-{"id":"Q0018","module":"急救","type":"mcq","difficulty":"medium","question_cn":"外傷性休克時首要支持措施為何？","question_en":"What is the primary supportive measure in traumatic shock?","choices":[{"id":"A","text_cn":"給予止痛藥並觀察","text_en":"Give analgesics and observe","correct":false},{"id":"B","text_cn":"控制出血與維持有效循環（止血、快速輸液/輸血）","text_en":"Control bleeding and maintain circulation (hemostasis, rapid IV fluids/transfusion)","correct":true},{"id":"C","text_cn":"立即送到普通病房觀察","text_en":"Send to general ward for observation","correct":false},{"id":"D","text_cn":"使用利尿劑以減少水腫","text_en":"Use diuretics to reduce edema","correct":false}],"answer":"B","explanation_cn":"處理休克的首要原則是止血與恢復循環灌流，必要時輸液及輸血。","explanation_en":"Priority is to control hemorrhage and restore perfusion; IV fluids/transfusion as needed.","hints":["回想ATLS原則：Airway, Breathing, Circulation"],"tags":["休克","外傷"],"related_terms":["止血"],"linked_hospitals":[],"source":"trauma_guideline","last_reviewed":""}
-{"id":"Q0019","module":"藥物護理","type":"mcq","difficulty":"easy","question_cn":"藥物標籤上應至少包含哪項資訊？","question_en":"Which information should at minimum appear on a medication label?","choices":[{"id":"A","text_cn":"藥品名稱、劑量、使用方法","text_en":"Drug name, dosage, and instructions for use","correct":true},{"id":"B","text_cn":"僅藥品外觀說明","text_en":"Only description of drug appearance","correct":false},{"id":"C","text_cn":"製藥廠內部批號但不需到期日","text_en":"Manufacturer batch number only, no expiry date","correct":false},{"id":"D","text_cn":"僅記錄領藥人姓名即可","text_en":"Only record the person who dispensed it","correct":false}],"answer":"A","explanation_cn":"清楚的標籤包括藥名、劑量、途徑與注意事項以確保用藥安全。","explanation_en":"Clear labels include name, dose, route, and precautions to ensure safety.","hints":["想想用藥時護理人員需要哪些資訊"],"tags":["用藥標籤"],"related_terms":["標籤"],"linked_hospitals":[],"source":"label_draft","last_reviewed":""}
-{"id":"Q0020","module":"評估與紀錄","type":"short","difficulty":"easy","question_cn":"說明護理紀錄中何時應更新病人過敏資訊。","question_en":"When should a patient's allergy information be updated in nursing records?","choices":[],"answer":"任何發現新過敏或過敏反應時、入院時評估後及病史變更時，應立即更新過敏資訊。 / Update immediately upon discovering new allergies or reactions, at admission assessment, and when history changes.","explanation_cn":"及時更新過敏資訊能避免用藥或處置錯誤。","explanation_en":"Timely updates prevent medication or treatment errors.","hints":["強調即時與正確性"],"tags":["過敏","紀錄"],"related_terms":["過敏紀錄"],"linked_hospitals":[],"source":"policy_draft","last_reviewed":""}
+{"id":"Q0001","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"在臥床病人的體位變換時，最主要的目的為何？","question_en":"What is the primary purpose of repositioning a bedridden patient?","choices":[{"text_cn":"促進血液循環和預防褥瘡","text_en":"Promote circulation and prevent pressure ulcers","correct":true},{"text_cn":"減少病人睡眠時間","text_en":"Reduce the patient's sleep time","correct":false},{"text_cn":"降低病人的飲水量","text_en":"Reduce the patient's fluid intake","correct":false},{"text_cn":"增加病人的體重","text_en":"Increase the patient's weight","correct":false}],"explanation_cn":"體位變換可促進循環、減輕壓力、預防褥瘡與肺部併發症。","explanation_en":"Repositioning promotes circulation, relieves pressure, and helps prevent pressure ulcers and respiratory complications.","hints":["可想成「減壓 + 促進循環」"],"media":{"type":"image","src":"./media/position.png","alt_cn":"病人轉身體位變換示意圖","alt_en":"Patient repositioning illustration","caption_cn":"體位變換示意圖","caption_en":"Illustration of patient repositioning"}}
+{"id":"Q0002","module":"感染控制","type":"mcq","difficulty":"easy","question_cn":"手部衛生最佳做法包含哪一項？","question_en":"Which of the following is a best practice for hand hygiene?","choices":[{"text_cn":"在處理病人前後都正確潔手","text_en":"Perform hand hygiene before and after patient contact","correct":true},{"text_cn":"只要戴手套就不必洗手","text_en":"No need to wash hands as long as gloves are worn","correct":false},{"text_cn":"只在接觸血液時才洗手","text_en":"Wash hands only when blood is visible","correct":false},{"text_cn":"手寫字不需要洗手","text_en":"Hand hygiene is unnecessary if writing notes","correct":false}],"explanation_cn":"手部衛生是感染控制的重要措施，接觸病人前後都需正確潔手。","explanation_en":"Hand hygiene is a key infection control measure and should be performed before and after patient contact.","hints":["想想感染控制的核心原則"],"media":{"type":"lottie","src":"./media/demo-handwash.json","alt_cn":"手部衛生動畫示意","alt_en":"Hand hygiene animation demo","caption_cn":"正確潔手流程示意","caption_en":"Correct handwashing steps demonstration"}}
+{"id":"Q0003","module":"急救","type":"mcq","difficulty":"medium","question_cn":"成人心肺復甦術(CPR)時，胸外按壓的最佳速率為何？","question_en":"During adult CPR, what is the recommended chest compression rate?","choices":[{"text_cn":"60 次/分鐘","text_en":"60 compressions per minute","correct":false},{"text_cn":"100–120 次/分鐘","text_en":"100–120 compressions per minute","correct":true},{"text_cn":"150 次/分鐘","text_en":"150 compressions per minute","correct":false},{"text_cn":"30 次/分鐘","text_en":"30 compressions per minute","correct":false}],"explanation_cn":"成人CPR胸外按壓的建議速率為每分鐘 100–120 次。","explanation_en":"The recommended chest compression rate for adult CPR is 100–120 compressions per minute.","hints":["想想高品質 CPR 的頻率"],"media":{"type":"lottie","src":"./media/demo-cpr.json","alt_cn":"成人CPR按壓動畫示意","alt_en":"Adult CPR compression animation demo","caption_cn":"成人 CPR 按壓節奏示意","caption_en":"Adult CPR compression rhythm demonstration"}}
+{"id":"Q0004","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"給藥前三查是哪三查？","question_en":"What are the three checks before medication administration?","choices":[{"text_cn":"藥物名稱、劑量、病人身份","text_en":"Medication name, dose, and patient identity","correct":true},{"text_cn":"藥物顏色、藥袋尺寸、病房號碼","text_en":"Medication color, bag size, and room number","correct":false},{"text_cn":"病人年齡、體重、過敏史","text_en":"Patient age, weight, and allergy history","correct":false},{"text_cn":"藥回收時間、配藥師、病床確認","text_en":"Return time, pharmacist, and bed check","correct":false}],"explanation_cn":"給藥前應確認正確藥物、正確劑量、正確病人，並搭配正確路徑與時間。","explanation_en":"Before administration, confirm the correct medication, correct dose, and correct patient, along with the correct route and time.","hints":["想想『三查』與『三對照』"]}
+{"id":"Q0005","module":"評估與紀錄","type":"mcq","difficulty":"easy","question_cn":"下列何者不是護理紀錄應包含的要素？","question_en":"Which of the following is NOT typically included in nursing documentation?","choices":[{"text_cn":"病人的主訴與評估結果","text_en":"Patient complaint and assessment findings","correct":false},{"text_cn":"已執行的護理措施與反應","text_en":"Care provided and patient response","correct":false},{"text_cn":"病人情緒狀態和收入來源","text_en":"Patient mood and income source","correct":true},{"text_cn":"投藥與不良反應觀察","text_en":"Medication administration and adverse reaction monitoring","correct":false}],"explanation_cn":"護理紀錄主要關注病人健康狀況、照護介入與反應，不包含收入來源等非醫療資訊。","explanation_en":"Nursing records focus on the patient’s health status, nursing interventions, and outcomes, not unrelated financial information.","hints":["問的是護理紀錄的核心內容"],"media":{"type":"image","src":"./media/chart.png","alt_cn":"護理紀錄範例示意","alt_en":"Nursing record chart example","caption_cn":"護理紀錄內容示意","caption_en":"Nursing documentation example"}}
+{"id":"Q0006","module":"呼吸照護","type":"mcq","difficulty":"medium","question_cn":"病人需接受氧氣治療時，最重要的護理重點為何？","question_en":"When a patient requires oxygen therapy, what is the most important nursing consideration?","choices":[{"text_cn":"定期觀察呼吸狀況與血氧飽和度","text_en":"Monitor respiratory status and oxygen saturation regularly","correct":true},{"text_cn":"讓病人自行調整氧流量","text_en":"Allow the patient to adjust oxygen flow independently","correct":false},{"text_cn":"氧氣使用越多越好","text_en":"More oxygen is always better","correct":false},{"text_cn":"只要病人舒服就不需監測","text_en":"If the patient feels comfortable, monitoring is unnecessary","correct":false}],"explanation_cn":"氧療需要持續監測病人的呼吸狀態、血氧飽和度與可能的副作用。","explanation_en":"Oxygen therapy requires continuous assessment of respiratory status, oxygen saturation, and possible adverse effects.","hints":["安全性、監測與劑量很重要"]}
+{"id":"Q0007","module":"評估與紀錄","type":"short","difficulty":"medium","question_cn":"描述如何評估病人的疼痛強度（請列出一個常用量表）。","question_en":"Describe how to assess a patient's pain intensity and name one common scale used.","choices":[],"explanation_cn":"可使用數字疼痛評估表（NRS）或視覺類比量表（VAS），讓病人描述疼痛程度並記錄。","explanation_en":"A common method is the Numeric Rating Scale (NRS) or Visual Analog Scale (VAS), asking the patient to rate pain intensity.","hints":["0–10 評分或可視化標尺"],"media":{"type":"image","src":"./media/pain-scale.png","alt_cn":"疼痛評估量表示意圖","alt_en":"Pain assessment scale illustration","caption_cn":"疼痛評估量表示意圖","caption_en":"Pain assessment scale illustration"}}
+{"id":"Q0008","module":"基礎護理","type":"mcq","difficulty":"medium","question_cn":"褥瘡早期最常見的皮膚變化為何？","question_en":"What is the most common early skin change seen in pressure ulcers?","choices":[{"text_cn":"紅腫且發熱","text_en":"Redness and warmth","correct":true},{"text_cn":"皮膚脫屑像鱗屑","text_en":"Scale-like peeling","correct":false},{"text_cn":"完全失去知覺","text_en":"Complete numbness","correct":false},{"text_cn":"嚴重出血","text_en":"Severe bleeding","correct":false}],"explanation_cn":"早期褥瘡常表現為受壓部位皮膚紅變、發熱或局部壓力變化。","explanation_en":"Early pressure ulcers often present as localized redness, warmth, or altered skin color over a pressure point.","hints":["先看受壓部位有無紅變"]}
+{"id":"Q0009","module":"感染控制","type":"mcq","difficulty":"hard","question_cn":"對於結核病（TB）疑似患者哪項是合適的隔離措施？","question_en":"Which isolation precaution is appropriate for a suspected tuberculosis patient?","choices":[{"text_cn":"空氣隔離（Airborne precautions）","text_en":"Airborne precautions","correct":true},{"text_cn":"接觸隔離","text_en":"Contact precautions","correct":false},{"text_cn":"飛沫隔離","text_en":"Droplet precautions","correct":false},{"text_cn":"不需隔離","text_en":"No isolation needed","correct":false}],"explanation_cn":"結核病主要透過飛沫核傳播，需採取空氣隔離措施。","explanation_en":"Tuberculosis is primarily transmitted by airborne droplet nuclei, so airborne precautions are required.","hints":["思考傳播方式與通風需求"]}
+{"id":"Q0010","module":"急救","type":"mcq","difficulty":"medium","question_cn":"外傷性休克時首要支持措施為何？","question_en":"What is the primary supportive measure in traumatic shock?","choices":[{"text_cn":"建立靜脈通路與補充液體","text_en":"Establish IV access and provide fluids","correct":true},{"text_cn":"立即進食高糖食物","text_en":"Give high-sugar food immediately","correct":false},{"text_cn":"給予鎮靜劑","text_en":"Administer sedatives","correct":false},{"text_cn":"完全不動病人","text_en":"Keep the patient completely still without intervention","correct":false}],"explanation_cn":"外傷性休克的核心處置是維持循環、建立靜脈通路並給予液體復甦。","explanation_en":"The core management for traumatic shock is to maintain circulation, establish IV access, and provide fluid resuscitation.","hints":["先穩定血流動力學"]}
+{"id":"Q0011","module":"藥物護理","type":"mcq","difficulty":"easy","question_cn":"藥物標籤上應至少包含哪項資訊？","question_en":"Which information should at minimum appear on a medication label?","choices":[{"text_cn":"藥名、劑量、使用途徑","text_en":"Drug name, dose, and route","correct":true},{"text_cn":"病人的外貌、身高、體重","text_en":"Patient appearance, height, and weight","correct":false},{"text_cn":"醫師姓名與護士手機號碼","text_en":"Physician name and nurse phone number","correct":false},{"text_cn":"藥物製造地點","text_en":"Manufacturing location","correct":false}],"explanation_cn":"藥物標籤至少需有藥名、劑量與使用途徑等關鍵資訊，以降低給藥錯誤。","explanation_en":"A medication label must include key information such as drug name, dose, and route to reduce medication errors.","hints":["關鍵給藥資訊最重要"]}
+{"id":"Q0012","module":"評估與紀錄","type":"mcq","difficulty":"easy","question_cn":"病人身份識別最佳做法是？","question_en":"What is the best practice for patient identification?","choices":[{"text_cn":"至少用兩種方式確認病人身份","text_en":"Use at least two identifiers","correct":true},{"text_cn":"只依賴病床號碼","text_en":"Use room number only","correct":false},{"text_cn":"問病人的朋友確認","text_en":"Ask the patient's friend to confirm identity","correct":false},{"text_cn":"根據病人的外貌判斷","text_en":"Identify based on appearance","correct":false}],"explanation_cn":"病人識別需至少使用兩種非重複方式，例如姓名與身份證/病歷號碼。","explanation_en":"Patient identification should use at least two unique identifiers, such as name and hospital ID or date of birth.","hints":["避免誤認別人"]}
+{"id":"Q0013","module":"基礎護理","type":"mcq","difficulty":"medium","question_cn":"當病人有跌倒風險時，最適當的護理措施為何？","question_en":"When a patient is at risk of falling, what is the most appropriate nursing intervention?","choices":[{"text_cn":"評估風險並提供防跌措施","text_en":"Assess risk and provide fall-prevention measures","correct":true},{"text_cn":"不讓病人移動任何步伐","text_en":"Restrict all movement completely","correct":false},{"text_cn":"只在夜間加強監護","text_en":"Monitor only at night","correct":false},{"text_cn":"讓病人自行判斷是否站起","text_en":"Let the patient decide whether to stand up","correct":false}],"explanation_cn":"跌倒風險評估需個別化，並提供防跌策略，如協助、固定設施與跌倒警示。","explanation_en":"Fall-risk assessment should be individualized, and preventive measures such as assistance, safety equipment, and alerts should be used.","hints":["先評估、再保護"]}
+{"id":"Q0014","module":"內分泌","type":"mcq","difficulty":"medium","question_cn":"病人血糖低於70 mg/dL，首要處置為何？","question_en":"If a patient's blood glucose is below 70 mg/dL, what is the first response?","choices":[{"text_cn":"給予快速升糖食物或葡萄糖","text_en":"Give fast-acting carbohydrates or glucose","correct":true},{"text_cn":"直接停止所有飲水","text_en":"Stop all fluids immediately","correct":false},{"text_cn":"讓病人睡眠並觀察","text_en":"Allow the patient to sleep and observe","correct":false},{"text_cn":"先增加胰島素劑量","text_en":"Increase insulin dose first","correct":false}],"explanation_cn":"低血糖時優先採取快速升糖措施，並監測病人的反應與恢復狀況。","explanation_en":"In hypoglycemia, treat with fast-acting carbohydrates or glucose and monitor the response carefully.","hints":["先升糖，避免低血糖危機"]}
+{"id":"Q0015","module":"感染控制","type":"mcq","difficulty":"medium","question_cn":"接觸傳染病病人時，護理人員最重要的個人防護措施為何？","question_en":"When caring for a patient with a contact-transmissible infection, what is the most important personal protective measure?","choices":[{"text_cn":"戴手套並遵守正確手衛生","text_en":"Wear gloves and perform proper hand hygiene","correct":true},{"text_cn":"只戴口罩即可","text_en":"Wear a mask only","correct":false},{"text_cn":"穿著普通制服即可","text_en":"Use standard clothing only","correct":false},{"text_cn":"只需洗臉即可","text_en":"Wash the face only","correct":false}],"explanation_cn":"接觸感染預防需遵守手衛生與適當的防護用品，例如手套。","explanation_en":"Contact precautions require proper hand hygiene and appropriate personal protective equipment, including gloves.","hints":["屏障式保護 + 手衛生"]}
+{"id":"Q0016","module":"急救","type":"mcq","difficulty":"hard","question_cn":"懷疑氣道阻塞且病人無反應、無正常呼吸時，最初步驟為何？","question_en":"If airway obstruction is suspected and the patient is unresponsive and not breathing normally, what is the first step?","choices":[{"text_cn":"開始胸外按壓並呼叫急救支援","text_en":"Start chest compressions and call for emergency support","correct":true},{"text_cn":"讓病人喝水","text_en":"Give the patient water","correct":false},{"text_cn":"只觀察 5 分鐘","text_en":"Observe for 5 minutes only","correct":false},{"text_cn":"先拍打背部後再檢查呼吸","text_en":"Pat the back before assessing breathing","correct":false}],"explanation_cn":"在無反應且無呼吸的情況下，應立即開始高品質 CPR 並呼叫協助。","explanation_en":"If the patient is unresponsive and not breathing normally, begin high-quality CPR and call for emergency support immediately.","hints":["BLS 先從 CPR 開始"]}
+{"id":"Q0017","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"藥物給藥路徑中，哪一項吸收最快速？","question_en":"Which route of administration allows the fastest absorption?","choices":[{"text_cn":"靜脈注射","text_en":"Intravenous injection","correct":true},{"text_cn":"口服","text_en":"Oral route","correct":false},{"text_cn":"皮下注射","text_en":"Subcutaneous injection","correct":false},{"text_cn":"肌肉注射","text_en":"Intramuscular injection","correct":false}],"explanation_cn":"靜脈途徑最直接，能最快進入循環系統。","explanation_en":"The intravenous route is the fastest because it delivers medication directly into the bloodstream.","hints":["直接進入血流"]}
+{"id":"Q0018","module":"呼吸照護","type":"mcq","difficulty":"medium","question_cn":"如果病人出現低氧血症，最關鍵的觀察指標為何？","question_en":"What is the most important observation in a patient with hypoxemia?","choices":[{"text_cn":"血氧飽和度和呼吸負荷","text_en":"Oxygen saturation and respiratory effort","correct":true},{"text_cn":"病人的體重變化","text_en":"Weight change","correct":false},{"text_cn":"枕頭高度","text_en":"Pillow height","correct":false},{"text_cn":"病人的興趣愛好","text_en":"Patient preferences and hobbies","correct":false}],"explanation_cn":"低氧血症最重要的臨床指標是血氧飽和度下降與呼吸努力增加。","explanation_en":"The key indicators of hypoxemia are decreased oxygen saturation and increased respiratory effort.","hints":["看 SpO₂ 與呼吸是否費力"]}
+{"id":"Q0019","module":"壓力與情緒支持","type":"mcq","difficulty":"easy","question_cn":"當病人焦慮時，最適合的首次護理反應是什麼？","question_en":"When a patient is anxious, what is the most appropriate first nursing response?","choices":[{"text_cn":"聆聽並提供安撫與真實資訊","text_en":"Listen and provide reassurance with clear information","correct":true},{"text_cn":"立即要求病人安靜","text_en":"Immediately tell the patient to stay quiet","correct":false},{"text_cn":"直接給藥讓病人睡著","text_en":"Give medication to make the patient sleep","correct":false},{"text_cn":"不做任何回應","text_en":"Provide no response","correct":false}],"explanation_cn":"關懷與傾聽能降低焦慮，並在必要時提供適當資訊與支援。","explanation_en":"Listening, reassurance, and clear information are the first steps in managing anxiety.","hints":["安撫與資訊最重要"]}
+{"id":"Q0020","module":"婦產護理","type":"mcq","difficulty":"medium","question_cn":"產後出血最常見的病因為何？","question_en":"What is the most common cause of postpartum hemorrhage?","choices":[{"text_cn":"子宮收縮不良（uterine atony）","text_en":"Uterine atony","correct":true},{"text_cn":"食物中毒","text_en":"Food poisoning","correct":false},{"text_cn":"過度活動","text_en":"Excessive activity","correct":false},{"text_cn":"血壓過低","text_en":"Low blood pressure alone","correct":false}],"explanation_cn":"產後出血常見原因是子宮收縮不良，需快速評估與處理。","explanation_en":"The most common cause of postpartum hemorrhage is uterine atony, which requires rapid assessment and treatment.","hints":["先想 uterus 的收縮問題"]}
+{"id":"Q0021","module":"兒科護理","type":"mcq","difficulty":"medium","question_cn":"幼兒發燒時，最重要的護理評估是什麼？","question_en":"What is the most important nursing assessment for a child with fever?","choices":[{"text_cn":"體溫、病程與伴隨症狀","text_en":"Temperature, duration, and associated symptoms","correct":true},{"text_cn":"衣服顏色","text_en":"Clothing color","correct":false},{"text_cn":"幼兒喜歡吃什麼","text_en":"Favorite food","correct":false},{"text_cn":"病人是否嚴肅","text_en":"Whether the child is serious","correct":false}],"explanation_cn":"發燒需評估熱度、時間、伴隨症狀與是否有重症徵象。","explanation_en":"Fever assessment must include temperature, duration, associated symptoms, and signs of serious illness.","hints":["有無危險徵象很重要"]}
+{"id":"Q0022","module":"急救","type":"mcq","difficulty":"hard","question_cn":"中風病人出現以下哪項症狀最需立即就醫？","question_en":"Which symptom in a stroke patient requires immediate medical attention?","choices":[{"text_cn":"單側無力與言語不清","text_en":"One-sided weakness and slurred speech","correct":true},{"text_cn":"少量打嗝","text_en":"A few burps","correct":false},{"text_cn":"輕微疲倦","text_en":"Mild tiredness","correct":false},{"text_cn":"偏好睡覺","text_en":"Preference to rest","correct":false}],"explanation_cn":"單側無力與言語不清屬於急性腦卒中典型表現，應立即啟動救治。","explanation_en":"One-sided weakness and slurred speech are classic acute stroke signs and require urgent medical evaluation.","hints":["時間就是大腦"]}
+{"id":"Q0023","module":"腸胃照護","type":"mcq","difficulty":"medium","question_cn":"脫水病人可能出現哪項臨床表現？","question_en":"Which clinical finding is typical in a dehydrated patient?","choices":[{"text_cn":"口乾、尿量減少、血壓下降","text_en":"Dry mouth, reduced urine output, and hypotension","correct":true},{"text_cn":"體重增加明顯","text_en":"Marked weight gain","correct":false},{"text_cn":"皮膚潮濕發亮","text_en":"Moist, shiny skin","correct":false},{"text_cn":"過度興奮","text_en":"Extreme agitation","correct":false}],"explanation_cn":"脫水常見症狀包括口乾、少尿、低血壓與皮膚乾燥。","explanation_en":"Dehydration often causes dry mouth, reduced urine output, hypotension, and dry skin.","hints":["想想體液不足的徵象"]}
+{"id":"Q0024","module":"輸血與安全","type":"mcq","difficulty":"hard","question_cn":"輸血前最重要的確認事項為何？","question_en":"What is the most important check before blood transfusion?","choices":[{"text_cn":"確認病人身份與血品相容性","text_en":"Confirm patient identity and blood compatibility","correct":true},{"text_cn":"確認輸血價格","text_en":"Confirm the price of the transfusion","correct":false},{"text_cn":"確認病人是否有藥物過敏史之外的其他事項","text_en":"Confirm only medication allergy history","correct":false},{"text_cn":"等待病人自行同意即可","text_en":"Wait for the patient to consent without checking","correct":false}],"explanation_cn":"輸血前確認病人身分與血品相容性是避免嚴重輸血反應的重要步驟。","explanation_en":"Before transfusion, confirming patient identity and blood compatibility is essential to prevent severe transfusion reactions.","hints":["錯血風險非常高"]}
+{"id":"Q0025","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"以下哪種情況最可能導致給藥錯誤？","question_en":"Which situation is most likely to cause a medication administration error?","choices":[{"text_cn":"未在給藥前確認病人身份與藥物","text_en":"Failure to verify patient identity and medication before administration","correct":true},{"text_cn":"病人說想喝水","text_en":"The patient wants water","correct":false},{"text_cn":"病房燈光較暗","text_en":"Dim lighting in the room","correct":false},{"text_cn":"護理人員有休息時間","text_en":"The nurse has a break period","correct":false}],"explanation_cn":"給藥前的辨識與確認是避免錯藥的關鍵。","explanation_en":"Verification of patient identity and medication before administration is the key to preventing medication errors.","hints":["九成錯誤都源自驗證失敗"]}
+{"id":"Q0026","module":"內分泌","type":"mcq","difficulty":"hard","question_cn":"糖尿病酮酸血症（DKA）最典型的生化表現為何？","question_en":"What is the most typical biochemical finding in diabetic ketoacidosis (DKA)?","choices":[{"text_cn":"高血糖、高酮體、酸血症","text_en":"Hyperglycemia, ketonemia, and acidosis","correct":true},{"text_cn":"低血糖、低血鈉、低血糖","text_en":"Hypoglycemia, hyponatremia, and low blood sugar","correct":false},{"text_cn":"正常血糖、正常酮體、高血壓","text_en":"Normal glucose, normal ketones, and hypertension","correct":false},{"text_cn":"高血糖、低血鉀、代謝鹼中毒","text_en":"Hyperglycemia, hypokalemia, and metabolic alkalosis","correct":false}],"explanation_cn":"DKA 常見高血糖、酮體增加與酸血症。","explanation_en":"DKA is characterized by hyperglycemia, ketone accumulation, and metabolic acidosis.","hints":["看三大 DKA 特徵"]}
+{"id":"Q0027","module":"呼吸照護","type":"mcq","difficulty":"medium","question_cn":"肺炎病人最常見的症狀為何？","question_en":"What is the most common symptom of pneumonia?","choices":[{"text_cn":"咳嗽與發燒","text_en":"Cough and fever","correct":true},{"text_cn":"視力模糊","text_en":"Blurred vision","correct":false},{"text_cn":"皮膚變黃","text_en":"Yellow skin discoloration","correct":false},{"text_cn":"腹痛無其他徵象","text_en":"Abdominal pain without other signs","correct":false}],"explanation_cn":"肺炎常見症狀為咳嗽、發燒與呼吸困難。","explanation_en":"Pneumonia commonly presents with cough, fever, and dyspnea.","hints":["肺部感染典型表現"]}
+{"id":"Q0028","module":"婦產護理","type":"mcq","difficulty":"easy","question_cn":"母乳哺餵的好處包括什麼？","question_en":"What is a benefit of breastfeeding?","choices":[{"text_cn":"增強嬰兒免疫力與母子親密互動","text_en":"Enhance infant immunity and maternal-infant bonding","correct":true},{"text_cn":"讓嬰兒完全不需睡眠","text_en":"Eliminate the need for infant sleep","correct":false},{"text_cn":"可完全取代所有疫苗","text_en":"Can replace all vaccines","correct":false},{"text_cn":"不需再餵其他食物","text_en":"No need for any other foods","correct":false}],"explanation_cn":"母乳有助於增強免疫力並支持母子關係。","explanation_en":"Breastfeeding helps boost infant immunity and supports maternal-infant bonding.","hints":["營養與免疫雙效益"]}
+{"id":"Q0029","module":"急救","type":"mcq","difficulty":"hard","question_cn":"在成人心肺復甦中，胸外按壓與人工呼吸的比例通常為何？","question_en":"In adult CPR, what is the usual ratio of compressions to rescue breaths?","choices":[{"text_cn":"30:2","text_en":"30:2","correct":true},{"text_cn":"15:2","text_en":"15:2","correct":false},{"text_cn":"50:1","text_en":"50:1","correct":false},{"text_cn":"10:1","text_en":"10:1","correct":false}],"explanation_cn":"成人 CPR 多採 30 次胸外按壓與 2 次人工呼吸的比例。","explanation_en":"Adult CPR typically uses a 30:2 ratio of chest compressions to rescue breaths.","hints":["BLS 常見比例之一"]}
+{"id":"Q0030","module":"基礎護理","type":"mcq","difficulty":"medium","question_cn":"留置尿管病人最常見的併發症是什麼？","question_en":"What is the most common complication of an indwelling urinary catheter?","choices":[{"text_cn":"尿路感染","text_en":"Urinary tract infection","correct":true},{"text_cn":"腳部抽筋","text_en":"Leg cramps","correct":false},{"text_cn":"過度出汗","text_en":"Excessive sweating","correct":false},{"text_cn":"視力模糊","text_en":"Blurred vision","correct":false}],"explanation_cn":"留置導尿常見併發症是泌尿道感染，因此需定期評估與無菌操作。","explanation_en":"The most common complication of indwelling urinary catheters is urinary tract infection, so strict infection control and daily assessment are essential.","hints":["最常見的感染風險"]}
+{"id":"Q0031","module":"精神照護","type":"mcq","difficulty":"medium","question_cn":"當病人有急性躁動時，最適當的護理態度為何？","question_en":"When a patient is acutely agitated, what is the most appropriate nursing approach?","choices":[{"text_cn":"保持冷靜、降低刺激並評估原因","text_en":"Stay calm, reduce stimuli, and assess the cause","correct":true},{"text_cn":"直接使用暴力制止","text_en":"Use force immediately","correct":false},{"text_cn":"讓病人自己控制情緒","text_en":"Let the patient handle the emotion alone","correct":false},{"text_cn":"不進行任何互動","text_en":"Avoid all interaction","correct":false}],"explanation_cn":"護理人員應先安撫、降低刺激並評估躁動的原因，必要時尋求支援。","explanation_en":"The best approach is to remain calm, decrease stimuli, and assess the cause of agitation before escalating care.","hints":["先穩定情境、再判定原因"]}
+{"id":"Q0032","module":"檢驗與影像","type":"mcq","difficulty":"medium","question_cn":"關於病理檢驗結果，最正確的解讀原則是什麼？","question_en":"What is the correct principle for interpreting laboratory results?","choices":[{"text_cn":"把結果放在病人的臨床狀況中一起評估","text_en":"Interpret results in the context of the patient’s clinical condition","correct":true},{"text_cn":"只看數字即可做診斷","text_en":"Use numbers alone for diagnosis","correct":false},{"text_cn":"只看異常值，不看基線","text_en":"Only consider abnormal values, not baseline","correct":false},{"text_cn":"不需要與病史比較","text_en":"No comparison with history is needed","correct":false}],"explanation_cn":"檢驗結果需結合病人症狀、病史與治療狀態來判讀。","explanation_en":"Laboratory results must be interpreted in the patient’s clinical context, including symptoms, history, and treatment.","hints":["臨床訊息先於單一數字"]}
+{"id":"Q0033","module":"小兒護理","type":"mcq","difficulty":"easy","question_cn":"新生兒常見的正常體溫範圍大約為多少？","question_en":"What is the approximate normal temperature range for a newborn?","choices":[{"text_cn":"36.5–37.5°C","text_en":"36.5–37.5°C","correct":true},{"text_cn":"39–41°C","text_en":"39–41°C","correct":false},{"text_cn":"28–30°C","text_en":"28–30°C","correct":false},{"text_cn":"45–47°C","text_en":"45–47°C","correct":false}],"explanation_cn":"新生兒體溫正常多在 36.5–37.5°C 之間。","explanation_en":"A newborn's normal temperature is usually around 36.5–37.5°C.","hints":["維持在接近常溫"]}
+{"id":"Q0034","module":"病人安全","type":"mcq","difficulty":"medium","question_cn":"病人跌倒後最重要的初步處置是什麼？","question_en":"What is the most important first step after a patient falls?","choices":[{"text_cn":"評估意識、生命徵象與受傷部位","text_en":"Assess consciousness, vital signs, and injured areas","correct":true},{"text_cn":"直接讓病人站起來","text_en":"Help the patient stand up immediately","correct":false},{"text_cn":"忽略它當作普通跌倒","text_en":"Ignore it as a minor incident","correct":false},{"text_cn":"只檢查頭部不必看其他部位","text_en":"Only check the head and ignore the rest","correct":false}],"explanation_cn":"跌倒後應先評估安全與受傷範圍，再決定是否轉介。","explanation_en":"After a fall, first assess airway, consciousness, vital signs, and any injuries before proceeding.","hints":["先檢查生命徵象與受傷處"]}
+{"id":"Q0035","module":"感染控制","type":"mcq","difficulty":"easy","question_cn":"下列哪一項是正確的手部清潔流程？","question_en":"Which of the following is the correct hand hygiene sequence?","choices":[{"text_cn":"濕手→起泡→揉搓至少 20 秒→沖淨→擦乾","text_en":"Wet hands → soap → rub for at least 20 seconds → rinse → dry","correct":true},{"text_cn":"直接用水沖洗 2 秒即可","text_en":"Immediately rinse with water for 2 seconds","correct":false},{"text_cn":"只用濕紙巾擦拭即可","text_en":"Wipe with a wet tissue only","correct":false},{"text_cn":"只在看見污垢時才洗手","text_en":"Wash hands only when visible dirt is present","correct":false}],"explanation_cn":"手洗需確實濕手、起泡、揉搓至少 20 秒，再沖淨和擦乾。","explanation_en":"Proper handwashing requires wetting hands, applying soap, rubbing for at least 20 seconds, rinsing, and drying.","hints":["至少 20 秒"]}
+{"id":"Q0036","module":"內分泌","type":"mcq","difficulty":"medium","question_cn":"胰島素注射前最重要的評估是什麼？","question_en":"What is the most important assessment before insulin injection?","choices":[{"text_cn":"血糖值與低血糖徵象","text_en":"Blood glucose level and signs of hypoglycemia","correct":true},{"text_cn":"病人的鞋子尺寸","text_en":"Shoe size","correct":false},{"text_cn":"病人是否喜歡按摩","text_en":"Whether the patient likes massage","correct":false},{"text_cn":"病人是否睡醒","text_en":"Whether the patient is awake","correct":false}],"explanation_cn":"胰島素治療需先確認血糖，避免低血糖。","explanation_en":"Insulin therapy requires checking blood glucose and assessing for hypoglycemia before administration.","hints":["血糖先於藥物"]}
+{"id":"Q0037","module":"急救","type":"mcq","difficulty":"medium","question_cn":"成人心肺復甦中，胸外按壓位置應在何處？","question_en":"Where should chest compressions be performed in adult CPR?","choices":[{"text_cn":"胸骨中央，約乳頭下方","text_en":"Center of the chest, just below the nipple line","correct":true},{"text_cn":"左側肋骨下方","text_en":"Below the left ribs","correct":false},{"text_cn":"右鎖骨下方","text_en":"Below the right clavicle","correct":false},{"text_cn":"肩膀中間","text_en":"At the midpoint of the shoulder","correct":false}],"explanation_cn":"胸外按壓應在胸骨中央，位於乳頭下方，讓心臟有效受壓。","explanation_en":"Chest compressions should be applied to the center of the chest, just below the nipple line, to effectively compress the heart.","hints":["胸骨中線位置"]}
+{"id":"Q0038","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"口服藥物最常見的給藥錯誤是什麼？","question_en":"What is the most common oral medication administration error?","choices":[{"text_cn":"給錯藥或錯劑量","text_en":"Wrong drug or wrong dose","correct":true},{"text_cn":"病人睡過頭","text_en":"The patient slept too long","correct":false},{"text_cn":"病人太熱","text_en":"The patient was too warm","correct":false},{"text_cn":"缺少水杯","text_en":"A cup of water was missing","correct":false}],"explanation_cn":"口服藥最常見錯誤為給錯藥或劑量，因此必須再確認藥名與劑量。","explanation_en":"The most common oral medication error is wrong drug or wrong dose, which requires verification before giving the medicine.","hints":["再看三查"]}
+{"id":"Q0039","module":"醫療安全","type":"mcq","difficulty":"easy","question_cn":"病人主觀描述會影響哪種護理行為？","question_en":"How does a patient's subjective report affect nursing care?","choices":[{"text_cn":"有助於評估痛苦、風險與需求","text_en":"It helps assess pain, risk, and needs","correct":true},{"text_cn":"不需要紀錄","text_en":"It does not need to be documented","correct":false},{"text_cn":"只用於醫師評估","text_en":"It is only for physician assessment","correct":false},{"text_cn":"只影響是否提供藥物","text_en":"It only affects medication choices","correct":false}],"explanation_cn":"病人主訴是評估病情與決定照護的重要來源。","explanation_en":"A patient’s subjective report is essential for assessing symptoms, risks, and care needs.","hints":["主訴 = 關鍵訊號"]}
+{"id":"Q0040","module":"護理倫理","type":"mcq","difficulty":"medium","question_cn":"病人自主權最重要的核心是什麼？","question_en":"What is the core principle of patient autonomy?","choices":[{"text_cn":"病人有權做出自己的醫療決定","text_en":"The patient has the right to make their own medical decisions","correct":true},{"text_cn":"醫師永遠知道最好的決定","text_en":"The physician always knows best","correct":false},{"text_cn":"護理在任何情況下都可代替病人決定","text_en":"Nursing staff can always decide for the patient","correct":false},{"text_cn":"病人不需接受任何資訊","text_en":"The patient need not receive information","correct":false}],"explanation_cn":"病人自主權指病人有權獲知資訊並自主做出醫療決定。","explanation_en":"Patient autonomy means the patient has the right to receive information and make informed medical decisions.","hints":["知情同意"]}
+{"id":"Q0041","module":"評估與紀錄","type":"short","difficulty":"easy","question_cn":"說明護理紀錄中何時應更新病人過敏資訊。","question_en":"When should a patient's allergy information be updated in nursing records?","choices":[],"explanation_cn":"在病人入院、每次評估、用藥前、以及過敏狀況改變時都應更新。","explanation_en":"Allergy information should be updated at admission, during each assessment, before medication administration, and whenever the allergy status changes.","hints":["任何變動都要更新"]}
+{"id":"Q0042","module":"母嬰護理","type":"mcq","difficulty":"medium","question_cn":"新生兒黃疸最需要密切觀察的原因是什麼？","question_en":"Why does neonatal jaundice require close observation?","choices":[{"text_cn":"可能與高膽紅素有關，需評估是否嚴重","text_en":"It may be associated with high bilirubin levels and severity assessment","correct":true},{"text_cn":"一定表示新生兒很快會餓死","text_en":"It always means the newborn will starve soon","correct":false},{"text_cn":"只需觀察一天即可","text_en":"It only needs observation for a day","correct":false},{"text_cn":"不需治療","text_en":"No treatment is needed","correct":false}],"explanation_cn":"新生兒黃疸需評估膽紅素水平，因為高膽紅素可能影響神經系統。","explanation_en":"Neonatal jaundice requires bilirubin assessment because severe hyperbilirubinemia may affect the nervous system.","hints":["關注膽紅素值與嚴重程度"]}
+{"id":"Q0043","module":"急救","type":"mcq","difficulty":"medium","question_cn":"當病人突然嘔吐、呼吸困難、發紺時，最先應該做什麼？","question_en":"When a patient suddenly vomits, has difficulty breathing, and becomes cyanotic, what is the first action?","choices":[{"text_cn":"保持呼吸道暢通並呼叫緊急支援","text_en":"Maintain airway patency and call for emergency support","correct":true},{"text_cn":"讓病人休息並觀察 1 小時","text_en":"Let the patient rest and observe for one hour","correct":false},{"text_cn":"給病人喝水","text_en":"Give the patient water","correct":false},{"text_cn":"播放音樂舒緩","text_en":"Play music to reduce anxiety","correct":false}],"explanation_cn":"在急性呼吸困難與發紺時，優先維持氣道與呼叫支持。","explanation_en":"In acute respiratory distress with cyanosis, prioritize airway patency and immediate emergency support.","hints":["先解決生命徵象"]}
+{"id":"Q0044","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"腸胃道吸收較慢的藥物通常是哪種給藥途徑？","question_en":"Which route is usually associated with slower GI absorption?","choices":[{"text_cn":"口服","text_en":"Oral route","correct":true},{"text_cn":"靜脈注射","text_en":"Intravenous injection","correct":false},{"text_cn":"肌肉注射","text_en":"Intramuscular injection","correct":false},{"text_cn":"皮下注射","text_en":"Subcutaneous injection","correct":false}],"explanation_cn":"口服藥需要經胃腸道吸收，通常比靜脈途徑更慢。","explanation_en":"Oral medications are absorbed through the gastrointestinal tract and are usually slower than IV administration.","hints":["GI 通路較慢"]}
+{"id":"Q0045","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"病人進食前最重要的觀察是什麼？","question_en":"What is the most important observation before a patient eats?","choices":[{"text_cn":"是否有吞嚥困難或意識狀況改變","text_en":"Whether there is dysphagia or altered consciousness","correct":true},{"text_cn":"病人是否喜歡吃某種食物","text_en":"Whether the patient prefers a specific food","correct":false},{"text_cn":"病人的體重是否增加","text_en":"Whether the patient gained weight","correct":false},{"text_cn":"病人是否有好友陪伴","text_en":"Whether the patient has friends present","correct":false}],"explanation_cn":"吞嚥困難或意識改變會增加窒息風險，用餐前應進行評估。","explanation_en":"Dysphagia or altered consciousness increases aspiration risk and requires pre-meal assessment.","hints":["先評估吞嚥與意識"]}
+{"id":"Q0046","module":"感染控制","type":"mcq","difficulty":"medium","question_cn":"佩戴口罩的主要目的為何？","question_en":"What is the main purpose of wearing a mask?","choices":[{"text_cn":"阻擋呼吸道飛沫與吸入病原","text_en":"Block respiratory droplets and inhaled pathogens","correct":true},{"text_cn":"減少病人發燒","text_en":"Reduce the patient's fever","correct":false},{"text_cn":"讓病人感到更舒服","text_en":"Make the patient feel more comfortable","correct":false},{"text_cn":"替代手部衛生","text_en":"Replace hand hygiene","correct":false}],"explanation_cn":"口罩可降低呼吸道飛沫與病原吸入風險，但不能取代手部衛生。","explanation_en":"Masks reduce exposure to respiratory droplets and inhaled pathogens, but they do not replace hand hygiene.","hints":["保護呼吸道"]}
+{"id":"Q0047","module":"醫療安全","type":"mcq","difficulty":"easy","question_cn":"病人主訴不明時，最關鍵的行為為何？","question_en":"When a patient’s complaint is unclear, what is the most important nursing action?","choices":[{"text_cn":"進一步評估並詢問詳細病史","text_en":"Assess further and obtain a detailed history","correct":true},{"text_cn":"直接判定為不重要","text_en":"Assume it is not important","correct":false},{"text_cn":"只看病歷上的舊資料","text_en":"Only review old records","correct":false},{"text_cn":"讓病人自行決定不處理","text_en":"Let the patient decide not to address it","correct":false}],"explanation_cn":"病人主訴不明時，需進一步評估以避免錯過危急情況。","explanation_en":"When the complaint is unclear, a focused assessment is essential to avoid missing serious problems.","hints":["先問清楚、再判斷"]}
+{"id":"Q0048","module":"壓力與情緒支持","type":"mcq","difficulty":"easy","question_cn":"護理人員建立信任關係的最佳方式是什麼？","question_en":"What is the best way for a nurse to build trust with patients?","choices":[{"text_cn":"保持尊重、傾聽與清楚溝通","text_en":"Be respectful, listen actively, and communicate clearly","correct":true},{"text_cn":"盡量讓病人安靜","text_en":"Keep the patient quiet as much as possible","correct":false},{"text_cn":"只講醫生的指示","text_en":"Only relay the physician’s instructions","correct":false},{"text_cn":"避免不必要的問話","text_en":"Avoid asking nonessential questions","correct":false}],"explanation_cn":"信任建立於尊重、聆聽以及清楚的溝通。","explanation_en":"Trust is built through respect, active listening, and clear communication.","hints":["人際、真誠、清楚"]}
+{"id":"Q0049","module":"呼吸照護","type":"mcq","difficulty":"medium","question_cn":"病人使用吸痰管時，最重要的注意事項為何？","question_en":"What is the most important nursing consideration when suctioning a patient?","choices":[{"text_cn":"先評估氧飽和度與氣道狀況，避免過度刺激","text_en":"Assess oxygen saturation and airway status to avoid excessive stimulation","correct":true},{"text_cn":"只要病人不舒服就直接吸痰","text_en":"Suction whenever the patient seems uncomfortable","correct":false},{"text_cn":"不需監測呼吸","text_en":"No respiratory monitoring is needed","correct":false},{"text_cn":"可以長時間反覆插入","text_en":"Repeated insertion can be continued without limit","correct":false}],"explanation_cn":"吸痰需評估病人狀況並避免過度刺激造成低氧或不適。","explanation_en":"Suctioning must be guided by assessment of oxygenation and airway status to reduce risk of hypoxia and discomfort.","hints":["安全與適度很重要"]}
+{"id":"Q0050","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"病人轉位時最重要的安全措施是什麼？","question_en":"What is the most important safety measure when repositioning a patient?","choices":[{"text_cn":"確認病人有足夠支持與防跌條件","text_en":"Ensure patient support and fall prevention measures are in place","correct":true},{"text_cn":"讓病人自己掉下床","text_en":"Allow the patient to fall out of bed","correct":false},{"text_cn":"不提醒病人可能頭暈","text_en":"Do not mention dizziness","correct":false},{"text_cn":"不需要協助","text_en":"No assistance is needed","correct":false}],"explanation_cn":"轉位時應提供支撐與保護，避免跌倒與壓傷。","explanation_en":"Repositioning requires adequate support and safety precautions to prevent falls and pressure injury.","hints":["支撐 + 防跌 + 監測"]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{ "id": "Q0051", "module": "急救", "type": "mcq", "difficulty": "hard", "question_cn": "當患者突然意識不清且呼吸微弱時，第一步最重要的是什麼？", "question_en": "When a patient suddenly becomes unconscious and breathing is weak, what is the most important first step?", "choices": [{"text_cn":"檢查反應和呼吸，立即啟動 CPR","text_en":"Check responsiveness and breathing, then start CPR immediately","correct":true},{"text_cn":"先給止痛藥","text_en":"Administer pain medication first","correct":false},{"text_cn":"讓患者休息後再處理","text_en":"Let the patient rest before acting","correct":false},{"text_cn":"只進行口對口呼吸","text_en":"Perform mouth-to-mouth only","correct":false}], "explanation_cn":"對無反應且呼吸微弱的病人，首先判斷反應與呼吸，必要時立即啟動 CPR。","explanation_en":"For an unresponsive patient with weak breathing, first assess responsiveness and breathing, and initiate CPR as needed.", "hints": ["先判斷生命徵象"] }
+{"id":"Q0052","module":"呼吸照護","type":"mcq","difficulty":"medium","question_cn":"病人使用氧氣時，最常見的副作用是什麼？","question_en":"What is the most common side effect of oxygen therapy?","choices":[{"text_cn":"乾燥鼻黏膜","text_en":"Dry nasal mucosa","correct":true},{"text_cn":"過度嗜睡","text_en":"Excessive sleepiness","correct":false},{"text_cn":"體重突然降低","text_en":"Sudden weight loss","correct":false},{"text_cn":"出現皮疹始終不退","text_en":"Persistent rash","correct":false}],"explanation_cn":"長時間氧療容易造成鼻黏膜乾燥，需注意保濕與監測。","explanation_en":"Long-term oxygen therapy can dry the nasal mucosa, so humidification and monitoring are important.","hints":["呼吸道黏膜保濕"]}
+{"id":"Q0053","module":"內分泌","type":"mcq","difficulty":"easy","question_cn":"糖尿病病人最容易出現的低血糖前兆為何？","question_en":"What is a common early sign of hypoglycemia in a diabetic patient?","choices":[{"text_cn":"顫抖、出汗、心悸","text_en":"Tremor, sweating, and palpitations","correct":true},{"text_cn":"嗜睡且反應緩慢","text_en":"Sleepiness and slow responses","correct":false},{"text_cn":"過度口渴","text_en":"Excessive thirst","correct":false},{"text_cn":"皮膚變黑","text_en":"Blackened skin","correct":false}],"explanation_cn":"低血糖常出現顫抖、出汗、心悸等交感神經症狀。","explanation_en":"Hypoglycemia commonly presents with tremor, sweating, and palpitations due to sympathetic activation.","hints":["交感神經反應"]}
+{"id":"Q0054","module":"婦產護理","type":"mcq","difficulty":"medium","question_cn":"產後婦女需要觀察哪些重要徵兆？","question_en":"Which important signs should be monitored in a postpartum woman?","choices":[{"text_cn":"出血量、腹痛、子宮收縮情況","text_en":"Bleeding amount, abdominal pain, and uterine contractions","correct":true},{"text_cn":"病人是否喜歡某個顏色","text_en":"Whether the patient likes a particular color","correct":false},{"text_cn":"訪客是否較多","text_en":"Whether there are many visitors","correct":false},{"text_cn":"病人是否願意說話","text_en":"Whether the patient is willing to talk","correct":false}],"explanation_cn":"產後觀察重點包括出血量、子宮收縮與疼痛控制。","explanation_en":"Postpartum assessment includes bleeding amount, uterine tone, and pain control.","hints":["出血 + 收縮 + 痛止"]}
+{"id":"Q0055","module":"神經照護","type":"mcq","difficulty":"medium","question_cn":"病人出現偏癱與語言不清，最可能是什麼急症？","question_en":"A patient with unilateral weakness and speech difficulty is most likely to have which emergency condition?","choices":[{"text_cn":"腦中風","text_en":"Stroke","correct":true},{"text_cn":"普通感冒","text_en":"Common cold","correct":false},{"text_cn":"緊張性頭痛","text_en":"Tension headache","correct":false},{"text_cn":"低血糖過久","text_en":"Prolonged hypoglycemia","correct":false}],"explanation_cn":"單側無力與語言障礙為急性中風常見表現，應立即處理。","explanation_en":"Unilateral weakness and speech difficulty are classic acute stroke features requiring urgent attention.","hints":["FAST 觀察"]}
+{"id":"Q0056","module":"感染控制","type":"mcq","difficulty":"easy","question_cn":"正確洗手應至少多久？","question_en":"How long should handwashing last at minimum?","choices":[{"text_cn":"至少 20 秒","text_en":"At least 20 seconds","correct":true},{"text_cn":"至少 2 秒","text_en":"At least 2 seconds","correct":false},{"text_cn":"至少 1 分鐘","text_en":"At least 1 minute","correct":false},{"text_cn":"只要有泡沫即可","text_en":"As long as there is foam","correct":false}],"explanation_cn":"有效手洗至少需 20 秒以上。","explanation_en":"Effective handwashing requires at least 20 seconds of rubbing.","hints":["20 秒保命"]}
+{"id":"Q0057","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"給藥前正確確認病人之後，最重要的下一步是什麼？","question_en":"After confirming patient identity before medication administration, what is the next most important step?","choices":[{"text_cn":"確認藥名、劑量與途徑","text_en":"Confirm the medication name, dose, and route","correct":true},{"text_cn":"立刻讓病人將藥吞下","text_en":"Immediately have the patient swallow the medication","correct":false},{"text_cn":"不再檢查任何內容","text_en":"No further checks are needed","correct":false},{"text_cn":"交給家屬協助","text_en":"Let the family assist without verifying","correct":false}],"explanation_cn":"給藥前必須核對藥名、劑量與給藥途徑。","explanation_en":"Before medication administration, verify the medication name, dose, and route.","hints":["三查 + 三對照"]}
+{"id":"Q0058","module":"評估與紀錄","type":"mcq","difficulty":"easy","question_cn":"護理紀錄應使用什麼風格書寫？","question_en":"What style should nursing records use?","choices":[{"text_cn":"客觀、準確、及時、可追蹤","text_en":"Objective, accurate, timely, and traceable","correct":true},{"text_cn":"主觀、模糊、含糊不清","text_en":"Subjective and vague","correct":false},{"text_cn":"只寫病人的情緒","text_en":"Only write about the patient's emotions","correct":false},{"text_cn":"可忽略時間概念","text_en":"May omit timing","correct":false}],"explanation_cn":"護理紀錄應客觀、準確、時間明確，以便後續追蹤。","explanation_en":"Nursing records should be objective, accurate, and time-specific for continuity of care.","hints":["客觀與時間重要"]}
+{"id":"Q0059","module":"母嬰護理","type":"mcq","difficulty":"medium","question_cn":"產後病人最需要監測的生命徵象之一是什麼？","question_en":"Which vital sign is especially important to monitor in a postpartum patient?","choices":[{"text_cn":"血壓與出血量","text_en":"Blood pressure and bleeding amount","correct":true},{"text_cn":"病人喜好音樂","text_en":"Favorite music","correct":false},{"text_cn":"病人是否看護理師","text_en":"Whether the patient looks at the nurse","correct":false},{"text_cn":"病人是否有假髮","text_en":"Whether the patient has a wig","correct":false}],"explanation_cn":"產後出血與低血壓會影響生命安全，因此需監測血壓與出血量。","explanation_en":"Postpartum hemorrhage and hypotension are major safety concerns; blood pressure and blood loss must be monitored.","hints":["出血 + 血壓"]}
+{"id":"Q0060","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"病人翻身時，最適合使用什麼協助方法？","question_en":"What is the best assistance method when turning a patient?","choices":[{"text_cn":"使用協助設備與適當人力支援","text_en":"Use assistive devices and adequate staff support","correct":true},{"text_cn":"讓病人自己用力翻身","text_en":"Let the patient turn alone","correct":false},{"text_cn":"忽略病人不舒服的反應","text_en":"Ignore discomfort during turning","correct":false},{"text_cn":"不用提醒過程中的風險","text_en":"Do not inform the patient of risks","correct":false}],"explanation_cn":"轉位時需有適當人力與支援，以減少壓傷與跌倒風險。","explanation_en":"Turning requires adequate staff assistance and support devices to reduce pressure injury and fall risks.","hints":["安全 + 協助 + 支撐"]}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"id":"Q0061","module":"感染控制","type":"mcq","difficulty":"medium","question_cn":"何種情況下應立即用肥皂和清水洗手，而非酒精消毒？","question_en":"In which situation should soap and water be used instead of alcohol sanitizer?","choices":[{"text_cn":"手部可見污垢或接觸嘔吐物/排泄物","text_en":"Visible soiling or contact with vomit or body fluids","correct":true},{"text_cn":"只是短暫接觸病人","text_en":"Only brief contact with a patient","correct":false},{"text_cn":"進行例行問診","text_en":"Routine history taking","correct":false},{"text_cn":"病人已戴手套","text_en":"The patient is already wearing gloves","correct":false}],"explanation_cn":"手部有可見污垢、接觸體液時，應使用肥皂和清水清潔。","explanation_en":"When hands are visibly soiled or exposed to body fluids, soap and water are preferred over alcohol sanitizer.","hints":["脫落污垢時要水洗"]}
+{"id":"Q0062","module":"內分泌","type":"mcq","difficulty":"medium","question_cn":"當病人出現明顯低血糖症狀，最適當的治療順序為何？","question_en":"When a patient shows clear symptoms of hypoglycemia, what is the correct treatment sequence?","choices":[{"text_cn":"先給快速升糖，後重複監測血糖","text_en":"Provide fast-acting glucose first, then recheck blood sugar","correct":true},{"text_cn":"先給多量胰島素","text_en":"Give a large dose of insulin first","correct":false},{"text_cn":"先大睡一覺再處理","text_en":"Rest before intervention","correct":false},{"text_cn":"只監測呼吸","text_en":"Only monitor breathing","correct":false}],"explanation_cn":"低血糖需先給予快速升糖，且重複監測血糖與症狀改善。","explanation_en":"Hypoglycemia requires immediate fast-acting glucose followed by repeated blood sugar monitoring and reassessment.","hints":["先治療再評估"]}
+{"id":"Q0063","module":"藥物護理","type":"mcq","difficulty":"medium","question_cn":"關於藥物過敏，哪項敘述最正確？","question_en":"Which statement about medication allergy is most correct?","choices":[{"text_cn":"過敏史應被視為給藥前的重要評估資訊","text_en":"Allergy history is critical information before administration","correct":true},{"text_cn":"只要過敏不嚴重即可忽略","text_en":"A mild allergy can be ignored","correct":false},{"text_cn":"過敏只需記錄一次即可","text_en":"Allergy history only needs to be recorded once","correct":false},{"text_cn":"過敏僅在出現紅疹時才重要","text_en":"Allergy matters only when a rash appears","correct":false}],"explanation_cn":"所有藥物過敏史都必須納入給藥前評估，避免嚴重過敏反應。","explanation_en":"All medication allergies should be considered before administration to prevent severe reactions.","hints":["過敏不能被忽略"]}
+{"id":"Q0064","module":"檢驗與影像","type":"mcq","difficulty":"medium","question_cn":"若ABG顯示酸血症與高碳酸血症，最可能代表什麼？","question_en":"If an ABG shows acidosis with hypercapnia, what is most likely occurring?","choices":[{"text_cn":"呼吸性酸中毒","text_en":"Respiratory acidosis","correct":true},{"text_cn":"代謝性低血糖","text_en":"Metabolic hypoglycemia","correct":false},{"text_cn":"正常生理變化","text_en":"Normal physiological change","correct":false},{"text_cn":"單純脫水","text_en":"Simple dehydration","correct":false}],"explanation_cn":"高碳酸血症伴酸血症通常代表呼吸性酸中毒。","explanation_en":"Acidosis with hypercapnia usually indicates respiratory acidosis.","hints":["看二氧化碳與 pH"]}
+{"id":"Q0065","module":"基礎護理","type":"mcq","difficulty":"easy","question_cn":"為病人協助進食時，最重要的原則是什麼？","question_en":"What is the most important principle when assisting a patient with eating?","choices":[{"text_cn":"確保安全、觀察吞嚥和呼吸狀態","text_en":"Ensure safety and monitor swallowing and breathing","correct":true},{"text_cn":"只要病人說想吃就立刻餵食","text_en":"Feed immediately whenever the patient asks for food","correct":false},{"text_cn":"先讓病人自己吃完才觀察","text_en":"Observe only after the patient has finished eating","correct":false},{"text_cn":"進食時不需要協助","text_en":"No assistance is required during eating","correct":false}],"explanation_cn":"餵食時應保護安全，特別留意吞嚥困難與呼吸狀況。","explanation_en":"Feeding should prioritize safety, especially monitoring for aspiration risk and respiratory compromise.","hints":["吞嚥 + 安全先行"]} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"path":"questions/question-bank.ndjson"}]}  <>
