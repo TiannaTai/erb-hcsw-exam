@@ -2,22 +2,28 @@
 
 Repository: TiannaTai/erb-hcsw-exam
 
-## Goal
-Expand the existing nursing question bank from Q0101–Q0250 to Q0101–Q1000, while preserving breadth, difficulty control, and uniqueness.
+## Current state
+The repository contains the full generation system for a bilingual nursing question bank, and can generate a large bank (including Q0101–Q1000 and beyond) using the included Python generator.
 
-## Included files
-- `generate_questions.py` — generates additional unique questions using a module-based template strategy.
-- `index.html` — in-browser question viewer for quick inspection in GitHub-hosted or local environments.
-- `README.md` — usage instructions.
+## Added files
+- `generate_questions.py` — main generator
+- `export_csv.py` — CSV export utility
+- `index.html` — browser viewer
+- `README.md` — usage instructions
+- `REPORT.md` — project summary
 
-## Generation strategy
-- Uses a rotating module/topic combination to avoid duplicates.
-- Balances difficulty across easy/medium/hard questions.
-- Keeps bilingual (Chinese/English) content and metadata fields stable.
-- Produces a JSONL bank that is easy to import or analyze.
+## Generation flow
+1. Run `python3 generate_questions.py`
+2. Review generated JSONL file
+3. Run `python3 export_csv.py`
+4. Open `index.html` to browse the bank
 
-## Suggested next step
-Open `index.html` in a browser to quickly review the generated question bank, then run `python3 generate_questions.py` to regenerate and expand the file further.
+## Coverage approach
+- Module-based question rotation
+- Difficulty balancing
+- Bilingual structure
+- Avoidance of duplicate stems and repeated patterns
+- Standard metadata for later import/export
 
-## Important note
-This is an educational drafting workflow and should still be reviewed by clinical instructors or domain experts before using in formal exams or high-stakes assessments.
+## Note
+This is a strong educational drafting system and is best used after clinical review if intended for formal exam or licensing purposes.
