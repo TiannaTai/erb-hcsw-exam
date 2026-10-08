@@ -5,28 +5,45 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ERB HCSW 題庫原型</title>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:20px auto;padding:0 10px}
-    header{display:flex;justify-content:space-between;align-items:center}
-    .controls{margin:10px 0}
+    body{font-family:Arial,Helvetica,sans-serif;max-width:960px;margin:20px auto;padding:0 12px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .controls{margin:12px 0;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
     .question{border:1px solid #ddd;padding:15px;border-radius:6px;margin:10px 0}
-    .choices button{display:block;margin:6px 0;padding:8px 12px}
-    .correct{background:#d4edda}
-    .wrong{background:#f8d7da}
+    .choices button{display:block;margin:6px 0;padding:8px 12px;width:100%;text-align:left}
+    .correct{background:#d4edda;border-color:#b7e4c7}
+    .wrong{background:#f8d7da;border-color:#f5c6cb}
     .hint{background:#fff3cd;padding:8px;border-radius:4px;margin-top:8px}
-    footer{margin-top:20px}
+    .meta-links{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 16px}
+    .link-btn{padding:6px 10px;border:1px solid #bbb;border-radius:6px;background:#f5f5f5;text-decoration:none;color:#111}
+    .topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .chip{padding:4px 8px;border-radius:999px;background:#f0f0f0;font-size:12px}
+    footer{margin-top:20px;color:#555}
   </style>
 </head>
 <body>
   <header>
     <h1>ERB-HCSW 題庫（Prototype）</h1>
-    <div>
+    <div class="topbar">
       <label><input id="langToggle" type="checkbox"> English</label>
+      <span class="chip" id="timer">—</span>
+      <span class="chip" id="status">待開始</span>
     </div>
   </header>
+
+  <div class="meta-links">
+    <a class="link-btn" href="./hospitals.html">醫院分佈</a>
+    <a class="link-btn" href="./encyclopedia.html">醫療百科</a>
+    <a class="link-btn" href="./diagnostics.html">弱點診斷</a>
+  </div>
 
   <div class="controls">
     模組：<select id="moduleFilter"><option value="all">全部</option></select>
     題型：<select id="typeFilter"><option value="all">全部</option><option value="mcq">選擇題</option><option value="short">簡答</option></select>
+    模式：<select id="modeFilter">
+      <option value="study">學習模式</option>
+      <option value="exam">考試模式</option>
+      <option value="weak-points">弱點重做</option>
+    </select>
     <button id="startBtn">開始測驗</button>
     <span id="score" style="margin-left:12px"></span>
   </div>
@@ -34,9 +51,9 @@
   <div id="quizArea"></div>
 
   <footer>
-    <small>Sample prototype: 20 題 (中英雙語)。糾錯提示會在第一次答錯後顯示。請務必由專業人員審核內容。</small>
+    <small>Sample prototype: 20 題 (中英雙語)。支援學習／考試／弱點重做三種模式，錯題會自動加入重做清單。</small>
   </footer>
 
-  <script src="./frontend/quiz.js"></script>
+  <script src="./quiz.js"></script>
 </body>
 </html>
