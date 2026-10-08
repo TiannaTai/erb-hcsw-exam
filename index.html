@@ -3,148 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nursing Question Bank Browser</title>
+  <title>護理題庫瀏覽器</title>
   <style>
-    body { font-family: system-ui, sans-serif; margin: 2rem; background: #f7f7fb; color: #202124; }
-    .wrapper { max-width: 1100px; margin: 0 auto; }
-    .head { margin-bottom: 1.5rem; }
+    body { font-family: sans-serif; margin: 2rem; background: #f8fafc; color: #111827; }
+    .container { max-width: 1200px; margin: 0 auto; }
     .controls { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    input, select { padding: 0.7rem 0.8rem; border: 1px solid #ced4da; border-radius: 8px; }
-    button { background: #2563eb; color: white; border: none; border-radius: 8px; padding: 0.7rem 1rem; cursor: pointer; }
+    select, input, button { padding: 0.7rem 0.8rem; border-radius: 8px; border: 1px solid #cbd5e1; }
+    button { background: #2563eb; color: white; border: none; }
     .summary { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1rem; }
-    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-    .meta { color: #4b5563; font-size: 0.85rem; }
-    .choices { margin-top: 0.75rem; }
-    .choice { display: block; margin: 0.35rem 0; }
-    .answer { color: #16a34a; font-weight: 600; }
-    .badge { display: inline-block; background: #e0f2fe; color: #075985; padding: 0.25rem 0.55rem; border-radius: 999px; font-size: 0.8rem; margin-right: 0.4rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; }
+    .badge { display: inline-block; margin-right: 0.35rem; background: #dbeafe; color: #1d4ed8; padding: 0.2rem 0.5rem; border-radius: 999px; font-size: 0.76rem; }
+    .answer { color: #15803d; font-weight: 600; margin-top: 0.75rem; }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="head">
-      <h1>護理題庫瀏覽器</h1>
-      <p>Q0101–Q1000，支援多模組、難度分類、快速篩選、非重複生成策略。</p>
-    </div>
-
+  <div class="container">
+    <h1>護理題庫瀏覽器</h1>
     <div class="controls">
-      <select id="moduleFilter">
-        <option value="all">全部模組</option>
-      </select>
+      <select id="moduleFilter"><option value="all">全部模組</option></select>
       <select id="difficultyFilter">
         <option value="all">全部難度</option>
         <option value="easy">easy</option>
         <option value="medium">medium</option>
         <option value="hard">hard</option>
       </select>
-      <input id="searchBox" type="text" placeholder="搜尋題目 / 模組 / 關鍵字" style="min-width:260px;" />
-      <button id="loadBtn">載入資料</button>
+      <input id="searchBox" type="text" placeholder="搜尋題目 / 模組 / 關鍵字" style="min-width:250px;" />
+      <button id="loadBtn">載入題庫</button>
     </div>
-
     <div class="summary" id="summaryBox"></div>
-    <div class="cards" id="cardBox"></div>
+    <div class="card-grid" id="cardBox"></div>
   </div>
 
   <script>
-    const pageSize = 60;
     let fullData = [];
-    let currentList = [];
-
-    function applyFilters() {
-      const moduleValue = document.getElementById('moduleFilter').value;
-      const difficultyValue = document.getElementById('difficultyFilter').value;
-      const keyword = document.getElementById('searchBox').value.toLowerCase();
-
-      currentList = fullData.filter(item => {
-        const matchModule = moduleValue === 'all' || item.module === moduleValue;
-        const matchDifficulty = difficultyValue === 'all' || item.difficulty === difficultyValue;
-        const hay = `${item.id} ${item.module} ${item.question_cn} ${item.question_en} ${item.tags.join(' ')}`.toLowerCase();
-        const matchKeyword = !keyword || hay.includes(keyword);
-        return matchModule && matchDifficulty && matchKeyword;
-      });
-
-      renderCards(currentList.slice(0, pageSize));
-      renderSummary();
-    }
+    let currentData = [];
 
     function renderSummary() {
-      const total = currentList.length;
-      const moduleCount = new Set(currentList.map(x => x.module)).size;
-      document.getElementById('summaryBox').innerHTML = `
-        <strong>結果數:</strong> ${total} / ${fullData.length}<br>
-        <strong>模組數:</strong> ${moduleCount}
-      `;
+      const total = currentData.length;
+      const modules = new Set(currentData.map(x => x.module)).size;
+      document.getElementById('summaryBox').innerHTML = `結果數: ${total} / ${fullData.length} &nbsp; | &nbsp; 模組數: ${modules}`;
     }
 
-    function renderCards(items) {
+    function renderCards() {
       const box = document.getElementById('cardBox');
-      if (!items.length) {
+      if (!currentData.length) {
         box.innerHTML = '<div class="card">沒有符合條件的題目。</div>';
         return;
       }
-      box.innerHTML = items.map(item => `
-        <div class="card">
-          <div class="meta"><span class="badge">${item.id}</span> <span class="badge">${item.module}</span> <span class="badge">${item.difficulty}</span></div>
-          <h3>${item.question_cn}</h3>
-          <p><em>${item.question_en}</em></p>
-          <div class="choices">
-            ${item.choices.map(c => `<div class="choice">${c.text_cn}</div>`).join('')}
+
+      box.innerHTML = currentData.map(item => {
+        const answer = item.choices.find(c => c.correct)?.text_cn || 'N/A';
+        return `
+          <div class="card">
+            <div>
+              <span class="badge">${item.id}</span>
+              <span class="badge">${item.module}</span>
+              <span class="badge">${item.difficulty}</span>
+            </div>
+            <h3>${item.question_cn}</h3>
+            <p><em>${item.question_en}</em></p>
+            <ul>
+              ${item.choices.map(c => `<li>${c.text_cn}</li>`).join('')}
+            </ul>
+            <div class="answer">答案：${answer}</div>
           </div>
-          <div class="answer">答案：${item.choices.find(c => c.correct).text_cn}</div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
+    }
+
+    function filterData() {
+      const moduleValue = document.getElementById('moduleFilter').value;
+      const difficultyValue = document.getElementById('difficultyFilter').value;
+      const query = document.getElementById('searchBox').value.toLowerCase();
+
+      currentData = fullData.filter(item => {
+        const matchesModule = moduleValue === 'all' || item.module === moduleValue;
+        const matchesDifficulty = difficultyValue === 'all' || item.difficulty === difficultyValue;
+        const haystack = `${item.id} ${item.module} ${item.question_cn} ${item.question_en} ${item.tags.join(' ')}`.toLowerCase();
+        const matchesQuery = !query || haystack.includes(query);
+        return matchesModule && matchesDifficulty && matchesQuery;
+      });
+
+      renderSummary();
+      renderCards();
     }
 
     async function loadData() {
-      // Try to load a generated JSONL if present; otherwise generate a seed dataset in-browser.
-      const generated = [
-        {"id":"Q0101","module":"急救與復甦","difficulty":"medium","question_cn":"病人突然氣短且無意識，護理師首先應做什麼？","question_en":"A patient suddenly has dyspnea and loses consciousness. What should the nurse do first?","choices":[{"text_cn":"判斷反應與啟動急救","text_en":"Assess responsiveness and activate emergency response","correct":true},{"text_cn":"先送去休息","text_en":"Send the patient to rest first","correct":false},{"text_cn":"先詢問家屬意見","text_en":"Ask the family first","correct":false},{"text_cn":"忽略不理","text_en":"Ignore it","correct":false}],"tags":["急救","氣道"],"difficulty_level":2},
-        {"id":"Q0102","module":"藥物護理","difficulty":"easy","question_cn":"藥物給藥前最重要核對是什麼？","question_en":"What is the most important check before medication administration?","choices":[{"text_cn":"病人身份與醫囑","text_en":"Patient identity and order","correct":true},{"text_cn":"病人是否笑了","text_en":"Whether the patient smiled","correct":false},{"text_cn":"病人是否有手機","text_en":"Whether the patient has a phone","correct":false},{"text_cn":"病人是否穿白衣","text_en":"Whether the patient is wearing white","correct":false}],"tags":["藥物","核對"],"difficulty_level":1},
-        {"id":"Q0103","module":"感染控制","difficulty":"medium","question_cn":"接觸病人後最重要的動作是什麼？","question_en":"What is the most important action after patient contact?","choices":[{"text_cn":"徹底洗手","text_en":"Perform proper hand hygiene","correct":true},{"text_cn":"換鞋子","text_en":"Change shoes","correct":false},{"text_cn":"關燈","text_en":"Turn off the lights","correct":false},{"text_cn":"離開病房","text_en":"Leave the room","correct":false}],"tags":["感染控制","洗手"],"difficulty_level":2}
-      ];
+      const response = await fetch('nursing_questions_Q0101-Q1000.jsonl');
+      const text = await response.text();
+      const rows = text.trim().split('\n').filter(Boolean).map(line => JSON.parse(line));
+      fullData = rows;
 
-      // Build a richer question set on the fly for demo purposes.
-      const modules = ["急救與復甦","藥物護理","感染控制","精神護理","基礎護理","呼吸照護","母嬰護理","疼痛管理","泌尿護理","檢驗與影像","內科護理","骨科護理","營養照護","病人安全","評估與紀錄"];
-      const memo = [];
-      for (let i = 101; i <= 1000; i++) {
-        const module = modules[(i - 1) % modules.length];
-        const diff = i % 5 === 0 ? 'hard' : i % 2 === 0 ? 'medium' : 'easy';
-        const cn = `Q${String(i).padStart(4, '0')}：${module}照護中，${i % 2 === 0 ? '最重要的優先處置' : '最適當的護理行動'}是什麼？`;
-        const en = `Q${String(i).padStart(4, '0')}: In ${module} care, what is the most important priority or appropriate nursing action?`;
-        const choices = [
-          { text_cn: `${module}中最重要是先評估病人安全與狀態`, text_en: `Priority assessment and patient safety in ${module}`, correct: true },
-          { text_cn: '直接不處理', text_en: 'Ignore the problem', correct: false },
-          { text_cn: '只讓家屬決定', text_en: 'Let family decide only', correct: false },
-          { text_cn: '等到下一班再處理', text_en: 'Wait until the next shift', correct: false }
-        ];
-        memo.push({ id: `Q${String(i).padStart(4, '0')}`, module, difficulty: diff, question_cn: cn, question_en: en, choices, tags: [module, diff], difficulty_level: diff === 'easy' ? 1 : diff === 'medium' ? 2 : 4 });
-      }
+      const modules = [...new Set(rows.map(r => r.module))];
+      const moduleSelect = document.getElementById('moduleFilter');
+      moduleSelect.innerHTML = '<option value="all">全部模組</option>' + modules.map(m => `<option value="${m}">${m}</option>`).join('');
 
-      fullData = [...generated, ...memo].slice(0, 1000);
-      const unique = {};
-      const arr = [];
-      fullData.forEach(item => {
-        const key = `${item.id}-${item.module}-${item.question_cn}`;
-        if (!unique[key]) {
-          unique[key] = true;
-          arr.push(item);
-        }
-      });
-      fullData = arr.slice(0, 1000);
-
-      const moduleSet = [...new Set(fullData.map(x => x.module))];
-      const moduleFilter = document.getElementById('moduleFilter');
-      moduleFilter.innerHTML = '<option value="all">全部模組</option>' + moduleSet.map(m => `<option value="${m}">${m}</option>`).join('');
-
-      document.getElementById('loadBtn').addEventListener('click', applyFilters);
-      document.getElementById('searchBox').addEventListener('input', applyFilters);
-      document.getElementById('moduleFilter').addEventListener('change', applyFilters);
-      document.getElementById('difficultyFilter').addEventListener('change', applyFilters);
-      applyFilters();
+      document.getElementById('moduleFilter').addEventListener('change', filterData);
+      document.getElementById('difficultyFilter').addEventListener('change', filterData);
+      document.getElementById('searchBox').addEventListener('input', filterData);
+      document.getElementById('loadBtn').addEventListener('click', filterData);
+      filterData();
     }
 
-    window.addEventListener('DOMContentLoaded', loadData);
+    loadData();
   </script>
 </body>
 </html>

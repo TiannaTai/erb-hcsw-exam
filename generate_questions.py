@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """Generate a large, non-repeating nursing question bank.
 
-This script creates a JSONL question bank for Q0101–Q1000 using a modular
+This script creates a JSONL question bank (Q0101-Q1000 and beyond) using a modular
 content generation strategy. It avoids duplicates by combining:
 - module/topic rotation
 - difficulty progression
 - varied question stems and response patterns
 - content hash dedupe
+- bilingual Chinese/English wording
 """
 
 from __future__ import annotations
+import csv
 import json
 from pathlib import Path
 from hashlib import sha256
@@ -117,7 +119,7 @@ CONDITION_MAP = {
     "精神護理": ["高度焦慮且緊張", "自責及自傷念頭", "說話內容混亂", "情緒激動且躁動"],
     "基礎護理": ["需協助翻身", "坐起時頭暈", "需協助洗澡", "需協助移位"],
     "呼吸照護": ["呼吸急促且用力", "SpO2下降", "痰液大量堆積", "吸氧後仍喘"],
-    "母嬰護理": ["新生兒黃疸", "產後出血", "產後乳房脹痛", "新生兒吸吮困難"],
+    "母嬰護理": ["新生兒黃疜", "產後出血", "產後乳房脹痛", "新生兒吸吮困難"],
     "疼痛管理": ["疼痛程度增加", "疼痛影響睡眠", "疼痛出現於手術後", "疼痛導致活動受限"],
     "泌尿護理": ["尿量減少且膀胱脹痛", "無法排尿", "失禁問題明顯", "尿液顏色變深"],
     "檢驗與影像": ["檢查前需禁食", "抽血後出現刺痛", "檢查需進行影像檢查", "疑似懷孕需要評估"],
@@ -161,20 +163,45 @@ def short_hash(text: str) -> str:
 
 def build_choices(answer: str, wrong_pool: list[str]) -> list[dict]:
     wrongs = wrong_pool[:3]
-    choices = [{"text_cn": answer, "text_en": answer, "correct": True}]
-    for idx, w in enumerate(wrongs, start=1):
-        choices.append({"text_cn": w, "text_en": w, "correct": False})
-    return choices
+    out = [{"text_cn": answer, "text_en": answer, "correct": True}]
+    for w in wrongs:
+        out.append({"text_cn": w, "text_en": w, "correct": False})
+    return out
+
+
+def english_from_chinese(q_text: str) -> str:
+    replacements = {
+        "病人": "patient",
+        "護理師": "nurse",
+        "最先": "first",
+        "最重要": "most important",
+        "應": "should",
+        "什麼": "what",
+        "時": "when",
+        "觀察": "observe",
+        "處置": "intervention",
+        "評估": "assess",
+        "安全": "safety",
+        "監測": "monitor",
+        "幫助": "help",
+        "照護": "care",
+        "發熱": "fever",
+        "疼痛": "pain",
+        "感染": "infection",
+    }
+    for cn, en in replacements.items():
+        q_text = q_text.replace(cn, en)
+    return q_text.strip()[:180]
 
 
 def generate_question(index: int) -> dict:
-    module_index = (index - 1) % len(MODULES)
-    module = list(MODULES.keys())[module_index]
+    module_list = list(MODULES.keys())
+    module = module_list[(index - 1) % len(module_list)]
     topic = MODULES[module][(index - 1) % len(MODULES[module])]
     template = QUESTION_TEMPLATES[module][(index - 1) % len(QUESTION_TEMPLATES[module])]
-    difficulty = "easy" if index % 5 == 0 else ("medium" if index % 3 == 0 else "hard") if index % 2 == 0 else "easy"
+    difficulty = "easy" if index % 4 == 0 else "medium" if index % 3 == 0 else "hard"
     difficulty_level = 1 if difficulty == "easy" else 2 if difficulty == "medium" else 4
-    question_cn = template.format(
+    q_cn = template.format(
         condition=CONDITION_MAP[module][(index - 1) % len(CONDITION_MAP[module])],
         scenario=SCENARIO_MAP[module][(index - 1) % len(SCENARIO_MAP[module])],
         patient=PATIENTS[(index - 1) % len(PATIENTS)],
@@ -186,35 +213,58 @@ def generate_question(index: int) -> dict:
         treatment=TREATMENTS[(index - 1) % len(TREATMENTS)],
         behavior=["故作怪異行為", "焦慮發作", "情緒起伏大"][index % 3],
     )
-    question_en = "".join(question_cn.translate(str.maketrans({"，": ", ", "？": "?"})).split())
-    # simpler English approximation
-    if "最先應" in question_cn:
-        question_en = "What is the most important priority in this nursing situation?"
-    elif "最重要" in question_cn:
-        question_en = "What is the most important nursing consideration in this situation?"
-    else:
-        question_en = "How should the nurse respond appropriately?"
+    q_en = english_from_chinese(q_cn)
 
-    answer_text = "評估生命徵象與立即啟動風險管理" if module == "急救與復甦" else "確認病人身分和醫囑後再實施照護" if module == "藥物護理" else "保持手部衛生與病人安全" if module == "感染控制" else "以穩定語氣、短句溝通並評估風險" if module == "精神護理" else "維持安全與尊重病人的舒適" if module == "基礎護理" else "優先評估呼吸與氧合狀態" if module == "呼吸照護" else "觀察母嬰狀態並提供適當支持" if module == "母嬰護理" else "重新評估疼痛並因應病人需要" if module == "疼痛管理" else "評估尿量、脹痛與泌尿道狀況" if module == "泌尿護理" else "確認醫囑與病人安全後再執行檢查" if module == "檢驗與影像" else "先評估生命徵象與病情變化" if module == "內科護理" else "持續監測神經血管狀態與疼痛" if module == "骨科護理" else "依需求調整營養與吞嚥支持" if module == "營養照護" else "先做風險評估與環境保護" if module == "病人安全" else "先做客觀評估與即時紀錄"
+    answer_text = (
+        "立即評估病人生命徵象與優先處置"
+        if module == "急救與復甦"
+        else "確認病人身分與醫囑後再給藥"
+        if module == "藥物護理"
+        else "維持手部衛生及感染控制措施"
+        if module == "感染控制"
+        else "以穩定語氣、短句溝通並評估風險"
+        if module == "精神護理"
+        else "優先維持安全與病人舒適"
+        if module == "基礎護理"
+        else "優先評估呼吸與氧合狀態"
+        if module == "呼吸照護"
+        else "觀察母嬰狀態並提供適當支持"
+        if module == "母嬰護理"
+        else "重新評估疼痛並依據病人反應調整處置"
+        if module == "疼痛管理"
+        else "評估尿量、脹痛與泌尿道狀況"
+        if module == "泌尿護理"
+        else "確認醫囑與病人安全後再進行檢查"
+        if module == "檢驗與影像"
+        else "先評估生命徵象與病情變化"
+        if module == "內科護理"
+        else "持續監測神經血管狀態與疼痛"
+        if module == "骨科護理"
+        else "依需求調整營養與吞嚥支持"
+        if module == "營養照護"
+        else "先做風險評估與環境保護"
+        if module == "病人安全"
+        else "先做客觀評估與即時紀錄"
+    )
+
     wrong_pool = [
         "完全不處理",
         "等待家屬決定",
+        "忽略評估與觀察",
         "只讓病人自行承受",
         "直接給藥物不問原因",
-        "忽略評估與觀察",
-        "只看病人表情不做紀錄",
-        "不需要評估與支持",
-        "讓病人休息而不做監測",
+        "延後處理至下一班",
+        "只看表情不做紀錄",
+        "不需要風險評估",
     ]
     choices = build_choices(answer_text, wrong_pool)
-
     explanation_cn = (
-        f"在{module}相關情境中，首要目標是維持病人安全、評估病情變化並依照規範提供適切照護。"
-        f"此題重點在於{topic}，護理師需優先確認病人狀態、採取安全措施與相關評估。"
+        f"在{module}情境中，護理師需以病人安全為優先，結合{topic}的專業知識，進行正確評估與即時介入。"
+        f"當病情變化時，應依照標準流程與病人需求調整照護，避免延誤治療與風險。"
     )
     explanation_en = (
-        "This scenario emphasizes safe patient-centered care, appropriate assessment, and timely intervention based on nursing standards. "
-        f"The key concept is {topic}, which helps nurses prioritize risk assessment and patient support."
+        f"In {module.lower()} situations, the nurse must prioritize patient safety and apply the correct assessment and intervention related to {topic.lower()}. "
+        "Timely evaluation and evidence-based care are essential to prevent complications and support recovery."
     )
 
     qid = f"Q{index:04d}"
@@ -224,43 +274,93 @@ def generate_question(index: int) -> dict:
         "type": "mcq",
         "difficulty": difficulty,
         "difficulty_level": difficulty_level,
-        "competency_level": ["novice"] if difficulty == "easy" else ["novice", "intermediate"] if difficulty == "medium" else ["expert"],
-        "question_cn": question_cn,
-        "question_en": question_en,
+        "competency_level": ["novice"] if difficulty == "easy" else ["novice", "intermediate"] if difficulty == "medium" else ["intermediate", "advanced"],
+        "question_cn": q_cn,
+        "question_en": q_en,
         "choices": choices,
         "explanation_levels": {
             "brief_cn": explanation_cn[:80],
             "brief_en": explanation_en[:80],
             "detailed_cn": explanation_cn,
             "detailed_en": explanation_en,
-            "expert_cn": explanation_cn + "在實務中，護理師需依照病人狀況持續監測與調整照護。",
-            "expert_en": explanation_en + " In practice, nurses should continue monitoring and adjust care based on the patient's evolving status."
+            "expert_cn": explanation_cn + "在臨床實務中，護理師需持續監測病人反應與整體狀況，並依照醫療團隊指示調整照護。",
+            "expert_en": explanation_en + " In clinical practice, nurses must continue monitoring and adjust care according to the patient's response and team protocols."
         },
         "hints": [topic, module],
         "learning_objective_cn": f"掌握{module}相關照護與風險評估的重要概念。",
         "learning_objective_en": f"Understand key concepts in {module.lower()} care and risk assessment.",
-        "references": [{"title": f"{module} care overview", "url": "https://example.com/" + module.lower().replace(" ", "-") , "publisher": "Nursing education"}],
+        "references": [{"title": f"{module} overview", "url": "https://example.com/" + module.lower().replace(" ", "-"), "publisher": "Nursing education"}],
         "tags": [module.lower().replace(" ", "_"), topic.lower().replace(" ", "_")],
-        "media": {"type": "image", "src": f"./media/{module.lower().replace(' ','-')}.png", "alt_cn": f"{module}示意", "alt_en": f"{module} illustration", "caption_cn": f"{module}照護要點", "caption_en": f"Key points in {module} care"},
+        "media": {"type": "image", "src": f"./media/{module.lower().replace(' ','-')}.png", "alt_cn": f"{module}示意", "alt_en": f"{module} illustration", "caption_cn": f"{module}照護重點", "caption_en": f"Key points in {module} care"},
         "estimated_time_seconds": 25 + (index % 60),
         "srs_base_interval_days": 3 + (index % 9),
         "author": "auto-generator",
         "reviewer": None,
         "created_at": "2026-10-08T00:00:00Z",
         "updated_at": "2026-10-08T00:00:00Z",
-        "dedupe_key": short_hash(json.dumps({"module": module, "topic": topic, "stem": question_cn}, ensure_ascii=False, sort_keys=True)),
+        "dedupe_key": short_hash(json.dumps({"module": module, "topic": topic, "stem": q_cn}, ensure_ascii=False, sort_keys=True)),
     }
     return record
 
 
-def main() -> None:
-    output = Path("nursing_questions_Q0101-Q1000.jsonl")
-    records = [generate_question(i) for i in range(101, 1001)]
-    with output.open("w", encoding="utf-8") as f:
+def generate_bank(start: int, end: int) -> list[dict]:
+    seen = set()
+    records = []
+    for i in range(start, end + 1):
+        rec = generate_question(i)
+        key = rec["dedupe_key"]
+        if key in seen:
+            continue
+        seen.add(key)
+        records.append(rec)
+    return records
+
+
+def write_jsonl(path: Path, records: list[dict]) -> None:
+    with path.open("w", encoding="utf-8") as f:
         for rec in records:
             f.write(json.dumps(rec, ensure_ascii=False, separators=(",", ":")))
             f.write("\n")
-    print(f"Generated {len(records)} questions -> {output}")
+
+
+def write_csv(path: Path, records: list[dict]) -> None:
+    header = ["id", "module", "difficulty", "question_cn", "question_en", "correct_answer", "tags"]
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        for rec in records:
+            answer = next(choice["text_cn"] for choice in rec["choices"] if choice.get("correct") is True)
+            writer.writerow([
+                rec["id"],
+                rec["module"],
+                rec["difficulty"],
+                rec["question_cn"],
+                rec["question_en"],
+                answer,
+                ";".join(rec["tags"]),
+            ])
+
+
+def write_single_question_files(dirpath: Path, records: list[dict]) -> None:
+    dirpath.mkdir(exist_ok=True)
+    for rec in records:
+        qfile = dirpath / f"{rec['id']}.json"
+        qfile.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def main() -> None:
+    records = generate_bank(101, 1000)
+    jsonl_path = Path("nursing_questions_Q0101-Q1000.jsonl")
+    csv_path = Path("nursing_questions_Q0101-Q1000.csv")
+    single_dir = Path("questions")
+
+    write_jsonl(jsonl_path, records)
+    write_csv(csv_path, records)
+    write_single_question_files(single_dir, records)
+
+    print(f"Generated {len(records)} questions -> {jsonl_path}")
+    print(f"CSV exported -> {csv_path}")
+    print(f"Per-question files written -> {single_dir}")
 
 
 if __name__ == "__main__":

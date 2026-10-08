@@ -1,29 +1,29 @@
-# Upload REPORT
+# Final Report
 
 Repository: TiannaTai/erb-hcsw-exam
 
-## Current state
-The repository contains the full generation system for a bilingual nursing question bank, and can generate a large bank (including Q0101–Q1000 and beyond) using the included Python generator.
+## Final generated system
+This project now contains a full nursing question bank generation workflow capable of creating a large bilingual question bank with module-based coverage and duplicate avoidance.
 
-## Added files
-- `generate_questions.py` — main generator
-- `export_csv.py` — CSV export utility
-- `index.html` — browser viewer
-- `README.md` — usage instructions
-- `REPORT.md` — project summary
+## Generated files
+- `generate_questions.py`
+- `export_csv.py`
+- `index.html`
+- `README.md`
+- `REPORT.md`
 
-## Generation flow
-1. Run `python3 generate_questions.py`
-2. Review generated JSONL file
-3. Run `python3 export_csv.py`
-4. Open `index.html` to browse the bank
+## Output files after running generator
+- `nursing_questions_Q0101-Q1000.jsonl`
+- `nursing_questions_Q0101-Q1000.csv`
+- `questions/` directory with one JSON file per question
 
-## Coverage approach
-- Module-based question rotation
-- Difficulty balancing
-- Bilingual structure
-- Avoidance of duplicate stems and repeated patterns
-- Standard metadata for later import/export
+## What it includes
+- bilingual content (Chinese + English)
+- multi-module nursing coverage
+- difficulty scaling
+- non-redundant generation strategy
+- CSV exports for LMS or spreadsheet use
+- browser-based preview
 
-## Note
-This is a strong educational drafting system and is best used after clinical review if intended for formal exam or licensing purposes.
+## Important
+This is a strong educational question bank system, but final clinical exam content should be reviewed by professional nursing educators before use in high-stakes assessments.
