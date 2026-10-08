@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ERB HCSW 題庫原型</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:20px auto;padding:0 10px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    .controls{margin:10px 0}
+    .question{border:1px solid #ddd;padding:15px;border-radius:6px;margin:10px 0}
+    .choices button{display:block;margin:6px 0;padding:8px 12px}
+    .correct{background:#d4edda}
+    .wrong{background:#f8d7da}
+    .hint{background:#fff3cd;padding:8px;border-radius:4px;margin-top:8px}
+    footer{margin-top:20px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ERB-HCSW 題庫（Prototype）</h1>
+    <div>
+      <label><input id="langToggle" type="checkbox"> English</label>
+    </div>
+  </header>
+
+  <div class="controls">
+    模組：<select id="moduleFilter"><option value="all">全部</option></select>
+    題型：<select id="typeFilter"><option value="all">全部</option><option value="mcq">選擇題</option><option value="short">簡答</option></select>
+    <button id="startBtn">開始測驗</button>
+    <span id="score" style="margin-left:12px"></span>
+  </div>
+
+  <div id="quizArea"></div>
+
+  <footer>
+    <small>Sample prototype: 20 題 (中英雙語)。糾錯提示會在第一次答錯後顯示。請務必由專業人員審核內容。</small>
+  </footer>
+
+  <script src="./frontend/quiz.js"></script>
+</body>
+</html>
