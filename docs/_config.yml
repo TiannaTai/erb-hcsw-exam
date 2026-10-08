@@ -1,0 +1,7 @@
+title: "護理題庫"
+description: "護理題庫產生器與離線可用頁面"
+baseurl: "/erb-hcsw-exam"
+url: "https://TiannaTai.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
