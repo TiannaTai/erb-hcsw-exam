@@ -1,0 +1,82 @@
+[
+  {
+    "id": "H001",
+    "name": "台北市立聯合醫院",
+    "region": "台北",
+    "specialty": "急診 / 老年照護",
+    "lat": 25.0330,
+    "lng": 121.5654,
+    "related_terms": ["急診", "老年照護"],
+    "linked_questions": ["Q0003","Q0008","Q0016"]
+  },
+  {
+    "id": "H002",
+    "name": "台大醫院",
+    "region": "台北",
+    "specialty": "內科 / 感染控制",
+    "lat": 25.0402,
+    "lng": 121.5136,
+    "related_terms": ["感染控制", "內科"],
+    "linked_questions": ["Q0002","Q0012","Q0017"]
+  },
+  {
+    "id": "H003",
+    "name": "中國醫藥大學附設醫院",
+    "region": "台中",
+    "specialty": "外傷 / 急救",
+    "lat": 24.1815,
+    "lng": 120.6456,
+    "related_terms": ["急救", "外傷"],
+    "linked_questions": ["Q0018","Q0013"]
+  },
+  {
+    "id": "H004",
+    "name": "高雄長庚紀念醫院",
+    "region": "高雄",
+    "specialty": "心臟 / 重症",
+    "lat": 22.6273,
+    "lng": 120.3014,
+    "related_terms": ["心臟", "重症"],
+    "linked_questions": ["Q0003"]
+  },
+  {
+    "id": "H005",
+    "name": "成大醫院",
+    "region": "台南",
+    "specialty": "老年照護 / 藥物管理",
+    "lat": 23.0007,
+    "lng": 120.2270,
+    "related_terms": ["老年照護", "藥物護理"],
+    "linked_questions": ["Q0006","Q0004"]
+  },
+  {
+    "id": "H006",
+    "name": "新竹國泰綜合醫院",
+    "region": "新竹",
+    "specialty": "評估與紀錄",
+    "lat": 24.8036,
+    "lng": 120.9686,
+    "related_terms": ["評估", "紀錄"],
+    "linked_questions": ["Q0010","Q0020"]
+  },
+  {
+    "id": "H007",
+    "name": "桃園榮民總醫院",
+    "region": "桃園",
+    "specialty": "感染控制 / 急診",
+    "lat": 24.9886,
+    "lng": 121.3110,
+    "related_terms": ["感染控制", "急診"],
+    "linked_questions": ["Q0002","Q0012"]
+  },
+  {
+    "id": "H008",
+    "name": "基隆長庚醫院",
+    "region": "基隆",
+    "specialty": "社區醫療 / 老年照護",
+    "lat": 25.1283,
+    "lng": 121.7392,
+    "related_terms": ["社區", "老年照護"],
+    "linked_questions": ["Q0016","Q0015"]
+  }
+]
