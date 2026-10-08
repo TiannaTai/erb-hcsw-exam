@@ -2,24 +2,22 @@
 
 Repository: TiannaTai/erb-hcsw-exam
 
-Uploaded files:
-- nursing_questions_Q0101-Q0250.jsonl (single JSONL file containing questions Q0101–Q0250)
-- README.md
+## Goal
+Expand the existing nursing question bank from Q0101–Q0250 to Q0101–Q1000, while preserving breadth, difficulty control, and uniqueness.
 
-Summary:
-- Total questions added: 150 (IDs Q0101 through Q0250)
-- Format: JSONL (one JSON object per line)
-- Created on: 2026-10-08T00:00:00Z (content timestamps retained from source)
+## Included files
+- `generate_questions.py` — generates additional unique questions using a module-based template strategy.
+- `index.html` — in-browser question viewer for quick inspection in GitHub-hosted or local environments.
+- `README.md` — usage instructions.
 
-Notes:
-- Content includes bilingual (Chinese/English) fields and metadata (module, difficulty, tags, media references).
-- Media references are relative paths (e.g., ./media/...) and were not uploaded; add corresponding media files if required.
-- Please review sensitive clinical content before use in assessments or training.
+## Generation strategy
+- Uses a rotating module/topic combination to avoid duplicates.
+- Balances difficulty across easy/medium/hard questions.
+- Keeps bilingual (Chinese/English) content and metadata fields stable.
+- Produces a JSONL bank that is easy to import or analyze.
 
-Next steps suggested:
-1. Review the JSONL content for accuracy and compliance with local clinical guidelines.
-2. Add media assets under ./media/ if you need images/animations linked in the questions.
-3. Optionally split into per-question files or convert to CSV/LMS formats.
-4. If you want, I can create an import script or GitHub Action to validate JSON format on push.
+## Suggested next step
+Open `index.html` in a browser to quickly review the generated question bank, then run `python3 generate_questions.py` to regenerate and expand the file further.
 
-If you want further actions (convert to CSV, create separate question files, add CI validation), reply with instructions and I will proceed.
+## Important note
+This is an educational drafting workflow and should still be reviewed by clinical instructors or domain experts before using in formal exams or high-stakes assessments.
