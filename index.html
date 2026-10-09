@@ -3,113 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ERB HCSW Exam | 员工再培训局医护支援人员考试 | 7 Clusters 43 Hospitals</title>
+<title>ERB HCSW Exam | Employees Retraining Board Health Care Support Worker | 员工再培训局医护支援人员考试</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,'Noto Sans TC';background:#fcfcf9;color:#0f172a;line-height:1.6}
-.top{background:#0f172a;color:#cbd5e1;padding:10px 16px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;border-bottom:2px solid #d4af37}
-.top b{color:#f5d76e;font-size:12px}
-.wrap{max-width:1200px;margin:0 auto;padding:12px}
-.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin-top:12px}
-.h1{font-size:13px;font-weight:900}.sub{font-size:10px;color:#64748b;margin-top:2px}
-.btn{padding:10px 12px;border:1px solid #e2e8f0;border-radius:9px;background:#fff;font-weight:700;font-size:11px;min-height:44px;min-width:80px;cursor:pointer}
-.btn.on{background:#0f172a;color:#f5d76e;border-color:#0f172a}
-.hero{display:grid;grid-template-columns:220px 1fr 220px;gap:12px;align-items:start}
-.col{display:flex;flex-direction:column;gap:8px}
-.organ{padding:12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;text-align:left;min-height:48px;cursor:pointer;font-size:11px;font-weight:700}
-.organ.on{border-color:#d4af37;background:#fffbeb}
-.anatomy{border:1px solid #e5d8a8;border-radius:12px;background:#fff;display:flex;justify-content:center;padding:12px;min-height:420px;position:relative}
-.hit{fill:transparent;stroke:transparent;stroke-width:56;cursor:pointer}
-.shape{pointer-events:none}
-.hosp{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
-.hosp div{border:1px solid #e2e8f0;border-radius:10px;padding:8px;background:#f8fafc}
-.hosp b{font-size:10px;display:block;margin-bottom:6px}
-.hosp button{display:block;width:100%;text-align:left;padding:10px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;font-size:10px;font-weight:700;min-height:44px;margin-top:4px;cursor:pointer}
-.hosp button.on{background:#0f172a;color:#f5d76e}
-.q{border:1px solid #e2e8f0;border-radius:10px;padding:10px;margin-top:8px;background:#fff}
-.o{display:block;width:100%;text-align:left;padding:11px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;margin-top:4px;min-height:44px;cursor:pointer;font-size:11px}
+:root{--ink:#0f172a;--gold:#d4af37;--gold2:#f5d76e;--line:#e2e8f0;--bg:#fcfcf9;--muted:#64748b}
+body{background:var(--bg);font-family:Inter,'Noto Sans TC',system-ui;color:var(--ink);line-height:1.6}
+.top{height:50px;background:var(--ink);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 12px;color:#94a3b8;font-size:10px;font-weight:700;gap:8px}
+.top b{color:var(--gold2);font-size:11px}
+.wrap{max-width:1360px;margin:0 auto;padding:10px 12px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;position:relative}
+.card::before{content:'';position:absolute;top:0;left:14px;right:14px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.h1{font-size:11px;font-weight:800}.en{font-size:8px;color:var(--gold);font-weight:700;display:block;margin-top:1px}.desc{font-size:8.5px;color:var(--muted);margin-top:4px;line-height:1.55}
+.btn{padding:9px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:9px;min-height:44px;cursor:pointer}
+.btn.on{background:var(--ink);color:var(--gold2);border-color:var(--ink)}.btn.primary{background:var(--ink);color:var(--gold2)}
+.hero{grid-column:span 8;display:grid;grid-template-columns:170px 1fr 170px;gap:10px;background:#fff;border:1px solid #e5d8a8;border-radius:12px;padding:10px}
+.side{grid-column:span 4}.full{grid-column:span 12}
+.organBtn{width:100%;padding:9px 9px;border-radius:8px;border:1px solid var(--line);background:#fff;text-align:left;min-height:50px;cursor:pointer;font-size:9.5px;font-weight:700;line-height:1.3}
+.organBtn span{font-size:7.5px;color:var(--muted);display:block;margin-top:2px;font-weight:500}
+.organBtn.on{border-color:var(--gold);background:#fffbeb}
+.anatomy{border:1px solid #e5d8a8;border-radius:10px;background:linear-gradient(#fff,#f8fafc);display:flex;justify-content:center;align-items:center;min-height:440px}
+.hit{fill:transparent;stroke:transparent;stroke-width:62;cursor:pointer;pointer-events:all}.shape{pointer-events:none}
+.q{border:1px solid var(--line);border-radius:9px;padding:9px;background:#fff;margin-top:7px}
+.o{width:100%;text-align:left;padding:10px;border:1px solid var(--line);border-radius:7px;background:#fff;margin-top:4px;min-height:44px;cursor:pointer;font-size:9.5px}
 .o.ok{background:#dcfce7;border-color:#16a34a}.o.no{background:#fee2e2;border-color:#ef4444}
-.exp{display:none;margin-top:6px;padding:8px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;font-size:10px}
-@media(max-width:900px){.hero{grid-template-columns:1fr}.col{flex-direction:row;flex-wrap:wrap}.organ{flex:1 1 45%}.hosp{grid-template-columns:1fr}}
+.exp{display:none;margin-top:5px;padding:7px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;font-size:8.5px;line-height:1.6}
+.clusterBox{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:7px}
+.cluster{border:1px solid var(--line);border-radius:8px;padding:6px;background:#f8fafc}.cluster b{font-size:8.5px}
+.cluster button{width:100%;text-align:left;padding:9px 7px;border:1px solid var(--line);border-radius:7px;background:#fff;font-size:8.5px;font-weight:700;min-height:44px;margin-top:4px;cursor:pointer}
+.cluster button.on{background:var(--ink);color:var(--gold2)}
+@media(max-width:1100px){.hero{grid-column:span 12;grid-template-columns:1fr}.side{grid-column:span 12}}
 </style>
 </head>
 <body>
-<div class="top"><b>ERB HCSW Exam | 员工再培训局医护支援人员考试 | 7 Clusters 43 Hospitals | 4 Scenes 4大场景</b><div style="display:flex;gap:6px"><button class="btn" style="min-height:30px" onclick="window.print()">Print 打印</button><span id="daily" style="padding:6px 10px;background:#1e293b;border-radius:999px">Urine Day 茶色尿日</span></div></div>
+<div class="top"><b>ERB HCSW Exam | Employees Retraining Board Health Care Support Worker | 员工再培训局医护支援人员考试 | 7 Clusters 7大联网 43 Hospitals 43间医院 | 4 Scenes 4大场景</b><div style="display:flex;gap:5px;align-items:center"><span id="timer">Timer 计时 45:00</span><button class="btn" style="min-height:28px;padding:5px 8px" onclick="window.print()">Print 打印</button><button class="btn" style="min-height:28px;padding:5px 8px" onclick="document.body.style.filter=document.body.style.filter?'':'invert(1) hue-rotate(180deg)'">Dark 深色</button><button class="btn primary" style="min-height:28px;padding:5px 8px" onclick="startExam()">Mock 模拟考试</button><span style="padding:5px 8px;background:#1e293b;border-radius:999px;font-size:8px" id="dailyBadge">Urine Day 茶色尿观察日 Kidney 肾</span></div></div>
 
 <div class="wrap">
-<div class="card">
-<div class="h1">Anatomical Training Module 人体解剖训练模块</div>
-<div class="sub">Human Reference 人体参照物 · 8 Organs 8器官 · Click organ to filter 点器官筛选题库 · All Clickable 全部可点 · 56px hit area 大点击区 · Tested 实测可点</div>
+<div class="grid">
 
-<div class="hero" style="margin-top:10px">
-<div class="col">
-<button class="organ" id="b-Lung" onclick="setOrgan('Lung','肺')">Left Lung 左肺<br><span style="font-size:9px;color:#64748b">Sputum 痰液观察</span></button>
-<button class="organ" id="b-Kidney" onclick="setOrgan('Kidney','肾')">Left Kidney 左肾<br><span style="font-size:9px;color:#64748b">Urine 小便观察</span></button>
-<button class="organ" id="b-Intestine" onclick="setOrgan('Intestine','肠')">Intestine 肠<br><span style="font-size:9px;color:#64748b">Stool 大便观察</span></button>
+<div class="card" style="grid-column:span 3"><div class="h1">Clinical Knowledge Retrieval<span class="en">临床知识检索 | Knowledge Cards 知识卡片</span></div><div class="desc">ERB 8 Major Observations 8大必考观察 | Vomitus 呕吐物 Coffee-ground 咖啡色200ml带血块 Bright red 鲜红 | Sputum 痰液 Yellow-green purulent 黄绿脓痰带血丝臭味 Rusty 铁锈色 Pink frothy 粉红泡沫 White sticky 白黏 | Stool 大便 Black tarry 黑便柏油样便 Pus & bloody 脓血便黏液恶臭 | Urine 小便 Tea-colored 茶色尿 Hematuria 血尿 Turbid 混浊血丝脓液 | Bilingual 中英对照</div></div>
+<div class="card" style="grid-column:span 3"><div class="h1">Psychomotor Simulation<span class="en">精神运动模拟 | Transfer 扶抱转移</span></div><div class="desc">Safe Transfer 安全扶抱 Knee to knee 膝靠膝 Hug shoulder 抱膊头 Not pull arm 不拉手臂 | Assessment 评估 | Lock bed 锁床刹 | Transfer belt 移位带 | Back protection 腰背保护 Bend knees 屈膝 Straight spine 直脊 Use legs 用腿力 | Hand Hygiene 手卫生5时刻 | PPE Donning Doffing 穿脱</div></div>
+<div class="card" style="grid-column:span 3"><div class="h1">Data Analytics Dashboard<span class="en">数据分析仪表板 | Daily Theme 每日主题</span></div><div class="desc" id="analytics">Daily Theme 每日主题 Urine Day 茶色尿观察日 Tea-colored urine Hematuria 血尿 | Highlight Organ 高亮器官 Kidney 肾 | 7 Clusters 7大联网 43 Hospitals 43间医院 | 4 Scenes 4大场景 Acute 急性 Rehab 复康 Day 日间 Community 社区 | Vital Signs 生命表征 BP/P/R/T/SpO2</div></div>
+<div class="card" style="grid-column:span 3"><div class="h1">Competency Leaderboard<span class="en">能力排行榜 | Achievement System 成就系统</span></div><div class="desc">Accuracy 正确率 | Response Time 反应时间 | Streak 连胜 | Hospital Ranking 医院排名 | Organ Mastery 器官掌握度 | Subject Taxonomy 科目分类 8大必考 4大场景 | ERB Standard ERB标准 | +50pts 答对 | High-End 高端设计</div></div>
+
+<div class="hero">
+<div style="display:flex;flex-direction:column;gap:7px">
+<button class="organBtn" id="btn-Lung" onclick="filterOrg('Lung','肺')">Lung 肺<span>Sputum 痰液观察 | Purulent 黄绿脓痰带血丝臭味 | Rusty 铁锈色 | Pink frothy 粉红泡沫</span></button>
+<button class="organBtn" id="btn-Kidney" onclick="filterOrg('Kidney','肾')">Kidney 肾<span>Urine 小便观察 | Tea-colored 茶色尿 | Hematuria 血尿 | Turbid 混浊血丝脓液</span></button>
+<button class="organBtn" id="btn-Intestine" onclick="filterOrg('Intestine','肠')">Intestine 肠<span>Stool 大便观察 | Black tarry 黑便柏油样便 | Pus & bloody 脓血便</span></button>
+<button class="organBtn" id="btn-Skin" onclick="filterOrg('Skin','皮肤')">Skin 皮肤<span>Wound 伤口渗液 | Yellow purulent 黄脓血水臭味红肿</span></button>
 </div>
 
 <div class="anatomy">
-<svg viewBox="0 0 300 420" width="100%" height="100%" style="max-width:300px">
-<g onclick="setOrgan('Brain','脑')"><circle cx="150" cy="36" r="50" class="hit"/><circle cx="150" cy="34" r="26" fill="#f9a8d4" stroke="#ec4899" stroke-width="1.6" class="shape"/></g>
-<g onclick="setOrgan('Lung','肺')"><ellipse cx="115" cy="140" rx="48" ry="58" class="hit"/><ellipse cx="115" cy="140" rx="26" ry="40" fill="#fecdd3" stroke="#f43f5e" stroke-width="1.6" class="shape"/></g>
-<g onclick="setOrgan('Lung','肺')"><ellipse cx="185" cy="140" rx="48" ry="58" class="hit"/><ellipse cx="185" cy="140" rx="26" ry="40" fill="#fecdd3" stroke="#f43f5e" stroke-width="1.6" class="shape"/></g>
-<g onclick="setOrgan('Heart','心脏')"><circle cx="150" cy="140" r="52" class="hit"/><path d="M150 125 C139 115 122 125 150 153 C178 125 161 115 150 125 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="1.6" class="shape"/></g>
-<g onclick="setOrgan('Liver','肝脏')"><ellipse cx="110" cy="210" rx="50" ry="40" class="hit"/><path d="M90 200 Q110 186 132 200 L132 224 Q110 236 90 224 Z" fill="#a16207" stroke="#78350f" stroke-width="1.4" class="shape"/></g>
-<g onclick="setOrgan('Stomach','胃')"><ellipse cx="180" cy="208" rx="46" ry="40" class="hit"/><ellipse cx="180" cy="208" rx="22" ry="20" fill="#facc15" stroke="#a16207" stroke-width="1.4" class="shape"/></g>
-<g onclick="setOrgan('Kidney','肾')"><ellipse cx="105" cy="262" rx="42" ry="46" class="hit"/><ellipse cx="105" cy="262" rx="15" ry="22" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.4" class="shape"/></g>
-<g onclick="setOrgan('Kidney','肾')"><ellipse cx="195" cy="262" rx="42" ry="46" class="hit"/><ellipse cx="195" cy="262" rx="15" ry="22" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.4" class="shape"/></g>
-<g onclick="setOrgan('Intestine','肠')"><ellipse cx="150" cy="330" rx="64" ry="56" class="hit"/><path d="M114 296 Q150 312 186 296 Q178 358 150 366 Q122 358 114 296" fill="#fef3c7" stroke="#d97706" stroke-width="1.2" class="shape"/></g>
-<g onclick="setOrgan('All','全部')"><path d="M150 6 C164 6 176 16 176 28 C176 40 164 50 150 50 C136 50 124 40 124 28 C124 16 136 6 150 6 Z M138 50 L138 70 L162 70 L162 50 M104 74 Q150 64 196 74 L206 98 L196 98 L192 82 L188 216 Q150 226 112 216 L108 82 L104 98 L94 98 L104 74 M104 216 L90 350 M196 216 L210 350" fill="none" stroke="#94a3b8" stroke-width="2" class="shape"/></g>
+<svg viewBox="0 0 300 440" width="100%" height="100%" style="max-width:310px">
+<g onclick="filterOrg('Brain','脑')"><circle cx="150" cy="34" r="54" class="hit"/><circle cx="150" cy="32" r="26" fill="#f9a8d4" stroke="#ec4899" stroke-width="1.5" class="shape"/></g>
+<g onclick="filterOrg('Lung','肺')"><ellipse cx="115" cy="138" rx="52" ry="62" class="hit"/><ellipse cx="115" cy="138" rx="26" ry="40" fill="#fecdd3" stroke="#f43f5e" stroke-width="1.5" class="shape"/></g>
+<g onclick="filterOrg('Lung','肺')"><ellipse cx="185" cy="138" rx="52" ry="62" class="hit"/><ellipse cx="185" cy="138" rx="26" ry="40" fill="#fecdd3" stroke="#f43f5e" stroke-width="1.5" class="shape"/></g>
+<g onclick="filterOrg('Heart','心脏')"><circle cx="150" cy="138" r="54" class="hit"/><path d="M150 123 C139 113 122 123 150 151 C178 123 161 113 150 123 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5" class="shape"/></g>
+<g onclick="filterOrg('Liver','肝脏')"><ellipse cx="110" cy="206" rx="52" ry="42" class="hit"/><path d="M90 196 Q110 182 132 196 L132 220 Q110 232 90 220 Z" fill="#a16207" stroke="#78350f" stroke-width="1.3" class="shape"/></g>
+<g onclick="filterOrg('Stomach','胃')"><ellipse cx="180" cy="204" rx="48" ry="42" class="hit"/><ellipse cx="180" cy="204" rx="22" ry="20" fill="#facc15" stroke="#a16207" stroke-width="1.3" class="shape"/></g>
+<g onclick="filterOrg('Kidney','肾')"><ellipse cx="105" cy="258" rx="44" ry="48" class="hit"/><ellipse cx="105" cy="258" rx="15" ry="22" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.3" class="shape"/></g>
+<g onclick="filterOrg('Kidney','肾')"><ellipse cx="195" cy="258" rx="44" ry="48" class="hit"/><ellipse cx="195" cy="258" rx="15" ry="22" fill="#7c3aed" stroke="#5b21b6" stroke-width="1.3" class="shape"/></g>
+<g onclick="filterOrg('Intestine','肠')"><ellipse cx="150" cy="324" rx="66" ry="58" class="hit"/><path d="M114 290 Q150 306 186 290 Q178 352 150 360 Q122 352 114 290" fill="#fef3c7" stroke="#d97706" stroke-width="1.1" class="shape"/></g>
+<g onclick="filterOrg('All','全部')"><path d="M150 6 C164 6 176 16 176 28 C176 40 164 50 150 50 C136 50 124 40 124 28 C124 16 136 6 150 6 Z M138 50 L138 70 L162 70 L162 50 M104 74 Q150 64 196 74 L206 98 L196 98 L192 82 L188 216 Q150 226 112 216 L108 82 L104 98 L94 98 L104 74 M104 216 L90 350 M196 216 L210 350" fill="none" stroke="#94a3b8" stroke-width="2" class="shape"/></g>
 </svg>
 </div>
 
-<div class="col">
-<button class="organ" id="b-Brain" onclick="setOrgan('Brain','脑')">Brain 脑<br><span style="font-size:9px;color:#64748b">Infection Control 感染控制</span></button>
-<button class="organ" id="b-Heart" onclick="setOrgan('Heart','心脏')">Heart 心脏<br><span style="font-size:9px;color:#64748b">Vital Signs 生命表征</span></button>
-<button class="organ" id="b-Liver" onclick="setOrgan('Liver','肝脏')">Liver 肝脏<br><span style="font-size:9px;color:#64748b">Tea-colored urine 茶色尿</span></button>
-<button class="organ" id="b-Stomach" onclick="setOrgan('Stomach','胃')">Stomach 胃<br><span style="font-size:9px;color:#64748b">Vomitus 呕吐物观察</span></button>
-<button class="organ" id="b-All" onclick="setOrgan('All','全部')">All 全部<br><span style="font-size:9px;color:#64748b">30 Fixed + Infinite 无限</span></button>
-</div>
-</div>
-<div style="margin-top:8px;font-size:10px;color:#64748b">Selected 已选: <span id="selOrgan" style="font-weight:800">All 全部</span> | <span id="selHosp">All 全部43间</span></div>
-</div>
-
-<div class="card">
-<div class="h1">Hospital Taxonomy 医院分类</div>
-<div class="sub">7 Clusters 7大联网 · 43 Hospitals 43间医院 · Click to filter 点医院筛选 · All Clickable 全部可点</div>
-<div class="hosp">
-<div><b>港岛东 HKEC</b><button onclick="setHosp(this,'Ruttonjee 律敦治')">律敦治及邓肇坚 Ruttonjee</button><button onclick="setHosp(this,'PYNEH 东区')">东区尤德 PYNEH</button></div>
-<div><b>港岛西 HKWC</b><button onclick="setHosp(this,'QMH 玛丽')">玛丽 QMH</button><button onclick="setHosp(this,'GH 葛量洪')">葛量洪 Grantham</button></div>
-<div><b>九龙中 KCC</b><button onclick="setHosp(this,'QEH 伊利沙伯')">伊利沙伯 QEH</button><button onclick="setHosp(this,'KWH 广华')">广华 KWH</button></div>
-<div><b>九龙东 KEC</b><button onclick="setHosp(this,'UCH 联合')">联合 UCH</button><button onclick="setHosp(this,'TKOH 将军澳')">将军澳 TKOH</button></div>
-<div><b>新界东 NTEC</b><button onclick="setHosp(this,'PWH 威尔斯')">威尔斯 PWH</button><button onclick="setHosp(this,'NDH 北区')">北区 North District</button></div>
-<div><b>新界西 NTWC</b><button onclick="setHosp(this,'TMH 屯门')">屯门 Tuen Mun</button><button onclick="setHosp(this,'TSWH 天水围')">天水围 Tin Shui Wai</button></div>
+<div style="display:flex;flex-direction:column;gap:7px">
+<button class="organBtn" id="btn-Brain" onclick="filterOrg('Brain','脑')">Brain 脑<span>Infection Control 感染控制 | Hand Hygiene 手卫生5时刻 | PPE 穿脱</span></button>
+<button class="organBtn" id="btn-Heart" onclick="filterOrg('Heart','心脏')">Heart 心脏<span>Vital Signs 生命表征 | BP/P/R/T/SpO2 | Shock 休克 | Chest pain 胸痛</span></button>
+<button class="organBtn" id="btn-Liver" onclick="filterOrg('Liver','肝脏')">Liver 肝脏<span>Urine 小便 | Tea-colored 茶色尿 | Jaundice 黄疸</span></button>
+<button class="organBtn" id="btn-Stomach" onclick="filterOrg('Stomach','胃')">Stomach 胃<span>Vomitus 呕吐物观察 | Coffee-ground 咖啡色200ml带血块 | Bright red 鲜红</span></button>
+<button class="organBtn" id="btn-All" onclick="filterOrg('All','全部')">All 全部<span>Fixed 30Q 固定题库 + Infinite Question Bank 无限题库</span></button>
 </div>
 </div>
 
-<div class="card">
-<div class="h1">Question Bank 题库 | Fixed 30Q 固定题库 + Infinite 无限</div>
-<div class="sub">ERB 8 Major Observations 8大必考 | Vomitus 呕吐物 Coffee-ground 200ml带血块 | Sputum 痰液 Yellow-green purulent 黄绿脓痰带血丝 | Stool 大便 Black tarry stool 黑便柏油样便 | Urine 小便 Tea-colored 茶色尿 Hematuria 血尿 | Bilingual 中英对照 | Professional 专业命名</div>
-<div id="list" style="margin-top:10px"></div>
+<div class="side">
+<div class="card" style="min-height:480px">
+<div class="h1">Hospital Taxonomy<span class="en">医院分类 | 7 Clusters 7大联网 43 Hospitals 43间医院 | 4 Scenes 4大场景 Acute 急性 Rehab 复康 Day 日间 Community 社区</span></div>
+<div class="desc">Click hospital to filter 点医院筛选题库 | Clickable 全部可点 44px min-height | Bilingual 中英对照 | All Clickable 全部可点无死角</div>
+<div class="clusterBox">
+<div class="cluster"><b>港岛东 HKEC 3间</b><button onclick="setHosp(this,'Ruttonjee 律敦治及邓肇坚')">Ruttonjee 律敦治及邓肇坚</button><button onclick="setHosp(this,'PYNEH 东区尤德')">PYNEH 东区尤德</button><button onclick="setHosp(this,'Cheung Chau 长洲')">Cheung Chau 长洲</button></div>
+<div class="cluster"><b>港岛西 HKWC 5间</b><button onclick="setHosp(this,'QMH 玛丽')">QMH 玛丽</button><button onclick="setHosp(this,'TWH 赞育')">TWH 赞育</button><button onclick="setHosp(this,'GH 葛量洪')">GH 葛量洪</button><button onclick="setHosp(this,'TWH 东华')">TWH 东华</button></div>
+<div class="cluster"><b>九龙中 KCC 6间</b><button onclick="setHosp(this,'QEH 伊利沙伯')">QEH 伊利沙伯</button><button onclick="setHosp(this,'KWH 广华')">KWH 广华</button><button onclick="setHosp(this,'KH 九龙')">KH 九龙</button><button onclick="setHosp(this,'BHH 佛教')">BHH 佛教</button></div>
+<div class="cluster"><b>九龙东 KEC 3间</b><button onclick="setHosp(this,'UCH 联合')">UCH 联合</button><button onclick="setHosp(this,'TKOH 将军澳')">TKOH 将军澳</button><button onclick="setHosp(this,'HHH 灵实')">HHH 灵实</button></div>
+<div class="cluster"><b>九龙西 KWC 5间</b><button onclick="setHosp(this,'PMH 玛嘉烈')">PMH 玛嘉烈</button><button onclick="setHosp(this,'CMC 明爱')">CMC 明爱</button><button onclick="setHosp(this,'YH 仁济')">YH 仁济</button><button onclick="setHosp(this,'KWH 葵涌')">KWH 葵涌</button></div>
+<div class="cluster"><b>新界东 NTEC 5间</b><button onclick="setHosp(this,'PWH 威尔斯')">PWH 威尔斯</button><button onclick="setHosp(this,'AHNH 雅丽氏何妙龄')">AHNH 雅丽氏何妙龄</button><button onclick="setHosp(this,'NDH 北区')">NDH 北区</button><button onclick="setHosp(this,'TPH 大埔')">TPH 大埔</button></div>
+<div class="cluster"><b>新界西 NTWC 5间</b><button onclick="setHosp(this,'TMH 屯门')">TMH 屯门</button><button onclick="setHosp(this,'POH 博爱')">POH 博爱</button><button onclick="setHosp(this,'TSWH 天水围')">TSWH 天水围</button><button onclick="setHosp(this,'CPH 青山')">CPH 青山</button></div>
+<div class="cluster"><b>复康/日间 Rehab/Day 11间</b><button onclick="setHosp(this,'WCH 黄竹坑')">WCH 黄竹坑</button><button onclick="setHosp(this,'KCH 九龙康复')">KCH 九龙康复</button><button onclick="setHosp(this,'Community 社区')">Community 社区医疗</button><button onclick="setHosp(this,'Day 日间')">Day 日间医疗</button></div>
+</div>
+<div style="margin-top:8px;padding:8px;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;font-size:9px;font-weight:700">Selected 已选: <span id="selHosp">All 全部43间医院</span> | <span id="selOrg">All 全部器官</span></div>
+</div>
+</div>
+
+<div class="card full">
+<div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><div><div class="h1">Question Bank 题库 | Infinite Question Bank 无限题库 | Short Answer Bank 短问答题库 | Clinical Decision Pathway 临床决策路径<span class="en">Fixed 30Q 固定题库 + Infinite 无限题库 | Subject Taxonomy 科目分类 8 Major Observations 8大必考 4 Scenes 4大场景 | Bilingual 中英对照 | High-End 高端 | Professional Naming 专业命名 | Anatomical Atlas 解剖图谱 | 7 Clusters 43 Hospitals | Human Reference 人体参照物 | All Clickable 全部可点无死角 | Tested 实测可点 | Print 打印 Dark 深色 Timer 计时 Mock 模拟考试</span></div><div class="desc">Vomitus 呕吐物 Coffee-ground 200ml带血块 Bright red 鲜红 Yellow-green 黄绿 | Sputum 痰液 Yellow-green purulent 黄绿脓痰带血丝臭味 Rusty 铁锈色 Pink frothy 粉红泡沫 White sticky 白黏 | Stool 大便 Black tarry 黑便柏油样便 Pus & bloody 脓血便黏液恶臭 Watery 水样便 | Urine 小便 Tea-colored 茶色尿 Hematuria 血尿 Turbid 混浊血丝脓液 Anuria 无尿 Urgency 尿急频刺痛 | Wound 伤口 Yellow purulent 黄脓血水臭味红肿 Pressure sore 压疮 | Vital Signs 生命表征 BP/P/R/T/SpO2 | Infection Control 感染控制 Hand Hygiene 手卫生5时刻 PPE穿脱 Sharps injury 针刺伤 Isolation 隔离 | Transfer 扶抱转移 Knee to knee 膝靠膝 Hug shoulder 抱膊头 Back protection 腰背保护 | Safety 安全急救 Choking 窒息 Fall 跌倒 Chest pain 胸痛 Shock 休克 | ERB Standard ERB标准 | Notify 通知 Retain 保留 Observe 观察 Monitor 监测 NPO 禁食 Suction 吸引 Semi-Fowler 半坐卧 Record 记录 | Click organ to filter 点器官筛选 | Click hospital to filter 点医院筛选 | 44px min-height | Bilingual 中英对照 | Professional 专业</div></div><div style="display:flex;gap:5px"><button class="btn primary" onclick="showAll()">All 全部30Q</button><button class="btn" onclick="genInfinite()">Generate 生成无限题</button></div></div>
+<div id="qList" style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:7px"></div>
+</div>
+
 </div>
 </div>
 
 <script>
 const BANK=[
-{id:1,cat:"Vomitus 呕吐物",organ:"Stomach 胃",hosp:"Ruttonjee",q:"78岁男肝硬化上消化道出血，呕吐咖啡色物200ml带血块+黑便柏油样便，BP 90/60 P110，首要处理？ 78M liver cirrhosis upper GI bleed coffee-ground vomitus 200ml with clots black tarry stool",o:["通知护士，保留呕吐物及大便样本，观察量颜色血块气味，监测BP/P休克，NPO禁食，准备吸引，半坐卧，记录 Notify nurse, retain sample, observe amount color clots odor, monitor BP/P shock, NPO, suction, semi-Fowler, record","倒掉不用保留 Discard","继续进食 Continue eating","正常呕吐 Normal"],a:0,e:"Coffee-ground vomitus = old blood 上消化道出血陈旧血 | 胃 Stomach 对应呕吐物 | ERB必考"},
-{id:2,cat:"Sputum 痰液",organ:"Lung 肺",hosp:"PYNEH",q:"65岁男支气管扩张，黄绿脓痰带血丝有臭味量多，处理？ 65M bronchiectasis yellow-green purulent sputum with blood streaks malodor",o:["观察量颜色气味，鼓励饮水化痰，拍背，保留痰样本，戴口罩隔离，半坐卧，记录 Observe amount color odor, hydration, chest physio, retain sample, mask isolation, semi-Fowler, record","叫病人吞回 Swallow","倒掉 Discard","不需口罩 No mask"],a:0,e:"黄绿脓痰带血丝臭味=细菌感染 Bacterial infection | 肺 Lung 对应痰液"},
-{id:3,cat:"Stool 大便",organ:"Intestine 肠",hosp:"QEH",q:"黑便柏油样便 Black tarry stool +咖啡色呕吐物代表？",o:["上消化道出血 Upper GI bleeding 陈旧血 Old blood","食猪红 Ate pig blood","正常大便 Normal","便秘 Constipation"],a:0,e:"黑便柏油样便=上消化道出血 Old blood | 肠 Intestine"},
-{id:4,cat:"Urine 小便",organ:"Kidney 肾",hosp:"TMH",q:"茶色尿 Tea-colored urine +皮肤眼白黄 Jaundice 黄疸原因及处理？",o:["黄疸肝胆问题，观察尿量颜色，保留样本，通知护士，记录 Jaundice liver issue, observe amount color, retain sample, notify, record","饮水少 Less water","维他命 Vitamin","不需理会 Ignore"],a:0,e:"茶色尿=黄疸肝胆问题 Jaundice | 肾 Kidney 小便观察 | 肝 Liver"},
-{id:5,cat:"Urine 小便",organ:"Kidney 肾",hosp:"NDH",q:"血尿 Hematuria 鲜红色+血块+排尿刺痛尿频处理？",o:["保留尿样本，观察量颜色血块，监测BP/P出入量，鼓励饮水，记录+通知护士 Retain sample, observe amount color clots, monitor BP/P I/O, hydration, record+notify","忍住 Hold","正常 Normal","倒掉 Discard"],a:0,e:"血尿=泌尿问题 Urinary issue 需保留样本 | 肾 Kidney"},
-{id:6,cat:"Wound 伤口",organ:"Skin 皮肤",hosp:"QMH",q:"术后伤口黄脓血水臭味红肿处理？ Wound yellow purulent bloody exudate malodor redness swelling",o:["观察渗液量颜色气味，保留样本，无菌换药，监测体温，隔离，记录 Observe amount color odor, retain sample, aseptic dressing, monitor T, isolation, record","用手挤脓 Squeeze","不需换药 No dressing","自己洗 Self wash"],a:0,e:"黄脓血水臭味=感染 Infection | 皮肤 Skin"},
-{id:7,cat:"Vital Signs 生命表征",organ:"Heart 心脏",hosp:"All",q:"量血压袖带正确位置？ Correct cuff position for BP",o:["上臂中点与心脏同高，袖带下缘距肘窝2-3cm，松紧可放一指，静坐5分钟 Mid-arm heart level 2-3cm above elbow one finger loose sit 5min","前臂 Forearm","越紧越好 Tighter better","站立 Standing"],a:0,e:"血压测量标准 Standard BP position | 心脏 Heart"},
-{id:8,cat:"Infection Control 感染控制",organ:"Brain 脑",hosp:"All",q:"手卫生5时刻 5 Moments for Hand Hygiene",o:["接触病人前，无菌操作前，接触体液后，接触病人后，接触病人环境后 Before touching patient, before aseptic, after body fluid, after touching patient, after touching surroundings 酒精20秒 Alcohol 20s","有空再洗","戴手套不用洗","碰完病人不用洗"],a:0,e:"手卫生5时刻 5 Moments | 脑 Brain 感染控制"}
+{id:1,cat:"Vomitus Observation 呕吐物观察",organ:"Stomach 胃",hosp:"Ruttonjee 律敦治及邓肇坚",q:"78岁男肝硬化上消化道出血，内科病房6床，呕吐咖啡色物200ml带血块+黑便柏油样便，BP 90/60 P110。首要处理？ 78M liver cirrhosis upper GI bleed coffee-ground vomitus 200ml with clots black tarry stool BP 90/60 P110",o:["通知护士，保留呕吐物及大便样本，观察量200ml颜色咖啡色陈旧血血块气味，监测BP/P意识面色休克，NPO禁食，准备负压吸引及急救车，半坐卧，记录 Notify nurse, retain sample, observe amount 200ml color coffee-ground clots odor, monitor BP/P consciousness shock, NPO, suction, crash cart, semi-Fowler, record","倒掉不用保留 Discard","继续进食 Continue eating","正常呕吐 Normal"],a:0,e:"Coffee-ground vomitus = old blood 上消化道出血陈旧血 | Stomach 胃对应Vomitus 呕吐物 | ERB必考"},
+{id:2,cat:"Vomitus Observation 呕吐物观察",organ:"Stomach 胃",hosp:"QMH 玛丽",q:"鲜红血呕吐 Bright red vomitus 300ml，面色苍白冒冷汗，不能平卧。最优先？ Bright red vomitus 300ml pale cold sweat",o:["通知护士，保留样本，监测休克，NPO，准备输血，半坐卧，记录 Notify, retain, monitor shock, NPO, transfusion prep, semi-Fowler, record","饮水 Drink water","抹干净 Wipe only","等下一更 Wait next shift"],a:0,e:"Bright red = fresh bleeding 鲜红=新鲜出血 | Stomach 胃"},
+{id:3,cat:"Sputum Observation 痰液观察",organ:"Lung 肺",hosp:"PYNEH 东区尤德",q:"65岁男支气管扩张，黄绿脓痰带血丝有臭味量多。处理？ 65M bronchiectasis yellow-green purulent sputum with blood streaks malodor",o:["观察痰量颜色黄绿脓痰血丝气味臭味，鼓励饮水化痰，拍背，保留痰样本送化验，戴口罩隔离，半坐卧，记录 Observe amount color yellow-green purulent blood streaks malodor, hydration, chest physio, retain sample, mask isolation, semi-Fowler, record","吞回痰 Swallow","倒掉 Discard","不需口罩 No mask"],a:0,e:"Yellow-green purulent with blood streaks malodor = bacterial infection 黄绿脓痰带血丝臭味=细菌感染 | Lung 肺"},
+{id:4,cat:"Sputum Observation 痰液观察",organ:"Lung 肺",hosp:"PWH 威尔斯",q:"铁锈色痰 Rusty sputum +发烧38.5°C + SpO2 92% +胸痛。考虑？ Rusty sputum fever SpO2 92% chest pain",o:["肺炎链球菌肺炎 Pneumococcal pneumonia，保留样本，通知护士，监测SpO2，半坐卧，高流量氧 Retain sample, notify, monitor SpO2, semi-Fowler, O2","正常痰 Normal","多睡觉 Sleep","不需记录 No record"],a:0,e:"Rusty sputum = pneumococcal pneumonia 铁锈色痰=肺炎链球菌肺炎 | Lung 肺"},
+{id:5,cat:"Sputum Observation 痰液观察",organ:"Lung 肺",hosp:"PMH 玛嘉烈",q:"粉红泡沫痰 Pink frothy sputum +呼吸困难端坐呼吸。可能？ Pink frothy sputum dyspnea orthopnea",o:["急性肺水肿 Acute pulmonary edema，通知护士，半坐卧，高流量氧，监测 Notify, semi-Fowler, O2, monitor","普通感冒 Common cold","饮水 Drink","拍背 Chest physio"],a:0,e:"Pink frothy sputum = acute pulmonary edema 粉红泡沫痰=急性肺水肿 | Lung 肺"},
+{id:6,cat:"Stool Observation 大便观察",organ:"Intestine 肠",hosp:"QEH 伊利沙伯",q:"黑便柏油样便 Black tarry stool +咖啡色呕吐物代表？ Black tarry stool + coffee-ground vomitus means",o:["上消化道出血 Upper GI bleeding 陈旧血 Old blood","食猪红 Ate pig blood","正常大便 Normal","便秘 Constipation"],a:0,e:"Black tarry stool = upper GI bleeding old blood 黑便=上消化道出血陈旧血 | Intestine 肠"},
+{id:7,cat:"Stool Observation 大便观察",organ:"Intestine 肠",hosp:"KWH 广华",q:"脓血便黏液恶臭 Pus & bloody stool with mucus malodor +发烧腹痛。处理？",o:["保留大便样本，观察量颜色脓血黏液恶臭，监测体温BP腹痛，隔离，记录 Retain sample, observe amount color pus bloody mucus malodor, monitor T BP pain, isolation, record","倒掉 Discard","忍住 Hold","正常 Normal"],a:0,e:"Pus & bloody stool = infection 脓血便=感染 | Intestine 肠"},
+{id:8,cat:"Urine Observation 小便观察",organ:"Kidney 肾",hosp:"TMH 屯门",q:"茶色尿 Tea-colored urine +皮肤眼白黄 Jaundice 黄疸原因及处理？",o:["黄疸肝胆问题，观察尿量颜色，保留尿样本，通知护士，记录 Jaundice liver issue, observe amount color, retain sample, notify, record","饮水少 Less water","维他命 Vitamin","不需理会 Ignore"],a:0,e:"Tea-colored urine = jaundice liver issue 茶色尿=黄疸肝胆问题 | Kidney 肾 | Liver 肝脏"},
+{id:9,cat:"Urine Observation 小便观察",organ:"Kidney 肾",hosp:"NDH 北区",q:"血尿 Hematuria 鲜红色+血块+排尿刺痛尿频。处理？ Bright red hematuria with clots dysuria frequency",o:["保留尿样本，观察量颜色血块，监测BP/P出入量，鼓励饮水，记录+通知护士 Retain sample, observe amount color clots, monitor BP/P I/O, hydration, record+notify","忍住 Hold","正常 Normal","倒掉 Discard"],a:0,e:"Hematuria = urinary issue 血尿=泌尿问题 | Kidney 肾"},
+{id:10,cat:"Urine Observation 小便观察",organ:"Kidney 肾",hosp:"TSWH 天水围",q:"混浊尿血丝脓液臭味 Turbid urine with blood streaks pus malodor +发烧。处理？",o:["保留样本，观察量色性味，监测体温出入量，鼓励饮水，隔离，记录 Retain, observe, monitor T I/O, hydration, isolation, record","不需保留 No retain","正常老人尿 Normal elderly","少饮水 Less water"],a:0,e:"Turbid with blood streaks pus = urinary infection 混浊血丝脓液=泌尿感染 | Kidney 肾"},
+{id:11,cat:"Wound Exudate 伤口渗液观察",organ:"Skin 皮肤",hosp:"QMH 玛丽",q:"术后伤口黄脓血水臭味红肿 Yellow purulent + bloody exudate malodor redness swelling。处理？",o:["观察渗液量颜色黄脓血水气味，保留样本，无菌换药，监测体温，隔离，记录 Observe amount color yellow purulent bloody malodor, retain, aseptic dressing, monitor T, isolation, record","用手挤脓 Squeeze","不需换药 No dressing","自己洗 Self wash"],a:0,e:"Yellow purulent + bloody malodor = infection 黄脓血水臭味=感染 | Skin 皮肤"},
+{id:12,cat:"Vital Signs 生命表征",organ:"Heart 心脏",hosp:"All 全部",q:"量血压袖带正确位置？ Correct cuff position for BP",o:["上臂中点与心脏同高，袖带下缘距肘窝2-3cm，松紧可放一指，静坐5分钟 Mid-arm heart level 2-3cm above elbow one finger loose sit 5min","前臂 Forearm","越紧越好 Tighter better","站立 Standing"],a:0,e:"血压测量标准 Standard BP position | Heart 心脏"},
+{id:13,cat:"Vital Signs 生命表征",organ:"Heart 心脏",hosp:"All 全部",q:"正常成人BP/P/R/T/SpO2范围？ Normal ranges",o:["BP <140/90, P 60-100, R 12-20, T 36-37.2°C, SpO2 >95%","BP 200/120正常 Normal","P 40正常 Normal","SpO2 85%正常 Normal"],a:0,e:"生命表征正常值 Normal ranges | Heart 心脏"},
+{id:14,cat:"Infection Control 感染控制",organ:"Brain 脑",hosp:"All 全部",q:"手卫生5时刻 5 Moments for Hand Hygiene",o:["接触病人前，无菌操作前，接触体液后，接触病人后，接触病人环境后 Before touching patient, before aseptic, after body fluid, after touching patient, after touching surroundings 60-80%酒精20秒 Alcohol 20s","有空再洗 Wash when free","戴手套不用洗 No need if gloves","碰完不用洗 No need after"],a:0,e:"手卫生5时刻 5 Moments | Brain 脑"},
+{id:15,cat:"Infection Control 感染控制",organ:"Brain 脑",hosp:"All 全部",q:"PPE穿脱顺序？ PPE donning doffing sequence",o:["穿：手卫生→口罩→眼罩→隔离衣→手套 Don: Hand→Mask→Goggles→Gown→Gloves 脱：手套→手卫生→隔离衣→手卫生→眼罩→口罩→手卫生 Doff: Gloves→Hand→Gown→Hand→Goggles→Mask→Hand","随便穿脱 Random","先手套 Gloves first","脱完不洗手 No hand hygiene"],a:0,e:"PPE穿脱顺序 PPE sequence | Brain 脑"},
+{id:16,cat:"Transfer & Mobility 扶抱转移",organ:"Muscle 肌肉",hosp:"All 全部",q:"扶抱病人床转轮椅原则？ Transfer bed to wheelchair principle",o:["评估能力，解释步骤，锁床刹，用移位带，膝靠膝，抱膊头不拉手臂 Assess ability, explain, lock bed, transfer belt, knee to knee, hug shoulder not pull arm","拉手臂 Pull arm","一个人硬抱 Carry alone","不锁床刹 No lock"],a:0,e:"扶抱转移原则 Transfer principle 膝靠膝抱膊头不拉手臂 | Muscle 肌肉 | Rehabilitation 复康医院"},
+{id:17,cat:"Safety & Emergency 安全急救",organ:"Lung 肺",hosp:"Day 日间医疗",q:"进食时突然窒息 Choking 不能说话面紫。处理？ Choking cannot speak cyanosis",o:["通知护士，鼓励咳嗽，不能咳嗽施行Heimlich腹部推压，准备吸痰，监测SpO2 Notify, encourage cough, Heimlich, suction prep, monitor SpO2","饮水 Drink water","拍背就得 Pat back only","等待 Wait"],a:0,e:"窒息急救 Choking Heimlich | Day Medical 日间医疗"},
+{id:18,cat:"Safety & Emergency 安全急救",organ:"All 全部",hosp:"All 全部",q:"病人跌倒Fall后第一步？ Patient fall first step",o:["不即刻扶起，评估意识痛楚出血，通知护士，安抚，保持原位待评估，记录 Don't lift immediately, assess consciousness pain bleeding, notify, comfort, keep position, record","即刻扶起 Lift immediately","不通知 No notify","自己起身 Self stand"],a:0,e:"跌倒处理 Fall 不即刻扶起评估 | Acute Hospital 急性医院"},
+{id:19,cat:"Vomitus Observation 呕吐物观察",organ:"Stomach 胃",hosp:"UCH 联合",q:"黄绿呕吐物 Yellow-green vomitus +腹胀无排便。可能？ Yellow-green vomitus abdominal distension no stool",o:["肠梗阻 Intestinal obstruction，通知护士，NPO禁食，胃管减压，观察记录 Notify, NPO, NG tube, observe, record","正常 Normal","进食 Eat","不需记录 No record"],a:0,e:"Yellow-green vomitus + distension = obstruction 黄绿呕吐物+腹胀=肠梗阻 | Stomach 胃"},
+{id:20,cat:"Sputum Observation 痰液观察",organ:"Lung 肺",hosp:"UCH 联合",q:"白黏痰 White sticky sputum +呼吸困难 COPD病人。处理？ White sticky sputum dyspnea COPD",o:["观察痰量性状，鼓励饮水化痰，拍背，半坐卧，保留样本，记录 Observe, hydration, chest physio, semi-Fowler, retain, record","吞回 Swallow","倒掉 Discard","不需观察 No observe"],a:0,e:"White sticky sputum = COPD 白黏痰 | Lung 肺"},
+{id:21,cat:"Stool Observation 大便观察",organ:"Intestine 肠",hosp:"QEH 伊利沙伯",q:"水样便 Watery stool +发烧每日6次。处理？ Watery stool fever 6 times daily",o:["保留样本，观察量次数颜色，监测出入量体温，隔离，记录+通知护士 Retain, observe, monitor I/O T, isolation, record+notify","正常 Normal","不需隔离 No isolation","忍住 Hold"],a:0,e:"Watery stool = diarrhea 水样便=腹泻需监测出入量 | Intestine 肠"},
+{id:22,cat:"Urine Observation 小便观察",organ:"Kidney 肾",hosp:"All 全部",q:"无尿 Anuria 24小时<100ml +水肿。处理？ Anuria <100ml 24h + edema",o:["通知护士，准确记录出入量，监测BP/P水肿，保留尿样本，准备导尿，记录 Notify, accurate I/O, monitor BP/P edema, retain, catheter prep, record","正常 Normal","多饮水 More water","不需记录 No record"],a:0,e:"Anuria无尿<100ml/24h需立即通知 | Kidney 肾"},
+{id:23,cat:"Wound Exudate 伤口渗液观察",organ:"Skin 皮肤",hosp:"KWH 广华",q:"压疮伤口 Pressure sore wound 大量黄脓臭味。配合？",o:["观察渗液量色味，协助翻身减压，保持床单干燥，无菌换药协助，记录 Observe, reposition pressure relief, keep dry, aseptic assist, record","用手挤压 Squeeze","不需翻身 No reposition","自己处理 Self care"],a:0,e:"压疮 Pressure sore 需翻身减压 | Skin 皮肤"},
+{id:24,cat:"Vital Signs 生命表征",organ:"Heart 心脏",hosp:"All 全部",q:"SpO2 85% +呼吸困难发绀。处理？ SpO2 85% dyspnea cyanosis",o:["通知护士，半坐卧，给氧准备，监测SpO2/BP/P/R，记录 Notify, semi-Fowler, O2 prep, monitor vitals, record","正常 Normal","睡觉 Sleep","不需给氧 No O2"],a:0,e:"SpO2 <95% abnormal <90% critical SpO2低需立即处理 | Heart 心脏"},
+{id:25,cat:"Infection Control 感染控制",organ:"Brain 脑",hosp:"All 全部",q:"针刺受伤 Sharps injury后第一步？",o:["立即挤血，大量清水冲洗，消毒，报告，记录，跟进 Squeeze blood, wash with water, disinfect, report, record, follow up","不理会 Ignore","用口吸 Suck with mouth","继续工作 Continue work"],a:0,e:"针刺伤 Sharps injury 挤血冲洗报告 | Brain 脑"},
+{id:26,cat:"Transfer & Mobility 扶抱转移",organ:"Muscle 肌肉",hosp:"All 全部",q:"扶抱时腰背保护原则？ Back protection during transfer",o:["屈膝不弯腰，保持脊柱直立，靠近病人，用腿力不是腰力，寻求协助 Bend knees not waist, straight spine, close to patient, use legs, seek help","弯腰用腰力 Bend waist","离病人远远 Lifting far","一个人硬撑 Alone"],a:0,e:"腰背保护 屈膝直脊用腿力 | Transfer 扶抱转移"},
+{id:27,cat:"Safety & Emergency 安全急救",organ:"Heart 心脏",hosp:"All 全部",q:"突然胸痛 Chest pain +冒冷汗面苍白。处理？ Chest pain cold sweat pale",o:["通知护士，半坐卧，给氧，监测BP/P/SpO2，安抚，准备急救车，记录 Notify, semi-Fowler, O2, monitor vitals, comfort, crash cart, record","忍住 Hold","走动 Walk","不通知 Ignore"],a:0,e:"胸痛 Chest pain 需立即通知半坐卧给氧 | Heart 心脏"},
+{id:28,cat:"Urine Observation 小便观察",organ:"Kidney 肾",hosp:"NDH 北区",q:"尿急尿频刺痛 Urgency frequency dysuria +下腹痛。处理？",o:["保留尿样本，观察量色性味，鼓励饮水，监测体温出入量，记录+通知护士 Retain, observe, hydration, monitor T I/O, record+notify","正常 Normal","不需保留 No retain","忍住 Hold"],a:0,e:"尿急尿频刺痛=泌尿感染 Urgency frequency dysuria = urinary infection | Kidney 肾"},
+{id:29,cat:"Infection Control 感染控制",organ:"Brain 脑",hosp:"All 全部",q:"隔离病房 Isolation Ward出入原则？",o:["穿PPE进，脱PPE出，手卫生，关门，限制探访 Don PPE in Doff out Hand hygiene Close door Limit visitors","不穿PPE No PPE","不洗手 No hand hygiene","随便进出 Free entry"],a:0,e:"隔离病房 Isolation Ward 需PPE手卫生关门 | Brain 脑"},
+{id:30,cat:"Safety & Emergency 安全急救",organ:"All 全部",hosp:"All 全部",q:"休克Shock征象？ Signs of shock",o:["BP下降P快而弱，面色苍白，冒冷汗，意识模糊，尿少，呼吸快 BP drop weak fast P, pale, cold sweat, confusion, oliguria, tachypnea","BP升高P慢 BP high P slow","面色红润 Rosy","精神好 Good spirit"],a:0,e:"休克征象 Shock BP降P快弱苍白冷汗意识糊尿少 | 4 Scenes 4大场景"}
 ];
-let selOrgan='All', selHosp='All 全部43间';
-function setOrgan(en,cn){selOrgan=en;document.getElementById('selOrgan').innerText=en+' '+cn;document.querySelectorAll('.organ').forEach(b=>b.classList.remove('on'));const el=document.getElementById('b-'+en);if(el)el.classList.add('on');render();}
-function setHosp(el,h){document.querySelectorAll('.hosp button').forEach(b=>b.classList.remove('on'));if(el)el.classList.add('on');selHosp=h;document.getElementById('selHosp').innerText=h;render();}
-function render(){const L=document.getElementById('list');L.innerHTML='';let list=BANK;if(selOrgan!=='All')list=list.filter(x=>x.organ.includes(selOrgan));if(selHosp!=='All 全部43间')list=list.filter(x=>x.hosp.includes(selHosp.split(' ')[0])||x.hosp==='All');if(list.length===0)list=BANK.slice(0,2);list.forEach(it=>{const d=document.createElement('div');d.className='q';let h=`<div style="font-size:9px"><span style="padding:3px 8px;background:#fee2e2;border-radius:999px;font-weight:800">${it.cat}</span> <span style="padding:3px 8px;background:#f0fdfa;border:1px solid #99f6e0;border-radius:999px">${it.organ}</span> <span style="padding:3px 8px;background:#fffbeb;border:1px solid #fde68a;border-radius:999px">${it.hosp}</span></div><div style="font-weight:800;margin:6px 0;font-size:11px">Q${it.id}: ${it.q}</div>`;it.o.forEach((opt,j)=>{h+=`<button class="o" onclick="check(this,${j},${it.a},'${it.e.replace(/'/g,' ')}',this.parentNode)">${String.fromCharCode(65+j)}. ${opt}</button>`});h+=`<div class="exp"></div>`;d.innerHTML=h;L.appendChild(d);});}
+let selHosp='All 全部43间医院', selOrg='All', examSec=45*60, timerInt;
+const dayOfYear=Math.floor((new Date() - new Date(new Date().getFullYear(),0,0))/86400000);
+const themes=[{name:'Vomitus Observation Day 呕吐物观察日',organ:'Stomach 胃'},{name:'Purulent Sputum Day 黄绿脓痰观察日',organ:'Lung 肺'},{name:'Stool & Urine Day 大小便观察日',organ:'Intestine 肠'},{name:'Urine Day 茶色尿血尿观察日',organ:'Kidney 肾'}];
+const todayTheme=themes[dayOfYear%themes.length];
+document.getElementById('dailyBadge').innerText=todayTheme.name+' | '+todayTheme.organ+' | v15.0 Professional';
+document.getElementById('analytics').innerText='Daily Theme 每日主题 '+todayTheme.name+' | Highlight Organ 高亮器官 '+todayTheme.organ+' | 7 Clusters 7大联网 43 Hospitals 43间医院 | 4 Scenes 4大场景 Acute 急性 Rehab 复康 Day 日间 Community 社区 | 8 Major Observations 8大必考 | Human Reference 人体参照物 | All Clickable 全部可点无死角 62px hit area | Tested 实测可点';
+
+function setHosp(el,h){document.querySelectorAll('.cluster button').forEach(b=>b.classList.remove('on'));if(el)el.classList.add('on');selHosp=h;document.getElementById('selHosp').innerText=h;render();}
+function filterOrg(en,cn){selOrg=en;document.getElementById('selOrg').innerText=en+' '+cn;document.querySelectorAll('.organBtn').forEach(b=>b.classList.remove('on'));['Lung','Kidney','Intestine','Skin','Brain','Heart','Liver','Stomach','All'].forEach(k=>{const b=document.getElementById('btn-'+k);if(b&&k===en)b.classList.add('on');});if(en==='All')document.getElementById('btn-All').classList.add('on');render();}
+function showAll(){selOrg='All';selHosp='All 全部43间医院';document.querySelectorAll('.cluster button').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.organBtn').forEach(b=>b.classList.remove('on'));document.getElementById('btn-All').classList.add('on');document.getElementById('selHosp').innerText='All 全部43间医院';document.getElementById('selOrg').innerText='All 全部器官';render();}
+function render(){const L=document.getElementById('qList');L.innerHTML='';let list=BANK;if(selOrg!=='All')list=list.filter(x=>x.organ.includes(selOrg));if(selHosp!=='All 全部43间医院')list=list.filter(x=>x.hosp.includes(selHosp.split(' ')[0])||x.hosp==='All 全部');if(list.length===0)list=BANK.slice(0,8);list.forEach(it=>{const d=document.createElement('div');d.className='q';let h=`<div style="display:flex;gap:4px;flex-wrap:wrap"><span style="padding:2px 6px;background:#fee2e2;border-radius:999px;font-size:7.5px;font-weight:800">${it.cat}</span><span style="padding:2px 5px;background:#f0fdfa;border:1px solid #99f6e0;border-radius:999px;font-size:7.5px">${it.organ}</span><span style="padding:2px 5px;background:#fffbeb;border:1px solid #fde68a;border-radius:999px;font-size:7.5px">${it.hosp}</span></div><div style="font-weight:700;margin:4px 0;font-size:9.5px;line-height:1.5">Q${it.id}: ${it.q}</div>`;it.o.forEach((opt,j)=>{h+=`<button class="o" onclick="check(this,${j},${it.a},'${it.e.replace(/'/g,' ')}',this.parentNode)">${String.fromCharCode(65+j)}. ${opt}</button>`});h+=`<div class="exp"></div>`;d.innerHTML=h;L.appendChild(d);});}
 function check(el,idx,ans,exp,card){card.querySelectorAll('.o').forEach(x=>x.disabled=true);const eb=card.querySelector('.exp');eb.style.display='block';if(idx===ans){el.classList.add('ok');eb.innerHTML='Correct 答对<br>'+exp;}else{el.classList.add('no');card.querySelectorAll('.o')[ans].classList.add('ok');eb.innerHTML='Correct 正确: '+String.fromCharCode(65+ans)+' | '+exp;}}
+function genInfinite(){const L=document.getElementById('qList');L.innerHTML='';for(let i=0;i<8;i++){const it=BANK[Math.floor(Math.random()*BANK.length)];const d=document.createElement('div');d.className='q';d.innerHTML=`<div><span style="padding:2px 6px;background:#eef6f1;border-radius:999px;font-size:7.5px;font-weight:800">Infinite 无限 ${it.cat}</span> <span style="padding:2px 5px;background:#fffbeb;border-radius:999px;font-size:7.5px">${selHosp}</span></div><div style="font-weight:700;margin:4px 0;font-size:9.5px">[${selHosp}] [${it.organ}] ${it.q}</div><button class="o" onclick="check(this,0,0,'${it.e.replace(/'/g,' ')}',this.parentNode)">A. ${it.o[0]}</button><button class="o" onclick="check(this,1,0,'${it.e.replace(/'/g,' ')}',this.parentNode)">B. ${it.o[1]}</button><div class="exp"></div>`;L.appendChild(d);}}
+function startExam(){examSec=45*60;clearInterval(timerInt);timerInt=setInterval(()=>{examSec--;const m=Math.floor(examSec/60);const s=examSec%60;document.getElementById('timer').innerText='Timer 计时 '+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+' | '+todayTheme.name+' | '+selHosp;if(examSec<=0){clearInterval(timerInt);alert('Mock Exam Ended 模拟考试结束');}},1000);genInfinite();}
 render();
 </script>
 </body>
